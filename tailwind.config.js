@@ -1,15 +1,28 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/layout/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/containers/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: '1rem',
+        sm: '2rem',
+        md: '1rem',
+        lg: '1rem',
+        xl: '1rem',
+      },
+      screens: {
+        '2xl': '1280px',
+      },
+    },
     extend: {
       colors: {
         // global
-        'base-white': '#FFFFFF',
         'base-green': '#66BB6A',
         'base-red': '#FF6A6A',
         'base-yellow': '#FFBD5C',
