@@ -1,0 +1,18 @@
+const theme = {
+  colors: {
+    'green': '#66BB6A',
+    'red': '#FF6A6A',
+    'yellow': '#FFBD5C',
+    'purple': '#B183F8',
+    'royal-blue': '#377DFF',
+    'sky-blue': '#55E0F6',
+    'gray-100': '#F5F5F5',
+    'gray-200': '#DDDDDD',
+    'gray-300': '#ABB4BC',
+    'gray-400': '#5D6670',
+    'gray-500': '#3F434D',
+    'gray-600': '#1E2022',
+  },
+};
+
+export default theme;

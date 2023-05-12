@@ -1,3 +1,51 @@
 @import '_tailwind';
 @import '_reset';
 @import '_fonts';
+
+// set font / scrollbar style / change bg color / overflow-x hidden
+body {
+  direction: rtl;
+  font-family: 'iransansx';
+  font-weight: 400;
+  background-color: #fff;
+  overflow-x: hidden;
+  color: #000;
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  &::-webkit-scrollbar-track {
+    background: #d2d1d1;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #acabab;
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: #969696;
+  }
+}
+
+// fix shake screen after overflow-x-hidden
+@media (min-width: 768px) {
+  .overflow-y-hidden {
+    body,
+    header {
+      margin-right: 8px;
+    }
+  }
+}
+
+// fix footer to bottom in not scrolled y position
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh);
+}
+main {
+  flex: 1;
+}
+
+// scroll smoosh
+html {
+  scroll-behavior: smooth !important;
+}

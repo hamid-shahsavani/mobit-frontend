@@ -1,4 +1,7 @@
-import Header from '@/layout/header';
+'use client';
+
+import { RecoilRoot } from 'recoil';
+import Header from '@/containers/template/header';
 import '@/styles/global/index.scss';
 
 export const metadata = {
@@ -9,17 +12,13 @@ export const metadata = {
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <head>
-        <link
-          href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css"
-          rel="stylesheet"
-          type="text/css"
-        />
-      </head>
-      <body>
-        <Header />
-        <main>{children}</main>
-        <footer>footer</footer>
+      <head></head>
+      <body cz-shortcut-listen="false">
+        <RecoilRoot>
+          <Header />
+          <main>{children}</main>
+          <footer>footer</footer>
+        </RecoilRoot>
       </body>
     </html>
   );
