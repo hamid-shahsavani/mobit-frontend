@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <section>
+    <section className="container text-justify">
       <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis cumque consequuntur provident minima impedit numquam dolorem possimus id repellat unde officiis, dolorum excepturi harum nemo ex sequi repudiandae non maiores.</p>
       <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis cumque consequuntur provident minima impedit numquam dolorem possimus id repellat unde officiis, dolorum excepturi harum nemo ex sequi repudiandae non maiores.</p>
       <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis cumque consequuntur provident minima impedit numquam dolorem possimus id repellat unde officiis, dolorum excepturi harum nemo ex sequi repudiandae non maiores.</p>

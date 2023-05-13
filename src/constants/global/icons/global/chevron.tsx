@@ -7,10 +7,10 @@ interface IProps {
 }
 
 const IconChevron: FC<IProps> = ({ ...props }): JSX.Element => {
-  const fillColor = classNames({
+  const iconColor = classNames({
     'fill-base-gray-400': props.color === 'base-gray-400',
   });
-  
+
   return (
     <svg
       className={`transition-all duration-300 ${
@@ -32,7 +32,7 @@ const IconChevron: FC<IProps> = ({ ...props }): JSX.Element => {
         id="Path_1333"
         data-name="Path 1333"
         d="M1,16.031a1,1,0,0,1-.709-1.711L6.6,8.016.293,1.71A1,1,0,0,1,1.71.293L8.723,7.305a1,1,0,0,1,0,1.418L1.711,15.737A1,1,0,0,1,1,16.031Z"
-        className={fillColor}
+        className={iconColor}
       />
     </svg>
   );

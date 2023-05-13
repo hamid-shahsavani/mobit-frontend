@@ -25,14 +25,9 @@ body {
   }
 }
 
-// fix shake screen after overflow-x-hidden
-@media (min-width: 768px) {
-  .overflow-y-hidden {
-    body,
-    header {
-      margin-right: 8px;
-    }
-  }
+// fix shake screen after overflow-y-hidden
+html {
+  scrollbar-gutter: stable;
 }
 
 // fix footer to bottom in not scrolled y position

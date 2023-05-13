@@ -24,6 +24,9 @@ module.exports = {
       },
     },
     extend: {
+      backgroundImage: {
+        'base-header-blue': 'linear-gradient(to right, #2124b5, #3b3ece, #2124b5)',
+      },
       colors: {
         'base-green': theme.colors.green,
         'base-red': theme.colors.red,
@@ -38,6 +41,11 @@ module.exports = {
         'base-gray-500': theme.colors['gray-500'],
         'base-gray-600': theme.colors['gray-600'],
       },
+      fontSize: {
+        'base-xs': theme.fontSize.xs,
+        'base-sm': theme.fontSize.sm,
+        'base-md': theme.fontSize.md,
+      }
     },
   },
   plugins: [],

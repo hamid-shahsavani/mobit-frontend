@@ -13,6 +13,11 @@ const theme = {
     'gray-500': '#3F434D',
     'gray-600': '#1E2022',
   },
+  fontSize: {
+    xs: '0.75rem',
+    sm: '0.80rem',
+    md: '0.875rem',
+  }
 };
 
 export default theme;

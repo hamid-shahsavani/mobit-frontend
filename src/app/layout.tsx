@@ -16,7 +16,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <body cz-shortcut-listen="false">
         <RecoilRoot>
           <Header />
-          <main>{children}</main>
+          <main className='pt-20 pb-4 lg:pt-4'>{children}</main>
           <footer>footer</footer>
         </RecoilRoot>
       </body>
