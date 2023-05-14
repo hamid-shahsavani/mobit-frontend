@@ -1,9 +1,9 @@
 const theme = {
   colors: {
-    'green': '#66BB6A',
-    'red': '#FF6A6A',
-    'yellow': '#FFBD5C',
-    'purple': '#B183F8',
+    green: '#66BB6A',
+    red: '#FF6A6A',
+    yellow: '#FFBD5C',
+    purple: '#B183F8',
     'royal-blue': '#377DFF',
     'sky-blue': '#55E0F6',
     'gray-100': '#F5F5F5',
@@ -17,7 +17,7 @@ const theme = {
     xs: '0.75rem',
     sm: '0.80rem',
     md: '0.875rem',
-  }
+  },
 };
 
 export default theme;

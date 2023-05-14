@@ -4,6 +4,7 @@ import theme from './theme';
 module.exports = {
   content: [
     './src/components/**/*.{js,ts,jsx,tsx}',
+    './src/functions/**/*.{js,ts,jsx,tsx}',
     './src/app/**/*.{js,ts,jsx,tsx}',
     './src/layout/**/*.{js,ts,jsx,tsx}',
     './src/containers/**/*.{js,ts,jsx,tsx}',
@@ -25,7 +26,7 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        'base-header-blue': 'linear-gradient(to right, #2124b5, #3b3ece, #2124b5)',
+        'base-gradient-purple': 'linear-gradient(to right, #2124b5, #3b3ece, #2124b5)',
       },
       colors: {
         'base-green': theme.colors.green,

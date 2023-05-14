@@ -2,13 +2,13 @@ import classNames from 'classnames';
 import { FC } from 'react';
 
 interface IProps {
-  color: 'white' | 'base-gray-200';
+  color: 'white' | 'base-red';
 }
 
 const IconDiscountSquare: FC<IProps> = ({ ...props }) => {
   const iconColor = classNames({
     'stroke-white': props.color === 'white',
-    'stroke-base-gray-200': props.color === 'base-gray-200',
+    'stroke-base-red': props.color === 'base-red',
   });
 
   return (
@@ -16,7 +16,7 @@ const IconDiscountSquare: FC<IProps> = ({ ...props }) => {
       xmlns="http://www.w3.org/2000/svg"
       height="21"
       fill="none"
-      viewBox="0 0 25 24"
+      viewBox="0 0 23 23"
     >
       <path
         strokeLinecap="round"

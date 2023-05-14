@@ -3,17 +3,23 @@ import classNames from 'classnames';
 
 interface IProps {
   position: 'bottom' | 'top' | 'left' | 'right';
-  color: 'base-gray-400';
+  color: 'base-gray-400' | 'white';
+  size: 'xs' | 'sm';
 }
 
 const IconChevron: FC<IProps> = ({ ...props }): JSX.Element => {
   const iconColor = classNames({
+    'fill-white': props.color === 'white',
     'fill-base-gray-400': props.color === 'base-gray-400',
+  });
+  const iconSize = classNames({
+    'h-[13px]': props.size === 'xs',
+    'h-[15px]': props.size === 'sm',
   });
 
   return (
     <svg
-      className={`transition-all duration-300 ${
+      className={`transition-all duration-300 ${iconSize} ${
         props.position === 'top'
           ? '-rotate-90'
           : props.position === 'bottom'
@@ -24,7 +30,6 @@ const IconChevron: FC<IProps> = ({ ...props }): JSX.Element => {
           ? 'rotate-0'
           : ''
       }`}
-      height={15}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 9.017 16.031"
     >

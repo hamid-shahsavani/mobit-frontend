@@ -1,6 +1,5 @@
 @import '_tailwind';
 @import '_reset';
-@import '_fonts';
 
 // set font / scrollbar style / change bg color / overflow-x hidden
 body {
@@ -34,7 +33,7 @@ html {
 body {
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh);
+  min-height: 100vh;
 }
 main {
   flex: 1;
@@ -43,4 +42,25 @@ main {
 // scroll smoosh
 html {
   scroll-behavior: smooth !important;
+}
+
+// minimal scrollbar
+.minimal-scrollbar {
+  overflow-y: auto;
+  scrollbar-width: thin;
+
+  &::-webkit-scrollbar {
+    width: 7px;
+  }
+  &::-webkit-scrollbar-track {
+    background: #eeeeee;
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #dddcdc;
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: #cbcbcb;
+  }
 }
