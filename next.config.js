@@ -6,6 +6,6 @@ module.exports = {
   },
   images: {
     dangerouslyAllowSVG: true,
-    domains: ['upload.wikimedia.org'],
-  }
+    domains: ['cdn.mobit.ir'],
+  },
 };

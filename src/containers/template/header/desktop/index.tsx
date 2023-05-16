@@ -1,4 +1,4 @@
-import { atomIsShowSearchResult } from '@/atoms/template/header/isShowSearchResult';
+import { atomIsShowSearchResult } from '@/atoms/template/header/global/isShowSearchResult';
 import {
   IconCart,
   IconDiscountSquare,
@@ -11,7 +11,9 @@ import enableAndDisableScroll from '@/functions/global/enableAndDisableScroll';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FC } from 'react';
-import { useSetRecoilState } from 'recoil';
+import { useRecoilState, useSetRecoilState } from 'recoil';
+import CategoryList from './categoryList';
+import { atomIsShowCategoryList } from '@/atoms/template/header/desktop/isShowCategoryList';
 
 const Desktop: FC = (): JSX.Element => {
   // show and hide search result handler
@@ -20,13 +22,25 @@ const Desktop: FC = (): JSX.Element => {
   );
   const showAndHideSearchResultHandler = (args: { type: 'show' | 'hide' }) => {
     setAtomStateIsShowSearchResult(args.type === 'hide' ? false : true);
-    enableAndDisableScroll({status: args.type === 'show' ? 'disable' : 'enable'});
+    enableAndDisableScroll({
+      status: args.type === 'show' ? 'disable' : 'enable',
+    });
+  };
+
+  // show and hide category list handler / detect isShow category list
+  const [atomStateIsShowCategoryList, setAtomStateIsShowCategoryList] =
+    useRecoilState<boolean>(atomIsShowCategoryList);
+  const showAndHideCategoryListHandler = (args: { type: 'show' | 'hide' }) => {
+    setAtomStateIsShowCategoryList(args.type === 'hide' ? false : true);
+    enableAndDisableScroll({
+      status: args.type === 'show' ? 'disable' : 'enable',
+    });
   };
 
   return (
     <div className="hidden lg:block bg-base-gradient-purple py-3 w-full">
       <div className="container flex justify-between items-center w-full">
-        {/* logo, categories, amazing discount */}
+        {/* logo, categories, category list, amazing discount */}
         <div className="flex items-center">
           <Link href={'/'} className="ml-6 xl:ml-9">
             <Image
@@ -36,11 +50,25 @@ const Desktop: FC = (): JSX.Element => {
               alt=""
             />
           </Link>
-          <div className="flex gap-3 xl:gap-5">
-            <div className="flex items-center gap-2 font-bold text-white text-base-sm px-1 relative cursor-pointer hover:text-white after:transition-all after:duration-300 after:block after:w-0 after:h-[3px] after:bg-white after:absolute after:left-0 after:right-0 after:-bottom-[18px] hover:after:w-full">
+          <div
+            className="flex gap-3 xl:gap-5"
+            onMouseEnter={() =>
+              showAndHideCategoryListHandler({ type: 'show' })
+            }
+            onMouseLeave={() =>
+              showAndHideCategoryListHandler({ type: 'hide' })
+            }
+          >
+            <div
+              className={`flex items-center gap-2 font-bold text-white text-base-sm px-1 relative cursor-pointer hover:text-white after:transition-all after:duration-300 after:block after:w-0 after:h-[3px] after:bg-white after:absolute after:left-0 after:right-0 after:-bottom-[18px] hover:after:w-full ${
+                !!atomStateIsShowCategoryList && 'after:w-full'
+              }`}
+            >
               <IconWindow color="white" />
               <p>دسته بندی ها</p>
             </div>
+            {/* show category list after hover category btn */}
+            <CategoryList />
             <Link
               href="/"
               className="flex items-center gap-2 font-bold text-white text-base-sm px-1 relative hover:text-white after:transition-all after:duration-300 after:block after:w-0 after:h-[3px] after:bg-white after:absolute after:left-0 after:right-0 after:-bottom-[18px] hover:after:w-full"
@@ -61,8 +89,8 @@ const Desktop: FC = (): JSX.Element => {
             <input
               spellCheck={false}
               placeholder="جستجو در مبیت ..."
-              onFocus={() => showAndHideSearchResultHandler({type: 'show'})}
-              onBlur={() => showAndHideSearchResultHandler({type: 'hide'})}
+              onFocus={() => showAndHideSearchResultHandler({ type: 'show' })}
+              onBlur={() => showAndHideSearchResultHandler({ type: 'hide' })}
               className={`text-base-sm mr-3 w-full placeholder:text-white/95 placeholder:font-medium`}
             />
           </div>

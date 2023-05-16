@@ -12,11 +12,11 @@ import IMAGES from '@/constants/global/images';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FC, useState } from 'react';
-import { atomIsShowSearchResult } from '@/atoms/template/header/isShowSearchResult';
+import { atomIsShowSearchResult } from '@/atoms/template/header/global/isShowSearchResult';
 import useDetectScrollDirection from '@/hooks/template/header/detectScrollDirection';
 import HumbergerMenu from './humbergerMenu';
 import enableAndDisableScroll from '@/functions/global/enableAndDisableScroll';
-import { atomIsShowHumbergerMenu } from '@/atoms/template/header/isShowHumbergerMenu';
+import { atomIsShowHumbergerMenu } from '@/atoms/template/header/mobile/isShowHumbergerMenu';
 
 const Mobile: FC = (): JSX.Element => {
   // detect focused search field
@@ -96,7 +96,11 @@ const Mobile: FC = (): JSX.Element => {
                       showAndHideSearchResultHandler({ type: 'hide' })
                     }
                   >
-                    <IconChevron size={'sm'} position={'right'} color={'base-gray-400'} />
+                    <IconChevron
+                      size={'sm'}
+                      position={'right'}
+                      color={'base-gray-400'}
+                    />
                   </button>
                 ) : (
                   <IconMagnifier />

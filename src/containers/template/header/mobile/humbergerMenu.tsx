@@ -8,196 +8,108 @@ import {
   IconWindow,
 } from '@/constants/global/icons';
 import { useRecoilState } from 'recoil';
-import { atomIsShowHumbergerMenu } from '@/atoms/template/header/isShowHumbergerMenu';
+import { atomIsShowHumbergerMenu } from '@/atoms/template/header/mobile/isShowHumbergerMenu';
 import enableAndDisableScroll from '@/functions/global/enableAndDisableScroll';
-import theme from 'theme';
-import { ThreeDots } from 'react-loader-spinner';
+import useSWR from 'swr';
+import { APIfetchCategoryData } from '@/services/template/header/fetchCategoryData';
+import toast from '@/functions/global/toast';
+import TOASTMSG from '@/constants/global/toastMessages';
+import { CategoryItemType } from '@/types/template/header/categoryItem.type';
+import { categoryData } from '@/temp/resources/categoryData';
+import SkeletonMobileCategory from '@/constants/global/skeletons/template/header/mobileCategory';
+
+async function fetcherFetchCategoryData() {
+  try {
+    const data = await APIfetchCategoryData();
+    return data;
+  } catch (error: any) {
+    if (!error.response) {
+      toast(TOASTMSG.routes.global.pleaseCheckNetworkConnection);
+    } else {
+      toast(TOASTMSG.routes.global.sorryUnexpectedError);
+    }
+  }
+  return null;
+}
+
+interface IPropsCategoryLevel {
+  categoryData: CategoryItemType;
+}
 
 const HumbergerMenu: FC = (): JSX.Element => {
   // detect is-show humberger menu / hide humberger-menu handler
   const [atomStateIsShowHumbergerMenu, setAtomStateIsShowHumbergerMenu] =
     useRecoilState<boolean>(atomIsShowHumbergerMenu);
+
   // hide humberger-menu handler
   const hideHumbergerMenuHandler = () => {
     setAtomStateIsShowHumbergerMenu(false);
     enableAndDisableScroll({ status: 'enable' });
   };
 
-  const data = [
-    {
-      id: '1e76a7e5-097b-4a4e-b74c-7b57206363db',
-      name: 'مانتیور',
-      parent: null,
-      children: [
-        {
-          id: 'af03f2de-a5da-42b5-9906-381eba96d61b',
-          name: 'زیر شاخه مانیتور',
-          parent: '1e76a7e5-097b-4a4e-b74c-7b57206363db',
-          children: [],
-          picture_link: false,
-        },
-      ],
-      picture_link:
-        'https://upload.wikimedia.org/wikipedia/commons/6/6b/Picture_icon_BLACK.svg',
-    },
-    {
-      id: '359f81c9-6a5f-4aa4-a715-65b146cdabde',
-      name: 'مشت باقر',
-      parent: null,
-      children: [
-        {
-          id: '180713b5-d9a0-4a2e-bc50-7b382abe4ab0',
-          name: 'زیر شاخه لپتاب',
-          parent: '359f81c9-6a5f-4aa4-a715-65b146cdabde',
-          children: [
-            {
-              id: 'f778f0e2-db52-4fa4-b7e7-9d177d475380',
-              name: 'زیر شاخه لول 3',
-              parent: '180713b5-d9a0-4a2e-bc50-7b382abe4ab0',
-              children: [
-                {
-                  id: '87d8d00a-dfc2-438a-b81c-53a3ee5c7804',
-                  name: 'زیر شاخه لول 4',
-                  parent: 'f778f0e2-db52-4fa4-b7e7-9d177d475380',
-                  children: [],
-                  picture_link: false,
-                },
-              ],
-              picture_link: false,
-            },
-          ],
-          picture_link: false,
-        },
-      ],
-      picture_link:
-        'https://upload.wikimedia.org/wikipedia/commons/6/6b/Picture_icon_BLACK.svg',
-    },
-    {
-      id: 'a06b2d06-c613-44d2-ab44-e94088c5c2c3',
-      name: 'کشسرات',
-      parent: null,
-      children: [
-        {
-          id: 'ce1435a2-8e13-40bf-a927-c6440b6418a8',
-          name: 'زیر شاخه کسشرات',
-          parent: 'a06b2d06-c613-44d2-ab44-e94088c5c2c3',
-          children: [],
-          picture_link: false,
-        },
-      ],
-      picture_link:
-        'https://upload.wikimedia.org/wikipedia/commons/6/6b/Picture_icon_BLACK.svg',
-    },
-    {
-      id: '2ee4211d-64cb-47dc-bfa9-4f369a613822',
-      name: 'گوشی',
-      parent: null,
-      children: [
-        {
-          id: '9856b230-184e-4c54-b3d2-d4dc27478aed',
-          name: 'زیر شاخه گوشی',
-          parent: '2ee4211d-64cb-47dc-bfa9-4f369a613822',
-          children: [
-            {
-              id: '692ee9cd-0a0d-4088-b7af-294d4f0e27a9',
-              name: 'زیر شاخه لول 3 گوشی',
-              parent: '9856b230-184e-4c54-b3d2-d4dc27478aed',
-              children: [],
-              picture_link: false,
-            },
-          ],
-          picture_link: false,
-        },
-      ],
-      picture_link:
-        'https://upload.wikimedia.org/wikipedia/commons/6/6b/Picture_icon_BLACK.svg',
-    },
-  ];
+  // TODO: replace to static categories
+  // fetched category data
+  // const { data: categoryData } = useSWR<CategoryItemType[] | null>(
+  //   atomStateIsShowHumbergerMenu ? 'categoryData' : null,
+  //   fetcherFetchCategoryData,
+  // );
 
-  const Categories = () => {
-    return (
-      <div>
-        <div
-          className={`flex justify-center overflow-hidden border-b border-gray-200`}
-        >
-          <div
-            className={`transition-all max-h-[calc(100vh_-_220px)] minimal-scrollbar m-2 duration-500 w-full justify-center`}
-          >
-            <CategoriesLevelOne data={data} />
-          </div>
-        </div>
-      </div>
-    );
-  };
-
-  const CategoriesLevelOne = ({ data }: any) => {
-    return (
-      <ul>
-        {data.map((i: any) => {
-          return (
-            <li
-              key={i.id}
-              className="[&:not(:last-child)]:border-b py-0.5 mx-2 border-r border-opacity-60 border-gray-200"
-            >
-              <CategoriesLevelTwo data={i} />
-            </li>
-          );
-        })}
-      </ul>
-    );
-  };
-
-  const CategoriesLevelTwo = ({ data }: any) => {
-    //* state for categories-level-one drop-down
-    const [isOpenCategoriesLevelTwo, setIsOpenCategoriesLevelTwo] =
-      useState(false);
+  // category level one with sub-category, category level two with sub-category
+  const CategoryLevelOneWithSubCategory: FC<IPropsCategoryLevel> = ({
+    ...props
+  }) => {
+    // for detect isopen sub category
+    const [isOpenSubCategory, setIsOpenSubCategory] = useState(false);
 
     return (
       <div>
         <button
-          onClick={() => setIsOpenCategoriesLevelTwo((prev) => !prev)}
+          onClick={() => setIsOpenSubCategory((prev) => !prev)}
           className="flex justify-between items-center w-full pl-2"
         >
           <div className="flex gap-1 text-base-sm font-bold items-center text-base-gray-400">
-            <Image src={data.picture_link} width={40} height={40} alt="" />
-            <span>{data.name}</span>
-          </div>
-          <div className="opacity-80">
-            <IconChevron
-              size={'xs'}
-              color={'base-gray-400'}
-              position={isOpenCategoriesLevelTwo ? 'top' : 'bottom'}
+            <Image
+              src={String(props.categoryData.picture_link)}
+              width={40}
+              height={40}
+              alt=""
             />
+            <span className="truncate pl-1">{props.categoryData.name}</span>
           </div>
+          <IconChevron
+            size={'xs'}
+            color={'base-gray-300'}
+            position={isOpenSubCategory ? 'top' : 'bottom'}
+          />
         </button>
         <ul
           className={`pr-3 text-base-xs text-base-gray-400 font-bold transition-all duration-300 ${
-            isOpenCategoriesLevelTwo
+            isOpenSubCategory
               ? 'opacity-100 visible'
               : 'opacity-0 invisible h-0 overflow-hidden'
           }`}
         >
-          <Link href={'/'}>
-            <li className="py-3 px-3 border-b border-r border-opacity-60 text-base-gray-400 text-opacity-80 border-gray-200">
+          <Link href={props.categoryData.page_url}>
+            <li className="py-2 px-3 border-b border-r border-opacity-60 text-base-gray-400 text-opacity-80 border-gray-200">
               مشاهده این دسته بندی
             </li>
           </Link>
           <ul>
-            {data.children.map((item: any) => {
+            {props.categoryData.children.map((item: CategoryItemType) => {
               return (
                 <li
                   key={item.id}
                   className="[&:not(:last-child)]:border-b py-0.5 border-r border-opacity-60 border-gray-200"
                 >
                   {item.children?.length ? (
-                    <CategoriesLevelTree data={item} />
+                    <CategoryLevelTwoWithSubCategory categoryData={item} />
                   ) : (
                     <Link
-                      href={'/'}
-                      className="flex justify-between items-center w-full pl-2"
+                      href={item.page_url}
+                      className="flex justify-between items-center w-full ml-2"
                     >
                       <div className="flex px-3 py-2 gap-1 items-center text-base-gray-400">
-                        <span>{item.name}</span>
+                        <span className="truncate pl-1">{item.name}</span>
                       </div>
                     </Link>
                   )}
@@ -209,58 +121,54 @@ const HumbergerMenu: FC = (): JSX.Element => {
       </div>
     );
   };
+  const CategoryLevelTwoWithSubCategory: FC<IPropsCategoryLevel> = ({
+    ...props
+  }) => {
+    // for detect isopen sub category
+    const [isOpenSubCategory, setIsOpenSubCategory] = useState(false);
 
-  const CategoriesLevelTree = (data: any) => {
-    const [isOpenCategoriesLevelTree, setIsOpenCategoriesLevelTree] =
-      useState(false);
     return (
       <div>
         <button
-          onClick={() => setIsOpenCategoriesLevelTree((prev) => !prev)}
+          onClick={() => setIsOpenSubCategory((prev) => !prev)}
           className="flex justify-between items-center w-full pl-2"
         >
           <div className="flex px-3 py-2 gap-1 items-center text-base-gray-400">
-            <span>{data.name}</span>
+            <span className="truncate pl-1">{props.categoryData.name}</span>
           </div>
-          <div className="opacity-80">
-            <IconChevron
-              size={'xs'}
-              color={'base-gray-400'}
-              position={isOpenCategoriesLevelTree ? 'top' : 'bottom'}
-            />
-          </div>
+          <IconChevron
+            size={'xs'}
+            color={'base-gray-300'}
+            position={isOpenSubCategory ? 'top' : 'bottom'}
+          />
         </button>
         <ul
-          className={`pr-3 text-base-xs text-base-gray-400 font-bold transition-all duration-300 ${
-            isOpenCategoriesLevelTree
+          className={`pr-3 text-c-sm mb-1 transition-all duration-300 ${
+            isOpenSubCategory
               ? 'opacity-100 visible'
               : 'opacity-0 invisible h-0 overflow-hidden'
           }`}
         >
-          <Link href={'/'}>
-            <li className="py-3 px-3 border-b border-r border-opacity-60 text-base-gray-400 text-opacity-70 border-gray-200">
+          <Link href={props.categoryData.page_url}>
+            <li className="py-2 px-3 border-b border-r border-opacity-60 text-base-gray-400 text-opacity-70 border-gray-200">
               مشاهده این دسته بندی
             </li>
           </Link>
           <ul>
-            {data.children?.map((item: any) => {
+            {props.categoryData.children.map((item: any) => {
               return (
                 <li
                   key={item.id}
-                  className="[&:not(:last-child)]:border-b py-0.5 border-r border-opacity-60 border-gray-200"
+                  className="[&:not(:last-child)]:border-b border-r border-opacity-60 border-gray-200"
                 >
-                  {item.children.length ? (
-                    <CategoriesLevelTree data={item} />
-                  ) : (
-                    <Link
-                      href={'/'}
-                      className="flex justify-between items-center w-full pl-2"
-                    >
-                      <div className="flex px-3 py-2 gap-1 items-center text-base-gray-400">
-                        <span>{item.name}</span>
-                      </div>
-                    </Link>
-                  )}
+                  <Link
+                    href={item.page_url}
+                    className="flex justify-between items-center w-full"
+                  >
+                    <div className="flex px-3 py-2 gap-1 items-center text-base-gray-400 w-full">
+                      <span className="truncate">{item.name}</span>
+                    </div>
+                  </Link>
                 </li>
               );
             })}
@@ -284,11 +192,10 @@ const HumbergerMenu: FC = (): JSX.Element => {
       ></div>
       <div
         className={`bg-white font-bold h-screen w-[270px] fixed top-0 left-0 right-0 bottom-0 transition-all duration-500 ${
-          atomStateIsShowHumbergerMenu
-            ? 'translate-x-0 visible'
-            : '!translate-x-[300px] invisible'
+          atomStateIsShowHumbergerMenu ? 'translate-x-0' : '!translate-x-80'
         }`}
       >
+        {/* logo and close btn */}
         <div className="p-5 flex items-center w-full bg-base-gradient-purple">
           <button onClick={hideHumbergerMenuHandler}>
             <IconChevron size={'sm'} position={'right'} color={'white'} />
@@ -304,6 +211,7 @@ const HumbergerMenu: FC = (): JSX.Element => {
             </Link>
           </div>
         </div>
+        {/* amazing discount */}
         <Link href="/">
           <div
             className={`flex justify-between items-center py-3.5 border-b border-gray-200 mx-2 px-1`}
@@ -316,6 +224,7 @@ const HumbergerMenu: FC = (): JSX.Element => {
             </div>
           </div>
         </Link>
+        {/* category list */}
         <div
           className={`flex justify-between items-center py-3.5 border-b border-gray-200 mx-2 px-1`}
         >
@@ -326,18 +235,35 @@ const HumbergerMenu: FC = (): JSX.Element => {
             </p>
           </div>
         </div>
-        {data ? (
-          <Categories />
-        ) : (
-          <div className="flex justify-center">
-            <ThreeDots
-              width={55}
-              height={60}
-              radius="9"
-              color={theme.colors['royal-blue']}
-            />
-          </div>
-        )}
+        <div className="border-b border-gray-200 mx-2">
+          {/* fetched category data ? render category list : show skeleton */}
+          {categoryData ? (
+            <div>
+              <div className={`flex justify-center overflow-hidden`}>
+                <div
+                  className={`transition-all max-h-[calc(100vh_-_220px)] pl-1 minimal-scrollbar my-1.5 duration-500 w-full justify-center`}
+                >
+                  <ul>
+                    {categoryData.map((item: CategoryItemType) => {
+                      return (
+                        <li
+                          key={item.id}
+                          className="[&:not(:last-child)]:border-b py-1 mr-2 border-r border-opacity-60 border-gray-200"
+                        >
+                          <CategoryLevelOneWithSubCategory
+                            categoryData={item}
+                          />
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <SkeletonMobileCategory />
+          )}
+        </div>
       </div>
     </div>
   );

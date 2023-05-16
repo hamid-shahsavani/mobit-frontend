@@ -3,13 +3,14 @@ import classNames from 'classnames';
 
 interface IProps {
   position: 'bottom' | 'top' | 'left' | 'right';
-  color: 'base-gray-400' | 'white';
+  color: 'base-gray-400' | 'base-gray-300' | 'white';
   size: 'xs' | 'sm';
 }
 
 const IconChevron: FC<IProps> = ({ ...props }): JSX.Element => {
   const iconColor = classNames({
     'fill-white': props.color === 'white',
+    'fill-base-gray-300': props.color === 'base-gray-300',
     'fill-base-gray-400': props.color === 'base-gray-400',
   });
   const iconSize = classNames({
