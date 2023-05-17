@@ -38,10 +38,10 @@ const Desktop: FC = (): JSX.Element => {
   };
 
   return (
-    <div className="hidden lg:block bg-base-gradient-purple py-3 w-full">
-      <div className="container flex justify-between items-center w-full">
-        {/* logo, categories, category list, amazing discount */}
+    <div className="hidden w-full bg-base-gradient-purple py-3 lg:block">
+      <div className="container flex w-full items-center justify-between">
         <div className="flex items-center">
+          {/* logo */}
           <Link href={'/'} className="ml-6 xl:ml-9">
             <Image
               src={IMAGES.template.header.logo}
@@ -50,28 +50,31 @@ const Desktop: FC = (): JSX.Element => {
               alt=""
             />
           </Link>
-          <div
-            className="flex gap-3 xl:gap-5"
-            onMouseEnter={() =>
-              showAndHideCategoryListHandler({ type: 'show' })
-            }
-            onMouseLeave={() =>
-              showAndHideCategoryListHandler({ type: 'hide' })
-            }
-          >
+          <div className="flex gap-3 xl:gap-5">
+            {/* category btn, category list */}
             <div
-              className={`flex items-center gap-2 font-bold text-white text-base-sm px-1 relative cursor-pointer hover:text-white after:transition-all after:duration-300 after:block after:w-0 after:h-[3px] after:bg-white after:absolute after:left-0 after:right-0 after:-bottom-[18px] hover:after:w-full ${
-                !!atomStateIsShowCategoryList && 'after:w-full'
-              }`}
+              onMouseEnter={() =>
+                showAndHideCategoryListHandler({ type: 'show' })
+              }
+              onMouseLeave={() =>
+                showAndHideCategoryListHandler({ type: 'hide' })
+              }
             >
-              <IconWindow color="white" />
-              <p>دسته بندی ها</p>
+              <div
+                className={`relative flex cursor-pointer items-center gap-2 px-1 text-base-sm font-bold text-white after:absolute after:-bottom-[18px] after:left-0 after:right-0 after:block after:h-[3px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:text-white hover:after:w-full ${
+                  !!atomStateIsShowCategoryList && 'after:w-full'
+                }`}
+              >
+                <IconWindow color="white" />
+                <p>دسته بندی ها</p>
+              </div>
+              {/* show category list after hover category btn */}
+              <CategoryList />
             </div>
-            {/* show category list after hover category btn */}
-            <CategoryList />
+            {/* amazing discount */}
             <Link
               href="/"
-              className="flex items-center gap-2 font-bold text-white text-base-sm px-1 relative hover:text-white after:transition-all after:duration-300 after:block after:w-0 after:h-[3px] after:bg-white after:absolute after:left-0 after:right-0 after:-bottom-[18px] hover:after:w-full"
+              className="relative flex items-center gap-2 px-1 text-base-sm font-bold text-white after:absolute after:-bottom-[18px] after:left-0 after:right-0 after:block after:h-[3px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:text-white hover:after:w-full"
             >
               <IconDiscountSquare color="white" />
               <p>پیشنهاد های شگفت انگیز</p>
@@ -81,9 +84,9 @@ const Desktop: FC = (): JSX.Element => {
         {/* search field */}
         <div className="w-[350px] xl:w-[400px]">
           <div
-            className={`transition-all duration-200 text-white bg-[#4E51D3] p-[11px] rounded-xl flex items-center gap-2.5 border-2 container border-transparent focus-within:border-white`}
+            className={`container flex items-center gap-2.5 rounded-xl border-2 border-transparent bg-[#4E51D3] p-[11px] text-white transition-all duration-200 focus-within:border-white`}
           >
-            <div className="w-5 flex justify-center relative after:absolute after:left-0 after:right-7 after:-top-1.5 after:h-8 after:w-[1px] after:bg-white">
+            <div className="relative flex w-5 justify-center after:absolute after:-top-1.5 after:left-0 after:right-7 after:h-8 after:w-[1px] after:bg-white">
               <IconMagnifier />
             </div>
             <input
@@ -91,19 +94,19 @@ const Desktop: FC = (): JSX.Element => {
               placeholder="جستجو در مبیت ..."
               onFocus={() => showAndHideSearchResultHandler({ type: 'show' })}
               onBlur={() => showAndHideSearchResultHandler({ type: 'hide' })}
-              className={`text-base-sm mr-3 w-full placeholder:text-white/95 placeholder:font-medium`}
+              className={`mr-3 w-full text-base-sm placeholder:font-medium placeholder:text-white/95`}
             />
           </div>
         </div>
         {/* login/profile, cart */}
         <div className="flex gap-5 xl:gap-7">
-          <div className="flex items-center cursor-pointer gap-2">
+          <div className="flex cursor-pointer items-center gap-2">
             <IconUser color={'white'} />
-            <p className="text-white font-bold text-base-sm">ورود / ثبت نام</p>
+            <p className="text-base-sm font-bold text-white">ورود / ثبت نام</p>
           </div>
-          <div className="flex items-center cursor-pointer gap-2">
+          <div className="flex cursor-pointer items-center gap-2">
             <IconCart color={'white'} />
-            <p className="text-white font-bold text-base-sm">سبد خرید</p>
+            <p className="text-base-sm font-bold text-white">سبد خرید</p>
           </div>
         </div>
       </div>

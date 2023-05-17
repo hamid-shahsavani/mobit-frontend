@@ -6,6 +6,7 @@ const theme = {
     purple: '#B183F8',
     'royal-blue': '#377DFF',
     'sky-blue': '#55E0F6',
+    'gray-50': '#fafafa',
     'gray-100': '#F5F5F5',
     'gray-200': '#DDDDDD',
     'gray-300': '#ABB4BC',

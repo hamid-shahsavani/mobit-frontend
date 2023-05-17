@@ -74,15 +74,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <meta property="og:title" content={metadata.title} />
         <meta property="twitter:title" content={metadata.title} />
         <meta property="og:description" content={metadata.description} />
-        <meta
-          property="twitter:description"
-          content={metadata.description}
-        />
+        <meta property="twitter:description" content={metadata.description} />
       </head>
       <body cz-shortcut-listen="false" className={iransansx.className}>
         <RecoilRoot>
           <Header />
-          <main className="pt-20 pb-4 lg:pt-4">{children}</main>
+          <main className="pb-4 pt-20 lg:pt-4">{children}</main>
           <footer>footer</footer>
         </RecoilRoot>
       </body>

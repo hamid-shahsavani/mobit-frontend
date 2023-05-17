@@ -26,7 +26,8 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        'base-gradient-purple': 'linear-gradient(to right, #2124b5, #3b3ece, #2124b5)',
+        'base-gradient-purple':
+          'linear-gradient(to right, #2124b5, #3b3ece, #2124b5)',
       },
       colors: {
         'base-green': theme.colors.green,
@@ -35,6 +36,7 @@ module.exports = {
         'base-purple': theme.colors.purple,
         'base-royal-blue': theme.colors['royal-blue'],
         'base-sky-blue': theme.colors['sky-blue'],
+        'base-gray-50': theme.colors['gray-50'],
         'base-gray-100': theme.colors['gray-100'],
         'base-gray-200': theme.colors['gray-200'],
         'base-gray-300': theme.colors['gray-300'],
@@ -46,8 +48,8 @@ module.exports = {
         'base-xs': theme.fontSize.xs,
         'base-sm': theme.fontSize.sm,
         'base-md': theme.fontSize.md,
-      }
+      },
     },
   },
-  plugins: [],
+  plugins: [require('prettier-plugin-tailwindcss')],
 };

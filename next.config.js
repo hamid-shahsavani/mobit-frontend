@@ -2,7 +2,7 @@
 
 module.exports = {
   experimental: {
-    appDir: true
+    appDir: true,
   },
   images: {
     dangerouslyAllowSVG: true,

@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 .modal_overlay {
-  @apply fixed h-screen w-screen left-0 right-0 top-0 bottom-0 flex justify-center items-center transition-all duration-500 backdrop-blur-[1.5px];
+  @apply fixed bottom-0 left-0 right-0 top-0 flex h-screen w-screen items-center justify-center backdrop-blur-[1.5px] transition-all duration-500;
 }

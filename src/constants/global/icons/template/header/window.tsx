@@ -32,7 +32,10 @@ const IconCategories: FC<IProps> = ({ ...props }) => {
         className={iconColor}
         d="M2.477 12.383H6.789999999999999V17.383H2.477z"
       ></path>
-      <path className={iconColor} d="M12.634 12.383H16.947V17.383H12.634z"></path>
+      <path
+        className={iconColor}
+        d="M12.634 12.383H16.947V17.383H12.634z"
+      ></path>
     </svg>
   );
 };

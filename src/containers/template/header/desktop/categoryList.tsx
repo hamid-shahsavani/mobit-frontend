@@ -1,5 +1,9 @@
 import { atomIsShowCategoryList } from '@/atoms/template/header/desktop/isShowCategoryList';
-import React, { FC } from 'react';
+import { categoryData } from '@/temp/resources/categoryData';
+import { CategoryItemType } from '@/types/template/header/categoryItem.type';
+import Image from 'next/image';
+import Link from 'next/link';
+import React, { FC, useEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 
 const CategoryList: FC = (): JSX.Element => {
@@ -8,15 +12,102 @@ const CategoryList: FC = (): JSX.Element => {
     atomIsShowCategoryList,
   );
 
+  // for detect current hovered category level one / default actived index 0
+  const [activedCategoryLevelOne, setActivedCategoryLevelOne] =
+    useState<CategoryItemType | null>(null);
+
+  // TODO:
+  useEffect(() => setActivedCategoryLevelOne(categoryData[0]!), []);
+
   return (
     <section
-      className={`bg-white border border-gray-100 rounded-lg shadow-md transition-all duration-300 absolute top-20 min-w-[400px] min-h-[200px] after:absolute after:-top-8 after:h-8 after:w-[200px] ${
+      className={`absolute top-20 flex rounded-lg border border-gray-100 bg-white transition-all duration-300 after:absolute after:-top-8 after:h-8 after:w-[200px] ${
         atomStateIsShowCategoryList
-          ? 'opacity-100 visible'
-          : 'opacity-0 invisible'
+          ? 'visible opacity-100'
+          : 'invisible opacity-0'
       }`}
     >
-      <p>ggg</p>
+      {/* if fetched category data and set default activedCategory level one (index 0) ? render category list : show skeleton loader */}
+      {activedCategoryLevelOne ? (
+        <>
+          {/* category level one */}
+          <div
+            id={'header-desktop_category-level-one'}
+            className="h-fit w-48 border-l py-2"
+          >
+            {categoryData.map((item: CategoryItemType) => {
+              return (
+                <Link
+                  href={item.page_url}
+                  onMouseEnter={() => setActivedCategoryLevelOne(item)}
+                  key={item.id}
+                  className={`flex items-center border-y ${
+                    item.id === activedCategoryLevelOne?.id
+                      ? 'border-gray-100 bg-base-gray-50'
+                      : 'border-transparent'
+                  }`}
+                >
+                  <Image
+                    className="mx-1 my-1"
+                    src={String(item.picture_link)}
+                    width={40}
+                    height={40}
+                    alt=""
+                  />
+                  <p
+                    className={`w-full truncate text-base-sm text-base-gray-500 ${
+                      item.id === activedCategoryLevelOne?.id
+                        ? 'font-extrabold text-base-royal-blue'
+                        : 'font-bold'
+                    }`}
+                  >
+                    {item.name}
+                  </p>
+                </Link>
+              );
+            })}
+          </div>
+          {/* category level two, category level tree */}
+          <div
+            style={{
+              height: document.getElementById(
+                'header-desktop_category-level-one',
+              )?.clientHeight,
+            }}
+            className="flex w-fit flex-col flex-wrap gap-y-2 p-2.5 text-base-xs font-bold text-base-gray-400"
+          >
+            {activedCategoryLevelOne.children.map((item: CategoryItemType) => {
+              return (
+                <>
+                  <div className="w-60 py-1">
+                    <Link
+                      href={item.page_url}
+                      className="relative w-fit truncate py-1 pr-3 after:absolute after:bottom-0 after:right-0 after:top-0 after:h-full after:w-1 after:rounded-md after:bg-base-royal-blue hover:text-base-royal-blue"
+                    >
+                      {item.name}
+                    </Link>
+                  </div>
+                  {!!item.children.length &&
+                    item.children.map((item: CategoryItemType) => {
+                      return (
+                        <div key={item.id} className="w-60">
+                          <Link
+                            href={item.page_url}
+                            className="w-fit truncate hover:text-base-royal-blue"
+                          >
+                            {item.name}
+                          </Link>
+                        </div>
+                      );
+                    })}
+                </>
+              );
+            })}
+          </div>
+        </>
+      ) : (
+        <div className="h-80 w-48"></div>
+      )}
     </section>
   );
 };

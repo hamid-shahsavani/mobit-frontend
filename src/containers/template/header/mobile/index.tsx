@@ -49,11 +49,11 @@ const Mobile: FC = (): JSX.Element => {
   return (
     <>
       <HumbergerMenu />
-      <div className={`lg:hidden flex flex-col overflow-hidden`}>
+      <div className={`flex flex-col overflow-hidden lg:hidden`}>
         {/* logo, right-side menu btn, profile btn */}
         <div className="bg-base-gradient-purple">
           <div className="container">
-            <div className="flex justify-between items-center px-1.5 py-3.5 z-10">
+            <div className="z-10 flex items-center justify-between px-1.5 py-3.5">
               <button onClick={showHumbergerMenuHandler}>
                 <IconThreeDots />
               </button>
@@ -73,23 +73,23 @@ const Mobile: FC = (): JSX.Element => {
         </div>
         {/* search filed */}
         <div
-          className={`transition-all duration-500 absolute left-0 right-0 ${
+          className={`absolute left-0 right-0 transition-all duration-500 ${
             detectedScrollDirection === 'top' ? 'top-[53px]' : '-top-28'
           } ${
             isFocusSearchField
               ? 'bg-transparent'
-              : 'bg-base-gradient-purple -z-10'
+              : '-z-10 bg-base-gradient-purple'
           }`}
         >
           <div className="container">
             <div
-              className={`transition-all duration-200 p-3 rounded-xl flex items-center gap-2.5 mb-3.5 border-2 container border-transparent focus-within:border-base-royal-blue relative ${
+              className={`container relative mb-3.5 flex items-center gap-2.5 rounded-xl border-2 border-transparent p-3 transition-all duration-200 focus-within:border-base-royal-blue ${
                 isFocusSearchField
-                  ? 'bg-base-gray-100 -top-10'
-                  : 'bg-[#3F41C5] top-0'
+                  ? '-top-10 bg-base-gray-100'
+                  : 'top-0 bg-[#3F41C5]'
               }`}
             >
-              <div className="w-5 flex justify-center">
+              <div className="flex w-5 justify-center">
                 {isFocusSearchField ? (
                   <button
                     onClick={() =>
@@ -110,7 +110,7 @@ const Mobile: FC = (): JSX.Element => {
                 onFocus={() => showAndHideSearchResultHandler({ type: 'show' })}
                 spellCheck={false}
                 placeholder="جستجو در مبیت ..."
-                className={`text-base-md w-full ${
+                className={`w-full text-base-md ${
                   isFocusSearchField
                     ? 'placeholder:text-gray-400'
                     : 'placeholder:text-gray-200'
