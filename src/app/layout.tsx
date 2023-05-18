@@ -4,6 +4,8 @@ import { RecoilRoot } from 'recoil';
 import localFont from 'next/font/local';
 import Header from '@/containers/template/header';
 import '@/styles/global/index.scss';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const metadata = {
   title: 'مبیت',
@@ -77,6 +79,20 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <meta property="twitter:description" content={metadata.description} />
       </head>
       <body cz-shortcut-listen="false" className={iransansx.className}>
+        <ToastContainer
+          position="top-center"
+          autoClose={3000}
+          limit={1}
+          rtl={true}
+          closeButton={false}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick={false}
+          pauseOnFocusLoss={false}
+          draggable={false}
+          pauseOnHover={true}
+          theme="light"
+        />
         <RecoilRoot>
           <Header />
           <main className="pb-4 pt-20 lg:pt-4">{children}</main>

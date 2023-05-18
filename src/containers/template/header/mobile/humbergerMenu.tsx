@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import logo from '@/assets/images/template/header/logo.svg';
 import Image from 'next/image';
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import {
   IconChevron,
   IconDiscountSquare,
@@ -15,8 +15,7 @@ import { APIfetchCategoryData } from '@/services/template/header/fetchCategoryDa
 import toast from '@/functions/global/toast';
 import TOASTMSG from '@/constants/global/toastMessages';
 import { CategoryItemType } from '@/types/template/header/categoryItem.type';
-import { categoryData } from '@/temp/resources/categoryData';
-import SkeletonMobileCategory from '@/constants/global/skeletons/template/header/mobileCategory';
+import SkeletonMobileCategory from '@/constants/global/skeletons/template/header/mobile/category';
 
 async function fetcherFetchCategoryData() {
   try {
@@ -47,12 +46,17 @@ const HumbergerMenu: FC = (): JSX.Element => {
     enableAndDisableScroll({ status: 'enable' });
   };
 
-  // TODO: replace to static categories
-  // fetched category data
-  // const { data: categoryData } = useSWR<CategoryItemType[] | null>(
-  //   atomStateIsShowHumbergerMenu ? 'categoryData' : null,
-  //   fetcherFetchCategoryData,
-  // );
+  // fetch category data for render (fetch after first show humberger menu)
+  const [firstShowHumbergerMenu, setFirstShowHumbergerMenu] = useState(false);
+  useEffect(() => {
+    if (atomStateIsShowHumbergerMenu) {
+      setFirstShowHumbergerMenu(true);
+    }
+  }, [atomStateIsShowHumbergerMenu]);
+  const { data: categoryData } = useSWR<CategoryItemType[] | null>(
+    firstShowHumbergerMenu ? 'categoryData' : null,
+    fetcherFetchCategoryData,
+  );
 
   // category level one with sub-category, category level two with sub-category
   const CategoryLevelOneWithSubCategory: FC<IPropsCategoryLevel> = ({
@@ -89,7 +93,7 @@ const HumbergerMenu: FC = (): JSX.Element => {
               : 'invisible h-0 overflow-hidden opacity-0'
           }`}
         >
-          <Link href={props.categoryData.page_url}>
+          <Link href={props.categoryData.refrence}>
             <li className="border-b border-r border-gray-200 border-opacity-60 px-3 py-2 text-base-gray-400 text-opacity-80">
               مشاهده این دسته بندی
             </li>
@@ -105,7 +109,7 @@ const HumbergerMenu: FC = (): JSX.Element => {
                     <CategoryLevelTwoWithSubCategory categoryData={item} />
                   ) : (
                     <Link
-                      href={item.page_url}
+                      href={item.refrence}
                       className="ml-2 flex w-full items-center justify-between"
                     >
                       <div className="flex items-center gap-1 px-3 py-2 text-base-gray-400">
@@ -149,7 +153,7 @@ const HumbergerMenu: FC = (): JSX.Element => {
               : 'invisible h-0 overflow-hidden opacity-0'
           }`}
         >
-          <Link href={props.categoryData.page_url}>
+          <Link href={props.categoryData.refrence}>
             <li className="border-b border-r border-gray-200 border-opacity-60 px-3 py-2 text-base-gray-400 text-opacity-70">
               مشاهده این دسته بندی
             </li>
@@ -162,7 +166,7 @@ const HumbergerMenu: FC = (): JSX.Element => {
                   className="border-r border-gray-200 border-opacity-60 [&:not(:last-child)]:border-b"
                 >
                   <Link
-                    href={item.page_url}
+                    href={item.refrence}
                     className="flex w-full items-center justify-between"
                   >
                     <div className="flex w-full items-center gap-1 px-3 py-2 text-base-gray-400">

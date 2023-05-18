@@ -4,7 +4,7 @@ export const categoryData: any = [
   {
     id: String(1030),
     name: 'موبایل و تبلت',
-    page_url: '/',
+    refrence: '/',
     children: [
       {
         id: String(1034),
@@ -13,12 +13,12 @@ export const categoryData: any = [
         min_price: null,
         max_price: null,
         manual_link: '',
-        page_url: '/',
+        refrence: '/',
         children: [
           {
             id: String(1330),
             name: 'شیائومی',
-            page_url: '/',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'search/digital-devices/mobile/mobilephone/brand/xiaomi',
@@ -33,7 +33,7 @@ export const categoryData: any = [
           {
             id: String(1331),
             name: 'سامسونگ',
-            page_url: '/',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'search/digital-devices/mobile/mobilephone/brand/samsung',
@@ -48,7 +48,7 @@ export const categoryData: any = [
           {
             id: String(1332),
             name: 'اپل',
-            page_url: '/',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'search/digital-devices/mobile/mobilephone/brand/apple',
@@ -63,7 +63,7 @@ export const categoryData: any = [
           {
             id: String(1333),
             name: 'هواوی',
-            page_url: '/',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'search/digital-devices/mobile/mobilephone/brand/huawei',
@@ -78,7 +78,7 @@ export const categoryData: any = [
           {
             id: String(1334),
             name: 'نوکیا',
-            page_url: '/',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'search/digital-devices/mobile/mobilephone/brand/nokia',
@@ -93,7 +93,7 @@ export const categoryData: any = [
           {
             id: String(1335),
             name: 'آنر',
-            page_url: '/',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'search/digital-devices/mobile/mobilephone/brand/honor',
@@ -114,7 +114,7 @@ export const categoryData: any = [
             min_price: '100',
             max_price: '8000000',
             manual_link: '',
-            page_url: '/',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'search/digital-devices/mobile/mobilephone',
@@ -149,12 +149,12 @@ export const categoryData: any = [
         min_price: null,
         max_price: null,
         manual_link: '',
-        page_url: '/',
+        refrence: '/',
         children: [
           {
             id: String(1177),
-            name: 'گلس گوشی موبایل (محافظ صفحه نمایش)',
-            page_url: '/',
+            name: 'گلس گوشی موبایل',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'search/digital-devices/mobile/mobile-accessories/screen-protector',
@@ -169,7 +169,7 @@ export const categoryData: any = [
           {
             id: String(1180),
             name: 'کیف و کاور گوشی',
-            page_url: '/',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'search/digital-devices/mobile/mobile-accessories/phone-case-and-cover',
@@ -184,7 +184,7 @@ export const categoryData: any = [
           {
             id: String(1181),
             name: 'کابل و مبدل',
-            page_url: '/',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'search/digital-devices/mobile/mobile-accessories/cable-converter',
@@ -199,7 +199,7 @@ export const categoryData: any = [
           {
             id: String(1182),
             name: 'کارت حافظه گوشی موبایل',
-            page_url: '/',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'search/digital-devices/mobile/mobile-accessories/memory-card',
@@ -214,7 +214,7 @@ export const categoryData: any = [
           {
             id: String(1183),
             name: 'پایه نگهدارنده تبلت و گوشی',
-            page_url: '/',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'search/digital-devices/mobile/mobile-accessories/phoneholder',
@@ -229,7 +229,7 @@ export const categoryData: any = [
           {
             id: String(1184),
             name: 'شارژر گوشی',
-            page_url: '/',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'search/digital-devices/mobile/mobile-accessories/mobile-tablet-charger',
@@ -244,7 +244,7 @@ export const categoryData: any = [
           {
             id: String(1276),
             name: 'باتری گوشی',
-            page_url: '/',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'search/digital-devices/mobile/mobile-accessories/phone-battery',
@@ -259,7 +259,7 @@ export const categoryData: any = [
           {
             id: String(1315),
             name: 'محافظ لنز دوربین گوشی موبایل',
-            page_url: '/',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'search/digital-devices/mobile/mobile-accessories/lens-screen-protector',
@@ -274,7 +274,7 @@ export const categoryData: any = [
           {
             id: String(1316),
             name: 'قلم هوشمند',
-            page_url: '/',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'search/digital-devices/mobile/mobile-accessories/smartpen',
@@ -289,7 +289,7 @@ export const categoryData: any = [
           {
             id: String(1347),
             name: 'کیف و کاور هندزفری',
-            page_url: '/',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'search/digital-devices/mobile/mobile-accessories/handsfree-case',
@@ -320,7 +320,7 @@ export const categoryData: any = [
         min_price: null,
         max_price: null,
         manual_link: '',
-        page_url: '/',
+        refrence: '/',
         children: [],
         menuImages: [],
         link: { 0: 'products/main', category_id: String(35) },
@@ -340,7 +340,7 @@ export const categoryData: any = [
         min_price: null,
         max_price: null,
         manual_link: '',
-        page_url: '/',
+        refrence: '/',
         children: [],
         menuImages: [],
         link: { 0: 'products/main', category_id: String(9) },
@@ -361,7 +361,7 @@ export const categoryData: any = [
         min_price: null,
         max_price: null,
         manual_link: '',
-        page_url: '/',
+        refrence: '/',
         children: [],
         menuImages: [],
         link: { 0: 'products/main', category_id: String(24) },
@@ -411,7 +411,7 @@ export const categoryData: any = [
   {
     id: String(1381),
     name: 'لوازم جانبی موبایل',
-    page_url: '/',
+    refrence: '/',
     children: [
       {
         id: String(1382),
@@ -420,12 +420,12 @@ export const categoryData: any = [
         max_price: null,
         manual_link:
           'https://www.mobit.ir/cute-category-search/accessories?sort=-created',
-        page_url: '/',
+        refrence: '/',
         children: [
           {
             id: String(1383),
             name: 'لوازم جانبی اپل',
-            page_url: '/',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'cute-category/accessories/apple-phone-accesories',
@@ -440,7 +440,7 @@ export const categoryData: any = [
           {
             id: String(1384),
             name: 'لوازم جانبی سامسونگ',
-            page_url: '/',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'cute-category/accessories/samsung-accessories',
@@ -455,7 +455,7 @@ export const categoryData: any = [
           {
             id: String(1385),
             name: 'لوازم جانبی شیائومی',
-            page_url: '/',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'cute-category/accessories/xiaomi-mobile-phone-accessories',
@@ -470,7 +470,7 @@ export const categoryData: any = [
           {
             id: String(1386),
             name: 'لوازم جانبی هوآوی و آنر',
-            page_url: '/',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'cute-category/accessories/huawei-accessories',
@@ -485,7 +485,7 @@ export const categoryData: any = [
           {
             id: String(1387),
             name: 'لوازم جانبی نوکیا',
-            page_url: '/',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'cute-category/accessories/nokia-phone-accesories',
@@ -500,7 +500,7 @@ export const categoryData: any = [
           {
             id: String(1388),
             name: 'لوازم جانبی جی پلاس',
-            page_url: '/',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'cute-category/accessories/g-plus-mobile-phone-accessories',
@@ -531,12 +531,12 @@ export const categoryData: any = [
         min_price: null,
         max_price: null,
         manual_link: '',
-        page_url: '/',
+        refrence: '/',
         children: [
           {
             id: String(1392),
             name: 'شارژر',
-            page_url: '/',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'search/digital-devices/mobile/mobile-accessories/mobile-tablet-charger',
@@ -551,7 +551,7 @@ export const categoryData: any = [
           {
             id: String(1404),
             name: 'کابل و مبدل',
-            page_url: '/',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'search/digital-devices/mobile/mobile-accessories/cable-converter',
@@ -566,7 +566,7 @@ export const categoryData: any = [
           {
             id: String(1393),
             name: 'پاوربانک',
-            page_url: '/',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'search/digital-devices/mobile/mobile-accessories/powerbank',
@@ -581,7 +581,7 @@ export const categoryData: any = [
           {
             id: String(1397),
             name: 'باتری گوشی موبایل',
-            page_url: '/',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'search/digital-devices/mobile/mobile-accessories/phone-battery',
@@ -596,7 +596,7 @@ export const categoryData: any = [
           {
             id: String(1405),
             name: 'کارت حافظه گوشی موبایل',
-            page_url: '/',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'search/digital-devices/mobile/mobile-accessories/memory-card',
@@ -611,7 +611,7 @@ export const categoryData: any = [
           {
             id: String(1398),
             name: 'کاور و کیف گوشی موبایل',
-            page_url: '/',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'search/digital-devices/mobile/mobile-accessories/phone-case-and-cover',
@@ -626,7 +626,7 @@ export const categoryData: any = [
           {
             id: String(1402),
             name: 'محافظ لنز گوشی موبایل',
-            page_url: '/',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'search/digital-devices/mobile/mobile-accessories/lens-screen-protector',
@@ -641,7 +641,7 @@ export const categoryData: any = [
           {
             id: String(1406),
             name: 'پایه نگهدارنده گوشی موبایل',
-            page_url: '/',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'search/digital-devices/mobile/mobile-accessories/phoneholder',
@@ -656,7 +656,7 @@ export const categoryData: any = [
           {
             id: String(1401),
             name: 'گلس و محافظ صفحه گوشی موبایل',
-            page_url: '/',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'search/digital-devices/mobile/mobile-accessories/screen-protector',
@@ -671,7 +671,7 @@ export const categoryData: any = [
           {
             id: String(1390),
             name: 'هدفون و هندزفری',
-            page_url: '/',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'search/digital-devices/mobile/mobile-accessories/headphones-headset-handsfree',
@@ -689,7 +689,7 @@ export const categoryData: any = [
 
             sort: '-sell',
 
-            page_url: '/',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'search/digital-devices/mobile/mobile-accessories/handsfree-case',
@@ -704,7 +704,7 @@ export const categoryData: any = [
           {
             id: String(1395),
             name: 'اسپیکر بلوتوثی',
-            page_url: '/',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'search/digital-devices/laptop/laptop-accessories/speaker',
@@ -719,7 +719,7 @@ export const categoryData: any = [
           {
             id: String(1396),
             name: 'ساعت هوشمند',
-            page_url: '/',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'search/digital-devices/smart-watch-wristband',
@@ -780,7 +780,7 @@ export const categoryData: any = [
   {
     id: String(1058),
     name: 'لپ تاپ و کامپیوتر',
-    page_url: '/',
+    refrence: '/',
     children: [
       {
         id: String(1200),
@@ -788,12 +788,12 @@ export const categoryData: any = [
         min_price: null,
         max_price: null,
         manual_link: '',
-        page_url: '/',
+        refrence: '/',
         children: [
           {
             id: String(1201),
             name: 'پردازنده',
-            page_url: '/',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'search/digital-devices/computer-equipments/computer-devices/processor',
@@ -808,7 +808,7 @@ export const categoryData: any = [
           {
             id: String(1202),
             name: 'مادربورد',
-            page_url: '/',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'search/digital-devices/computer-equipments/computer-devices/motherboard',
@@ -823,7 +823,7 @@ export const categoryData: any = [
           {
             id: String(1203),
             name: 'رم کامپیوتر',
-            page_url: '/',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'search/digital-devices/computer-equipments/computer-devices/computer-ram',
@@ -838,7 +838,7 @@ export const categoryData: any = [
           {
             id: String(1204),
             name: 'منبع تغذیه',
-            page_url: '/',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'search/digital-devices/computer-equipments/computer-devices/power-supply',
@@ -853,7 +853,7 @@ export const categoryData: any = [
           {
             id: String(1205),
             name: 'کارت گرافیک',
-            page_url: '/',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'search/digital-devices/computer-equipments/computer-devices/graphic-card',
@@ -868,7 +868,7 @@ export const categoryData: any = [
           {
             id: String(1206),
             name: 'کیس',
-            page_url: '/',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'search/digital-devices/computer-equipments/computer-devices/case',
@@ -883,7 +883,7 @@ export const categoryData: any = [
           {
             id: String(1207),
             name: 'هارد دیسک',
-            page_url: '/',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'search/digital-devices/computer-equipments/computer-devices/internal-hard-disk',
@@ -898,7 +898,7 @@ export const categoryData: any = [
           {
             id: String(1211),
             name: 'درایو نوری',
-            page_url: '/',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'search/digital-devices/computer-equipments/computer-devices/optical-drive',
@@ -913,7 +913,7 @@ export const categoryData: any = [
           {
             id: String(1212),
             name: 'فن - خنک کننده',
-            page_url: '/',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'search/digital-devices/computer-equipments/computer-devices/cpu-cooling',
@@ -944,12 +944,12 @@ export const categoryData: any = [
         min_price: null,
         max_price: null,
         manual_link: '',
-        page_url: '/',
+        refrence: '/',
         children: [
           {
             id: String(1216),
             name: 'کیبورد',
-            page_url: '/',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'search/digital-devices/computer-equipments/computer-devices/keyboard',
@@ -964,7 +964,7 @@ export const categoryData: any = [
           {
             id: String(1217),
             name: 'ماوس',
-            page_url: '/',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'search/digital-devices/computer-equipments/computer-devices/mouse',
@@ -979,7 +979,7 @@ export const categoryData: any = [
           {
             id: String(1220),
             name: 'ماوس پد',
-            page_url: '/',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'search/digital-devices/computer-equipments/computer-devices/mouse-pad',
@@ -994,7 +994,7 @@ export const categoryData: any = [
           {
             id: String(1222),
             name: 'کیف هارد',
-            page_url: '/',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'search/digital-devices/computer-equipments/computer-devices/data-storage/external-hard-drive-case',
@@ -1009,7 +1009,7 @@ export const categoryData: any = [
           {
             id: String(1223),
             name: 'کابل تبدیل و مبدل',
-            page_url: '/',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'search/digital-devices/computer-equipments/computer-devices/convert-cable',
@@ -1027,7 +1027,7 @@ export const categoryData: any = [
 
             featured: 1,
 
-            page_url: '/',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'search/digital-devices/laptop/laptop-accessories/laptop-case',
@@ -1042,7 +1042,7 @@ export const categoryData: any = [
           {
             id: String(1267),
             name: 'پایه خنک کننده',
-            page_url: '/',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'search/digital-devices/laptop/laptop-accessories/cooling-base',
@@ -1057,7 +1057,7 @@ export const categoryData: any = [
           {
             id: String(1268),
             name: 'براکت هارد اینترنال',
-            page_url: '/',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'search/digital-devices/computer-equipments/computer-devices/internal-hard-drive-bracket',
@@ -1072,7 +1072,7 @@ export const categoryData: any = [
           {
             id: String(1209),
             name: 'سایر قطعات جانبی',
-            page_url: '/',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'search/digital-devices/computer-equipments/computer-devices/computer-accessories',
@@ -1103,12 +1103,12 @@ export const categoryData: any = [
         min_price: null,
         max_price: null,
         manual_link: '',
-        page_url: '/',
+        refrence: '/',
         children: [
           {
             id: String(1213),
             name: 'حافظه اکسترنال',
-            page_url: '/',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'search/digital-devices/computer-equipments/computer-devices/data-storage/external-hard-drive',
@@ -1123,7 +1123,7 @@ export const categoryData: any = [
           {
             id: String(1208),
             name: 'حافظه SSD',
-            page_url: '/',
+            refrence: '/',
             children: [],
             apiLink: {
               path: 'search/digital-devices/computer-equipments/computer-devices/data-storage/ssd',
@@ -1155,7 +1155,7 @@ export const categoryData: any = [
         min_price: null,
         max_price: null,
         manual_link: '',
-        page_url: '/',
+        refrence: '/',
         children: [],
         menuImages: [],
         link: { 0: 'products/main', category_id: String(26) },
@@ -1175,7 +1175,7 @@ export const categoryData: any = [
         min_price: null,
         max_price: null,
         manual_link: '',
-        page_url: '/',
+        refrence: '/',
         children: [],
         menuImages: [],
         link: { 0: 'products/main', category_id: String(846) },
@@ -1195,7 +1195,7 @@ export const categoryData: any = [
         min_price: null,
         max_price: null,
         manual_link: '',
-        page_url: '/',
+        refrence: '/',
         children: [],
         menuImages: [],
         link: { 0: 'products/main', category_id: String(420) },
@@ -1215,7 +1215,7 @@ export const categoryData: any = [
         min_price: null,
         max_price: null,
         manual_link: '',
-        page_url: '/',
+        refrence: '/',
         children: [],
         menuImages: [],
         link: { 0: 'products/main', category_id: String(49) },
@@ -1235,7 +1235,7 @@ export const categoryData: any = [
         min_price: null,
         max_price: null,
         manual_link: '',
-        page_url: '/',
+        refrence: '/',
         children: [],
         menuImages: [],
         link: { 0: 'products/main', category_id: String(47) },
@@ -1255,7 +1255,7 @@ export const categoryData: any = [
         min_price: null,
         max_price: null,
         manual_link: '',
-        page_url: '/',
+        refrence: '/',
         children: [],
         menuImages: [],
         link: { 0: 'products/main', category_id: String(3) },
@@ -1275,7 +1275,7 @@ export const categoryData: any = [
         min_price: null,
         max_price: null,
         manual_link: '',
-        page_url: '/',
+        refrence: '/',
         children: [],
         menuImages: [],
         link: { 0: 'products/main', category_id: String(58) },
@@ -1295,7 +1295,7 @@ export const categoryData: any = [
         min_price: null,
         max_price: null,
         manual_link: '',
-        page_url: '/',
+        refrence: '/',
         children: [],
         menuImages: [],
         link: { 0: 'products/main', category_id: String(675) },
@@ -1315,7 +1315,7 @@ export const categoryData: any = [
         min_price: null,
         max_price: null,
         manual_link: '',
-        page_url: '/',
+        refrence: '/',
         children: [],
         menuImages: [],
         link: { 0: 'products/main', category_id: String(343) },
@@ -1365,7 +1365,7 @@ export const categoryData: any = [
   {
     id: String(1078),
     name: 'گجت های هوشمند',
-    page_url: '/',
+    refrence: '/',
     children: [
       {
         id: String(1310),
@@ -1373,7 +1373,7 @@ export const categoryData: any = [
         min_price: null,
         max_price: null,
         manual_link: '',
-        page_url: '/',
+        refrence: '/',
         children: [],
         menuImages: [],
         link: { 0: 'products/main', category_id: String(63) },
@@ -1393,7 +1393,7 @@ export const categoryData: any = [
         min_price: null,
         max_price: null,
         manual_link: '',
-        page_url: '/',
+        refrence: '/',
         children: [],
         menuImages: [],
         link: { 0: 'products/main', category_id: String(65) },
@@ -1413,7 +1413,7 @@ export const categoryData: any = [
         min_price: null,
         max_price: null,
         manual_link: '',
-        page_url: '/',
+        refrence: '/',
         children: [],
         menuImages: [],
         link: { 0: 'products/main', category_id: String(779) },
@@ -1433,7 +1433,7 @@ export const categoryData: any = [
         min_price: null,
         max_price: null,
         manual_link: '',
-        page_url: '/',
+        refrence: '/',
         children: [],
         menuImages: [],
         link: { 0: 'products/main', category_id: String(66) },
@@ -1483,7 +1483,7 @@ export const categoryData: any = [
   {
     id: String(1082),
     name: 'لوازم صوتی و تصویری',
-    page_url: '/',
+    refrence: '/',
     children: [
       {
         id: String(1307),
@@ -1491,7 +1491,7 @@ export const categoryData: any = [
         min_price: null,
         max_price: null,
         manual_link: '',
-        page_url: '/',
+        refrence: '/',
         children: [],
         menuImages: [],
         link: { 0: 'products/main', category_id: String(330) },
@@ -1511,7 +1511,7 @@ export const categoryData: any = [
         min_price: null,
         max_price: null,
         manual_link: '',
-        page_url: '/',
+        refrence: '/',
         children: [],
         menuImages: [],
         link: { 0: 'products/main', category_id: String(417) },
@@ -1531,7 +1531,7 @@ export const categoryData: any = [
         min_price: null,
         max_price: null,
         manual_link: '',
-        page_url: '/',
+        refrence: '/',
         children: [],
         menuImages: [],
         link: { 0: 'products/main', category_id: String(422) },
@@ -1551,7 +1551,7 @@ export const categoryData: any = [
         min_price: null,
         max_price: null,
         manual_link: '',
-        page_url: '/',
+        refrence: '/',
         children: [],
         menuImages: [],
         link: { 0: 'products/main', category_id: String(886) },
@@ -1601,7 +1601,7 @@ export const categoryData: any = [
   {
     id: String(1300),
     name: 'ماشین های اداری',
-    page_url: '/',
+    refrence: '/',
     children: [
       {
         id: String(1301),
@@ -1609,7 +1609,7 @@ export const categoryData: any = [
         min_price: null,
         max_price: null,
         manual_link: '',
-        page_url: '/',
+        refrence: '/',
         children: [],
         menuImages: [],
         link: { 0: 'products/main', category_id: String(60) },
@@ -1629,7 +1629,7 @@ export const categoryData: any = [
         min_price: null,
         max_price: null,
         manual_link: '',
-        page_url: '/',
+        refrence: '/',
         children: [],
         menuImages: [],
         link: { 0: 'products/main', category_id: String(775) },
@@ -1679,7 +1679,7 @@ export const categoryData: any = [
   {
     id: String(1303),
     name: 'کنسول بازی',
-    page_url: '/',
+    refrence: '/',
     children: [
       {
         id: String(1304),
@@ -1687,7 +1687,7 @@ export const categoryData: any = [
         min_price: null,
         max_price: null,
         manual_link: '',
-        page_url: '/',
+        refrence: '/',
         children: [],
         menuImages: [],
         link: { 0: 'products/main', category_id: String(29) },
@@ -1707,7 +1707,7 @@ export const categoryData: any = [
         min_price: null,
         max_price: null,
         manual_link: '',
-        page_url: '/',
+        refrence: '/',
         children: [],
         menuImages: [],
         link: { 0: 'products/main', category_id: String(30) },

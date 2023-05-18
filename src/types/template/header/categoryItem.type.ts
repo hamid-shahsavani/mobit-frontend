@@ -2,7 +2,7 @@ export type CategoryItemType = {
   id: string;
   name: string;
   parent: string | null;
-  page_url: string;
+  refrence: string;
   picture_link: string | false;
   children: CategoryItemType[];
 };

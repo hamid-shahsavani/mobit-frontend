@@ -64,3 +64,20 @@ html {
     background: #cbcbcb;
   }
 }
+
+// toast
+.Toastify {
+  .Toastify__toast-body {
+    font-family: 'dana';
+    font-size: 15px;
+  }
+  .Toastify__close-button--light {
+    margin: auto 0;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+  }
+  .Toastify__toast {
+    border-radius: 5px;
+  }
+}
