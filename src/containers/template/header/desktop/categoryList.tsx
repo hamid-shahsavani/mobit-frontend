@@ -4,46 +4,100 @@ import { categoryData } from '@/temp/resources/categoryData';
 import { CategoryItemType } from '@/types/template/header/categoryItem.type';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { FC, Fragment, useEffect, useState } from 'react';
-import { useRecoilValue } from 'recoil';
+import React, { FC, Fragment, useEffect, useRef, useState } from 'react';
+import { useResizeDetector } from 'react-resize-detector';
+import { useRecoilState } from 'recoil';
 
 const CategoryList: FC = (): JSX.Element => {
   // detect is-show category list
-  const atomStateIsShowCategoryList = useRecoilValue<boolean>(
+  const [atomStateIsShowCategoryList, setAtomStateIsShowCategoryList] = useRecoilState<boolean>(
     atomIsShowCategoryList,
   );
 
-  // for detect current hovered category level one / default actived index 0
-  const [activedCategoryLevelOne, setActivedCategoryLevelOne] =
-    useState<CategoryItemType | null>(null);
+  // for detect current hovered category / default actived index 0 | null = wait for fetch | undefined = seperator for fix height | CategoryItemType = fetched and set index 0 of fetched array
+  const [activedCategoryData, setActivedCategoryData] =
+    useState<CategoryItemType | null | undefined>(null);
+
+  // for set width and height categoryList left-side
+  const {
+    width: categoryListDesktopWidth,
+    height: categoryListDesktopHeight,
+    ref: categoryListDesktopRef,
+  } = useResizeDetector();
+  const categoryListRightSideRef = useRef<null | HTMLDivElement>(null);
+  const categoryListLeftSideRef = useRef<null | HTMLDivElement>(null);
+  const [categoryListLeftSideSize, setCategoryListLeftSideSize] = useState<any>(
+    {
+      width: 0,
+      height: 0,
+    },
+  );
+
+  // set CategoryList LeftSide width to state
+  useEffect(() => {
+    if (categoryListRightSideRef.current && categoryListLeftSideRef.current) {
+      const categoryListLeftSideItemsLength = Math.floor(
+        Number(categoryListLeftSideRef.current.children.length),
+      );
+      const categoryListLeftSideMaxLengthInColumn = Math.floor(
+        Number(categoryListRightSideRef.current.children.length) * 1.43,
+      );
+      const categoryListLeftSideColumnWidth = 180;
+      const newWidth =
+        Math.ceil(
+          categoryListLeftSideItemsLength /
+            categoryListLeftSideMaxLengthInColumn,
+        ) * categoryListLeftSideColumnWidth;
+      setCategoryListLeftSideSize((prev: any) => ({
+        ...prev,
+        width: newWidth,
+      }));
+    }
+  }, [activedCategoryData]);
+
+  // set CategoryList LeftSide width to state
+  useEffect(
+    () =>
+      setCategoryListLeftSideSize((prev: any) => ({
+        ...prev,
+        height: categoryListDesktopHeight,
+      })),
+    [categoryListDesktopHeight],
+  );
 
   // TODO:
-  useEffect(() => setActivedCategoryLevelOne(categoryData[0]!), []);
+  useEffect(() => {
+    setTimeout(() => {
+      setActivedCategoryData(categoryData[0]!);
+    }, 1000);
+  }, []);
 
   return (
     <section
+      ref={categoryListDesktopRef}
       className={`absolute top-20 flex rounded-lg border border-gray-100 bg-white transition-all duration-300 after:absolute after:-top-8 after:h-8 after:w-[200px] ${
         atomStateIsShowCategoryList
           ? 'visible opacity-100'
-          : '-opacity-0 -invisible'
+          : 'opacity-0 invisible'
       }`}
     >
       {/* if fetched category data and set default activedCategory level one (index 0) ? render category list : show skeleton loader */}
-      {activedCategoryLevelOne ? (
+      {activedCategoryData ? (
         <>
           {/* category level one */}
           <div
+            ref={categoryListRightSideRef}
             id={'header-desktop_category-level-one'}
             className="h-fit w-48 border-l py-2"
           >
-            {categoryData.map((item: CategoryItemType) => {
+            {categoryData.slice(0, 4).map((item: CategoryItemType) => {
               return (
                 <Link
                   href={item.refrence}
-                  onMouseEnter={() => setActivedCategoryLevelOne(item)}
+                  onMouseEnter={() => setActivedCategoryData(item)}
                   key={item.id}
                   className={`flex items-center border-y ${
-                    item.id === activedCategoryLevelOne?.id
+                    item.id === activedCategoryData?.id
                       ? 'border-gray-100 bg-base-gray-50'
                       : 'border-transparent'
                   }`}
@@ -57,7 +111,7 @@ const CategoryList: FC = (): JSX.Element => {
                   />
                   <p
                     className={`w-full truncate text-base-sm text-base-gray-500 ${
-                      item.id === activedCategoryLevelOne?.id
+                      item.id === activedCategoryData?.id
                         ? 'font-extrabold text-base-royal-blue'
                         : 'font-bold'
                     }`}
@@ -71,20 +125,13 @@ const CategoryList: FC = (): JSX.Element => {
           {/* category level two, category level tree */}
           <div
             style={{
-              height: `${
-                document.getElementById('header-desktop_category-level-one')
-                  ?.clientHeight
-              }px`, // 
-              width: `${
-                Math.ceil(Number(document
-                  .getElementById('header-desktop-category-level-two-and-tree')
-                  ?.querySelectorAll(':scope > *').length) / (Number(document.getElementById('header-desktop_category-level-one')?.querySelectorAll(':scope > *').length) * 1.43)) * 180
-              }px`, // 180 : width wrapped column
+              height: categoryListLeftSideSize.height,
+              width: categoryListLeftSideSize.width,
             }}
-            id="header-desktop-category-level-two-and-tree"
+            ref={categoryListLeftSideRef}
             className="flex flex-col flex-wrap gap-x-5 gap-y-2 p-3.5 text-base-xs font-bold text-base-gray-400"
           >
-            {activedCategoryLevelOne.children.map((item: CategoryItemType) => {
+            {activedCategoryData.children.map((item: CategoryItemType) => {
               return (
                 <Fragment key={item.id}>
                   {/* category level one */}
@@ -111,9 +158,6 @@ const CategoryList: FC = (): JSX.Element => {
                 </Fragment>
               );
             })}
-          </div>
-          <div className="absolute right-[00px] top-[400px]">
-            <SkeletonDesktopCategory />
           </div>
         </>
       ) : (
