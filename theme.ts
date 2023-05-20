@@ -15,6 +15,7 @@ const theme = {
     'gray-600': '#1E2022',
   },
   fontSize: {
+    '2xs': '0.685rem',
     xs: '0.75rem',
     sm: '0.80rem',
     md: '0.875rem',

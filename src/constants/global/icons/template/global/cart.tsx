@@ -2,19 +2,19 @@ import { FC } from 'react';
 import classNames from 'classnames';
 
 interface IProps {
-  color: 'white' | 'base-gray-100';
+  color: 'white' | 'base-gray-300';
 }
 
 const IconCart: FC<IProps> = ({ ...props }): JSX.Element => {
   const iconColor = classNames({
     'fill-white': props.color === 'white',
-    'fill-base-gray-100': props.color === 'base-gray-100',
+    'fill-base-gray-300': props.color === 'base-gray-300',
   });
 
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      height="22"
+      height="23"
       fill="none"
       viewBox="0 0 24 24"
     >

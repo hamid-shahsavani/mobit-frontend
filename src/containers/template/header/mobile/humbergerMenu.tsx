@@ -12,23 +12,12 @@ import { atomIsShowHumbergerMenu } from '@/atoms/template/header/mobile/isShowHu
 import enableAndDisableScroll from '@/functions/global/enableAndDisableScroll';
 import useSWR from 'swr';
 import { APIfetchCategoryData } from '@/services/template/header/fetchCategoryData';
-import toast from '@/functions/global/toast';
-import TOASTMSG from '@/constants/global/toastMessages';
 import { CategoryItemType } from '@/types/template/header/categoryItem.type';
 import SkeletonMobileCategory from '@/constants/global/skeletons/template/header/mobile/category';
 
 async function fetcherFetchCategoryData() {
-  try {
-    const data = await APIfetchCategoryData();
-    return data;
-  } catch (error: any) {
-    if (!error.response) {
-      toast(TOASTMSG.routes.global.pleaseCheckNetworkConnection);
-    } else {
-      toast(TOASTMSG.routes.global.sorryUnexpectedError);
-    }
-  }
-  return null;
+  const data = await APIfetchCategoryData();
+  return data || null;
 }
 
 interface IPropsCategoryLevel {
@@ -46,7 +35,7 @@ const HumbergerMenu: FC = (): JSX.Element => {
     enableAndDisableScroll({ status: 'enable' });
   };
 
-  // fetch category data for render (fetch after first show humberger menu)
+  // fetch category data (fetch after first show humberger menu)
   const [firstShowHumbergerMenu, setFirstShowHumbergerMenu] = useState(false);
   useEffect(() => {
     if (atomStateIsShowHumbergerMenu) {
@@ -184,7 +173,7 @@ const HumbergerMenu: FC = (): JSX.Element => {
 
   return (
     <div
-      className={`modal_overlay ${
+      className={`modal_overlay left-0 right-0 top-0 bottom-0 ${
         atomStateIsShowHumbergerMenu
           ? 'visible bg-black/20'
           : 'invisible opacity-0'

@@ -10,10 +10,13 @@ body {
   overflow-x: hidden;
   color: #000;
   &::-webkit-scrollbar {
-    width: 8px;
+    width: 5px;
+    @media (min-width: 1024px) {
+      width: 7px;
+    }
   }
   &::-webkit-scrollbar-track {
-    background: #d2d1d1;
+    background: #ececec;
   }
   &::-webkit-scrollbar-thumb {
     background: #acabab;
@@ -24,16 +27,23 @@ body {
   }
 }
 
-// fix shake screen after overflow-y-hidden
-html {
-  scrollbar-gutter: stable;
+// for hide scrollbar
+.disable-scroll_scrollbar-is-visible {
+  overflow-y: hidden;
+  padding-right: 5px;
+  @media (min-width: 1024px) {
+    padding-right: 7px;
+  }
+}
+.disable-scroll_scrollbar-is-not-visible {
+  overflow-y: hidden;
 }
 
 // fix footer to bottom in not scrolled y position
 body {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: calc(100vh + 1px);
 }
 main {
   flex: 1;

@@ -12,14 +12,14 @@ const SearchResult: FC = (): JSX.Element => {
 
   return (
     <section
-      className={`fixed left-0 right-0 top-0 h-screen w-full overflow-hidden bg-white transition-opacity duration-300 lg:left-1/2 lg:right-1/2 lg:top-20 lg:h-auto lg:w-[350px] lg:translate-x-[80px] lg:rounded-lg lg:border lg:border-gray-100 xl:w-[400px] xl:translate-x-[101px] ${
+      className={`fixed container left-0 right-0 top-0 h-screen w-full overflow-hidden bg-white transition-opacity duration-300 lg:left-1/2 lg:right-1/2 lg:top-20 lg:h-auto lg:w-[350px] lg:translate-x-[80px] lg:rounded-lg lg:border lg:border-gray-100 xl:w-[400px] xl:translate-x-[101px] ${
         atomStateIsShowSearchResult
           ? 'visible opacity-100'
           : 'invisible opacity-0'
       }`}
     >
-      <div className="container mx-1.5 mt-20 h-full lg:mt-0">
-        <div className="flex h-[calc(100%_-_90px)] items-center justify-center lg:my-4">
+      <div className="mt-[75px] h-full lg:mt-0">
+        <div className="flex h-[calc(100%_-_87px)] items-center justify-center lg:my-4">
           <ThreeDots width="65" radius="9" color={theme.colors['royal-blue']} />
         </div>
       </div>

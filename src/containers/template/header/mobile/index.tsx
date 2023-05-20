@@ -43,17 +43,17 @@ const Mobile: FC = (): JSX.Element => {
     enableAndDisableScroll({ status: 'disable' });
   };
 
-  // detect scroll direction
+  // detect scroll direction for hide search input after scroll to bottom
   const detectedScrollDirection = useDetectScrollDirection();
 
   return (
-    <>
+    <div className='lg:hidden'>
       <HumbergerMenu />
-      <div className={`flex flex-col overflow-hidden lg:hidden`}>
+      <div className={`flex flex-col overflow-hidden`}>
         {/* logo, right-side menu btn, profile btn */}
         <div className="bg-base-gradient-purple">
           <div className="container">
-            <div className="z-10 flex items-center justify-between px-1.5 py-3.5">
+            <div className="flex items-center justify-between px-1.5 py-3.5">
               <button onClick={showHumbergerMenuHandler}>
                 <IconThreeDots />
               </button>
@@ -120,7 +120,7 @@ const Mobile: FC = (): JSX.Element => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

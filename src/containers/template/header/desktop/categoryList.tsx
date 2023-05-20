@@ -1,22 +1,28 @@
 import { atomIsShowCategoryList } from '@/atoms/template/header/desktop/isShowCategoryList';
 import SkeletonDesktopCategory from '@/constants/global/skeletons/template/header/desktop/category';
-import { categoryData } from '@/temp/resources/categoryData';
+import { APIfetchCategoryData } from '@/services/template/header/fetchCategoryData';
 import { CategoryItemType } from '@/types/template/header/categoryItem.type';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { FC, Fragment, useEffect, useRef, useState } from 'react';
 import { useResizeDetector } from 'react-resize-detector';
 import { useRecoilState } from 'recoil';
+import useSWR from 'swr';
+
+async function fetcherFetchCategoryData() {
+  const data = await APIfetchCategoryData();
+  return data || null;
+}
 
 const CategoryList: FC = (): JSX.Element => {
   // detect is-show category list
-  const [atomStateIsShowCategoryList, setAtomStateIsShowCategoryList] = useRecoilState<boolean>(
-    atomIsShowCategoryList,
-  );
+  const [atomStateIsShowCategoryList, setAtomStateIsShowCategoryList] =
+    useRecoilState<boolean>(atomIsShowCategoryList);
 
   // for detect current hovered category / default actived index 0 | null = wait for fetch | undefined = seperator for fix height | CategoryItemType = fetched and set index 0 of fetched array
-  const [activedCategoryData, setActivedCategoryData] =
-    useState<CategoryItemType | null | undefined>(null);
+  const [activedCategoryData, setActivedCategoryData] = useState<
+    CategoryItemType | null | undefined
+  >(null);
 
   // for set width and height categoryList left-side
   const {
@@ -55,7 +61,7 @@ const CategoryList: FC = (): JSX.Element => {
     }
   }, [activedCategoryData]);
 
-  // set CategoryList LeftSide width to state
+  // set CategoryList LeftSide height to state
   useEffect(
     () =>
       setCategoryListLeftSideSize((prev: any) => ({
@@ -65,12 +71,25 @@ const CategoryList: FC = (): JSX.Element => {
     [categoryListDesktopHeight],
   );
 
-  // TODO:
+  // fetch category data (fetch after first show categoryList)
+  const [firstShowCategoryList, setFirstShowCategoryList] = useState(false);
   useEffect(() => {
-    setTimeout(() => {
-      setActivedCategoryData(categoryData[0]!);
-    }, 1000);
-  }, []);
+    if (atomStateIsShowCategoryList) {
+      setFirstShowCategoryList(true);
+    }
+  }, [atomStateIsShowCategoryList]);
+  const { data: categoryData } = useSWR<CategoryItemType[] | null>(
+    firstShowCategoryList ? 'categoryData' : null,
+    fetcherFetchCategoryData,
+  );
+
+  // set fetched data index 0 to activedCategoryData state
+  useEffect(() => {
+    if (categoryData) {
+      setActivedCategoryData(undefined);
+      setTimeout(() => setActivedCategoryData(categoryData[0]), 50);
+    }
+  }, [categoryData]);
 
   return (
     <section
@@ -78,11 +97,11 @@ const CategoryList: FC = (): JSX.Element => {
       className={`absolute top-20 flex rounded-lg border border-gray-100 bg-white transition-all duration-300 after:absolute after:-top-8 after:h-8 after:w-[200px] ${
         atomStateIsShowCategoryList
           ? 'visible opacity-100'
-          : 'opacity-0 invisible'
+          : 'invisible opacity-0'
       }`}
     >
       {/* if fetched category data and set default activedCategory level one (index 0) ? render category list : show skeleton loader */}
-      {activedCategoryData ? (
+      {activedCategoryData && (
         <>
           {/* category level one */}
           <div
@@ -90,7 +109,7 @@ const CategoryList: FC = (): JSX.Element => {
             id={'header-desktop_category-level-one'}
             className="h-fit w-48 border-l py-2"
           >
-            {categoryData.slice(0, 4).map((item: CategoryItemType) => {
+            {categoryData?.map((item: CategoryItemType) => {
               return (
                 <Link
                   href={item.refrence}
@@ -160,9 +179,8 @@ const CategoryList: FC = (): JSX.Element => {
             })}
           </div>
         </>
-      ) : (
-        <SkeletonDesktopCategory />
       )}
+      {activedCategoryData === null && <SkeletonDesktopCategory />}
     </section>
   );
 };

@@ -6,7 +6,7 @@ import SearchResult from './global/searchResult';
 const Header: FC = (): JSX.Element => {
   return (
     <>
-      <header className="sticky top-0">
+      <header className="sticky top-0 z-50">
         <SearchResult />
         <Desktop />
         <Mobile />

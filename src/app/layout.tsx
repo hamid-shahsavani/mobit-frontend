@@ -6,6 +6,7 @@ import Header from '@/containers/template/header';
 import '@/styles/global/index.scss';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Footer from '@/containers/template/footer';
 
 const metadata = {
   title: 'مبیت',
@@ -78,7 +79,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <meta property="og:description" content={metadata.description} />
         <meta property="twitter:description" content={metadata.description} />
       </head>
-      <body cz-shortcut-listen="false" className={iransansx.className}>
+      <body cz-shortcut-listen="false" className={`relative ${iransansx.className}`}>
         <ToastContainer
           position="top-center"
           autoClose={3000}
@@ -96,7 +97,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <RecoilRoot>
           <Header />
           <main className="pb-4 pt-20 lg:pt-4">{children}</main>
-          <footer>footer</footer>
+          <Footer />
         </RecoilRoot>
       </body>
     </html>

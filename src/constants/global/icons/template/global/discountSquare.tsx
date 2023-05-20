@@ -2,19 +2,20 @@ import classNames from 'classnames';
 import { FC } from 'react';
 
 interface IProps {
-  color: 'white' | 'base-red';
+  color: 'white' | 'base-red' | 'base-gray-300';
 }
 
 const IconDiscountSquare: FC<IProps> = ({ ...props }) => {
   const iconColor = classNames({
     'stroke-white': props.color === 'white',
     'stroke-base-red': props.color === 'base-red',
+    'fill-base-gray-300 stroke-white': props.color === 'base-gray-300', // if color === base-gray-300 ? icon contain : outlin
   });
 
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      height="21"
+      height={props.color === 'base-gray-300' ? 25.5 : 21} // change icon size in contain (color === base-gray-300)
       fill="none"
       viewBox="0 0 23 23"
     >
