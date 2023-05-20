@@ -44,7 +44,7 @@ const Desktop: FC = (): JSX.Element => {
           {/* logo */}
           <Link href={'/'} className="ml-6 xl:ml-9">
             <Image
-              src={IMAGES.template.header.logo}
+              src={IMAGES.template.header.logoWhite}
               width={80}
               height={80}
               alt=""
@@ -76,7 +76,7 @@ const Desktop: FC = (): JSX.Element => {
               href="/"
               className="relative flex items-center gap-2 px-1 text-base-sm font-bold text-white after:absolute after:-bottom-[18px] after:left-0 after:right-0 after:block after:h-[3px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:text-white hover:after:w-full"
             >
-              <IconDiscountSquare color="white" />
+              <IconDiscountSquare type={'outline'} color="white" />
               <p>پیشنهاد های شگفت انگیز</p>
             </Link>
           </div>

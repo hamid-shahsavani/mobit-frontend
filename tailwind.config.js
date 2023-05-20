@@ -49,6 +49,7 @@ module.exports = {
         'base-xs': theme.fontSize.xs,
         'base-sm': theme.fontSize.sm,
         'base-md': theme.fontSize.md,
+        'base-lg': theme.fontSize.lg,
       },
     },
   },

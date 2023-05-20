@@ -1,15 +1,12 @@
-import { atomIsShowSearchResult } from '@/atoms/template/header/global/isShowSearchResult';
-import { atomIsShowHumbergerMenu } from '@/atoms/template/header/mobile/isShowHumbergerMenu';
+import useDetectScrollDirection from '@/hooks/template/header/detectScrollDirection';
+import Link from 'next/link';
+import React, { FC } from 'react';
 import {
   IconCart,
   IconDiscountSquare,
   IconHome,
   IconUser,
 } from '@/constants/global/icons';
-import useDetectScrollDirection from '@/hooks/template/header/detectScrollDirection';
-import Link from 'next/link';
-import React, { FC } from 'react';
-import { useRecoilValue } from 'recoil';
 
 const NavBottom: FC = (): JSX.Element => {
   // nav-bottom items for render
@@ -25,7 +22,7 @@ const NavBottom: FC = (): JSX.Element => {
     },
     {
       text: 'پیشنهاد شگفت انگیز',
-      icon: <IconDiscountSquare color={'base-gray-300'} />,
+      icon: <IconDiscountSquare type={'solid'} color={'base-gray-300'} />,
       url: '/',
     },
     {

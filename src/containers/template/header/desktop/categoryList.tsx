@@ -87,14 +87,14 @@ const CategoryList: FC = (): JSX.Element => {
   useEffect(() => {
     if (categoryData) {
       setActivedCategoryData(undefined);
-      setTimeout(() => setActivedCategoryData(categoryData[0]), 50);
+      setTimeout(() => setActivedCategoryData(categoryData[0]), 100);
     }
   }, [categoryData]);
 
   return (
     <section
       ref={categoryListDesktopRef}
-      className={`absolute top-20 flex rounded-lg border border-gray-100 bg-white transition-all duration-300 after:absolute after:-top-8 after:h-8 after:w-[200px] ${
+      className={`absolute top-20 flex rounded-lg border border-gray-100 bg-white transition-all duration-300 after:absolute after:-top-[35px] after:h-[34px] after:w-[200px] ${
         atomStateIsShowCategoryList
           ? 'visible opacity-100'
           : 'invisible opacity-0'

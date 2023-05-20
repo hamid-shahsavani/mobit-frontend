@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import { FC } from 'react';
 
 interface IProps {
+  type: 'solid' | 'outline';
   color: 'white' | 'base-red' | 'base-gray-300';
 }
 
@@ -15,7 +16,7 @@ const IconDiscountSquare: FC<IProps> = ({ ...props }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      height={props.color === 'base-gray-300' ? 25.5 : 21} // change icon size in contain (color === base-gray-300)
+      height={props.type === 'solid' ? 25.5 : 21} 
       fill="none"
       viewBox="0 0 23 23"
     >

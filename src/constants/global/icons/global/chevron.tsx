@@ -3,8 +3,8 @@ import classNames from 'classnames';
 
 interface IProps {
   position: 'bottom' | 'top' | 'left' | 'right';
-  color: 'base-gray-400' | 'base-gray-300' | 'white';
-  size: 'xs' | 'sm';
+  color: 'white' | 'base-gray-300' | 'base-gray-400' | 'base-gray-600';
+  size: 'xs' | 'sm' | 'md';
 }
 
 const IconChevron: FC<IProps> = ({ ...props }): JSX.Element => {
@@ -12,10 +12,12 @@ const IconChevron: FC<IProps> = ({ ...props }): JSX.Element => {
     'fill-white': props.color === 'white',
     'fill-base-gray-300': props.color === 'base-gray-300',
     'fill-base-gray-400': props.color === 'base-gray-400',
+    'fill-base-gray-600': props.color === 'base-gray-600',
   });
   const iconSize = classNames({
-    'h-[13px]': props.size === 'xs',
-    'h-[15px]': props.size === 'sm',
+    'h-[11.5px]': props.size === 'xs',
+    'h-[13px]': props.size === 'sm',
+    'h-[15px]': props.size === 'md',
   });
 
   return (

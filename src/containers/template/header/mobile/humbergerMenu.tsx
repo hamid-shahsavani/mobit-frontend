@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import logo from '@/assets/images/template/header/logo.svg';
 import Image from 'next/image';
 import { FC, useEffect, useState } from 'react';
 import {
@@ -14,6 +13,7 @@ import useSWR from 'swr';
 import { APIfetchCategoryData } from '@/services/template/header/fetchCategoryData';
 import { CategoryItemType } from '@/types/template/header/categoryItem.type';
 import SkeletonMobileCategory from '@/constants/global/skeletons/template/header/mobile/category';
+import IMAGES from '@/constants/global/images';
 
 async function fetcherFetchCategoryData() {
   const data = await APIfetchCategoryData();
@@ -70,7 +70,7 @@ const HumbergerMenu: FC = (): JSX.Element => {
             <span className="truncate pl-1">{props.categoryData.name}</span>
           </div>
           <IconChevron
-            size={'xs'}
+            size={'sm'}
             color={'base-gray-300'}
             position={isOpenSubCategory ? 'top' : 'bottom'}
           />
@@ -130,7 +130,7 @@ const HumbergerMenu: FC = (): JSX.Element => {
             <span className="truncate pl-1">{props.categoryData.name}</span>
           </div>
           <IconChevron
-            size={'xs'}
+            size={'sm'}
             color={'base-gray-300'}
             position={isOpenSubCategory ? 'top' : 'bottom'}
           />
@@ -173,7 +173,7 @@ const HumbergerMenu: FC = (): JSX.Element => {
 
   return (
     <div
-      className={`modal_overlay left-0 right-0 top-0 bottom-0 ${
+      className={` modal_overlay bottom-0 left-0 right-0 top-0 ${
         atomStateIsShowHumbergerMenu
           ? 'visible bg-black/20'
           : 'invisible opacity-0'
@@ -196,9 +196,9 @@ const HumbergerMenu: FC = (): JSX.Element => {
           <div className="flex w-full justify-center">
             <Link href="/">
               <Image
-                src={logo}
-                priority={true}
-                className="h-auto w-[60px]"
+                src={IMAGES.template.header.logoWhite}
+                width={60}
+                height={60}
                 alt=""
               />
             </Link>
@@ -210,7 +210,7 @@ const HumbergerMenu: FC = (): JSX.Element => {
             className={`mx-2 flex items-center justify-between border-b border-gray-200 px-1 py-3.5`}
           >
             <div className="flex items-center gap-2.5">
-              <IconDiscountSquare color={'base-red'} />
+              <IconDiscountSquare type={'outline'} color={'base-red'} />
               <p className="text-base-sm font-bold text-base-gray-500">
                 پیشنهاد های شگفت انگیز
               </p>

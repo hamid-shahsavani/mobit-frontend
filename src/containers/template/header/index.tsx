@@ -1,13 +1,13 @@
 import Desktop from '@/containers/template/header/desktop';
 import Mobile from '@/containers/template/header/mobile';
 import React, { FC } from 'react';
-import SearchResult from './global/searchResult';
+import Global from './global';
 
 const Header: FC = (): JSX.Element => {
   return (
     <>
       <header className="sticky top-0 z-50">
-        <SearchResult />
+        <Global />
         <Desktop />
         <Mobile />
       </header>

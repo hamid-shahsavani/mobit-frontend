@@ -1,7 +1,9 @@
+import HeroSlider from "@/containers/routes/home/heroSlider";
+
 export default function Home() {
   return (
-    <section className="container h-[1000px] bg-[#5A69EC] text-justify">
-
+    <section className="container text-justify">
+      <HeroSlider />
     </section>
   );
 }

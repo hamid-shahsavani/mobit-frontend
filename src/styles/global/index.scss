@@ -49,6 +49,11 @@ main {
   flex: 1;
 }
 
+// disable background blue after click
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
 // scroll smoosh
 html {
   scroll-behavior: smooth !important;

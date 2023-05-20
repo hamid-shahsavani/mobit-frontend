@@ -59,7 +59,7 @@ const Mobile: FC = (): JSX.Element => {
               </button>
               <Link href={'/'}>
                 <Image
-                  src={IMAGES.template.header.logo}
+                  src={IMAGES.template.header.logoWhite}
                   width={70}
                   height={70}
                   alt=""
@@ -97,7 +97,7 @@ const Mobile: FC = (): JSX.Element => {
                     }
                   >
                     <IconChevron
-                      size={'sm'}
+                      size={'md'}
                       position={'right'}
                       color={'base-gray-400'}
                     />
