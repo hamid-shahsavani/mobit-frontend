@@ -14,11 +14,16 @@ export default function enableAndDisableScroll(args: ArgsType): void {
     document.body.appendChild(element);
     var isScrollbarVisible = element.offsetWidth - element.clientWidth > 0;
     document.body.removeChild(element);
-    return isScrollbarVisible && document.querySelector('html')!.scrollHeight > document.querySelector('html')!.clientHeight;
+    return (
+      isScrollbarVisible &&
+      document.querySelector('html')!.scrollHeight >
+        document.querySelector('html')!.clientHeight
+    );
   }
-  // is-visible scroll-y-bar ? overflow-hidden + padding-right : overflow-hidden); 
+  // is-visible scroll-y-bar ? overflow-hidden + padding-right : overflow-hidden);
   document.body?.classList[args.status === 'enable' ? 'remove' : 'add'](
-    isScrollbarVisible() ? 'disable-scroll_scrollbar-is-visible' : 'disable-scroll_scrollbar-is-not-visible'
+    isScrollbarVisible()
+      ? 'disable-scroll_scrollbar-is-visible'
+      : 'disable-scroll_scrollbar-is-not-visible',
   );
-
 }

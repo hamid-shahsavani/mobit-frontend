@@ -3,7 +3,7 @@ import ContentLoader from 'react-content-loader';
 
 const SkeletonDesktopCategory: FC = () => (
   <div>
-    <div className="flex h-[314px] pr-2 w-[659px]">
+    <div className="flex h-[314px] w-[659px] pr-2">
       {/* right - level one */}
       <div className="w-[186px] border-l py-[17px]">
         {new Array(6).fill(null).map((item: any, index: any) => (
@@ -23,7 +23,7 @@ const SkeletonDesktopCategory: FC = () => (
         ))}
       </div>
       {/* left - level two and level tree */}
-      <div className="flex px-4 py-[19px] flex-col flex-wrap items-start gap-5">
+      <div className="flex flex-col flex-wrap items-start gap-5 px-4 py-[19px]">
         {new Array(21).fill(null).map((item: any, index: any) => (
           <div className="w-[130px]" key={index}>
             <ContentLoader

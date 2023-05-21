@@ -47,7 +47,7 @@ const Mobile: FC = (): JSX.Element => {
   const detectedScrollDirection = useDetectScrollDirection();
 
   return (
-    <div className='lg:hidden'>
+    <div className="lg:hidden">
       <HumbergerMenu />
       <div className={`flex flex-col overflow-hidden`}>
         {/* logo, right-side menu btn, profile btn */}

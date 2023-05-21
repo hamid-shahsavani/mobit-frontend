@@ -10,18 +10,18 @@ const Global: FC = (): JSX.Element => {
     <div className="container">
       {/* fast access to app section */}
       <div>
-        <button
-          onClick={() => {
-            document.body.scrollTop = 0;
-            document.documentElement.scrollTop = 0;
-          }}
-          className="flex w-full justify-center"
-        >
-          <div className="flex items-center gap-2 rounded-t-lg bg-base-gray-100 px-3.5 py-1.5 text-base-xs font-bold text-base-gray-500 lg:text-base-sm">
+        <div className="flex w-full justify-center">
+          <button
+            onClick={() => {
+              document.body.scrollTop = 0;
+              document.documentElement.scrollTop = 0;
+            }}
+            className="flex items-center gap-2 rounded-t-lg bg-base-gray-100 px-3.5 py-1.5 text-base-xs font-bold text-base-gray-500 lg:text-base-sm"
+          >
             <p>بازگشت به بالا</p>
             <IconChevron size={'xs'} color={'base-gray-600'} position={'top'} />
-          </div>
-        </button>
+          </button>
+        </div>
         <div className="flex flex-col items-center gap-3 rounded-xl bg-base-gray-100 p-5 sm:flex-row sm:justify-between sm:p-3">
           <div className="flex items-center gap-3">
             <Image
@@ -63,18 +63,19 @@ const Global: FC = (): JSX.Element => {
       {/* namads, what is mobit? */}
       <div className="flex flex-col gap-3 py-5 lg:flex-row lg:justify-between">
         {/* what is mobit */}
-        <div className="flex flex-col gap-2 max-w-lg">
+        <div className="flex max-w-lg flex-col gap-2">
           <p className="text-base-sm font-extrabold text-base-gray-500 lg:text-base-lg">
             فروشگاه اینترنتی مبیت، خرید آسان کالای دیجیتال با مناسب ترین قیمت
           </p>
-          <p className="text-base-xs text-justify font-bold text-base-gray-400 lg:text-base-sm">
+          <p className="text-justify text-base-xs font-bold text-base-gray-400 lg:text-base-sm">
             فروشگاه اینترنتی مبیت از جمله عرضه‌کنندگان کالای دیجیتال در سراسر
             کشور است که انواع کالاهای دیجیتال از جمله گوشی موبایل، لپ تاپ، تبلت
-            و لوازم جانبی گوشی را قیمت مناسب و ضمانت اصالت کالا به فروش می‌رساند.
+            و لوازم جانبی گوشی را قیمت مناسب و ضمانت اصالت کالا به فروش
+            می‌رساند.
           </p>
         </div>
         {/* namads */}
-        <div className="flex items-center gap-2 justify-center">
+        <div className="flex items-center justify-center gap-2">
           <Link href="/">
             <Image
               src={IMAGES.template.footer.namadEtehadieh}
@@ -102,8 +103,9 @@ const Global: FC = (): JSX.Element => {
         </div>
       </div>
       {/* copyright */}
-      <p className='border-t py-3 flex text-base-sm font-semibold text-base-gray-400 justify-center'>
-        طراحی و توسعه در اردیبهشت {convertNumber({number: '1402', type: 'to-persian'})}
+      <p className="flex justify-center border-t py-3 text-base-sm font-semibold text-base-gray-400">
+        طراحی و توسعه در اردیبهشت{' '}
+        {convertNumber({ number: '1402', type: 'to-persian' })}
       </p>
     </div>
   );

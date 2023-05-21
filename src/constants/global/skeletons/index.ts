@@ -10,7 +10,6 @@ const SKELETONS = {
   },
 };
 
-export const SekeletonMobileCategory =
-  SKELETONS.template.header.mobileCategory;
+export const SekeletonMobileCategory = SKELETONS.template.header.mobileCategory;
 export const SekeletonDesktopCategory =
   SKELETONS.template.header.desktopCategory;

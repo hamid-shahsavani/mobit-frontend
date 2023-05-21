@@ -65,7 +65,7 @@ const iransansx = localFont({
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" dir='rtl'>
+    <html lang="en" dir="rtl">
       <head>
         <title>{metadata.title}</title>
         <meta
@@ -99,7 +99,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         />
         <RecoilRoot>
           <Header />
-          <main className="pb-3 pt-[74px] lg:pt-3 container">{children}</main>
+          <main className="container pb-3 pt-[74px] lg:pt-3">{children}</main>
           <Footer />
         </RecoilRoot>
       </body>

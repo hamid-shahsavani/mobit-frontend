@@ -27,24 +27,23 @@ const HeroSlider: FC = (): JSX.Element => {
   const swiperRef = useRef<any>(null);
   const sliderData = [
     {
-    image: innerWidth <= 640 ? imageMobileOne : imageDesktopOne,
-    },{
+      image: innerWidth <= 640 ? imageMobileOne : imageDesktopOne,
+    },
+    {
       image: innerWidth <= 640 ? imageMobileTwo : imageDesktopTwo,
     },
     {
       image: innerWidth <= 640 ? imageMobileTree : imageDesktopTree,
     },
-    {  
+    {
       image: innerWidth <= 640 ? imageMobileFour : imageDesktopFour,
-    }
+    },
   ];
 
   return (
     <>
-      {
-        !!innerWidth && 
-        (
-          <section id='hero_slider' className='relative group'>
+      {!!innerWidth && (
+        <section id="hero_slider" className="group relative">
           <Swiper
             ref={swiperRef}
             slidesPerView={1}
@@ -61,40 +60,51 @@ const HeroSlider: FC = (): JSX.Element => {
             modules={[Autoplay, Pagination]}
             className="overflow-hidden rounded-xl"
           >
-            {
-              sliderData.map((item, index) => {
-                return(
-                  <SwiperSlide key={index}>
-                    <Link href={'/'}>
-                      <div className="aspect-h-2 aspect-w-3 sm:aspect-h-2 sm:aspect-w-7">
-                        <Image
-                          fill
-                          src={item.image}
-                          className="block h-full w-full overflow-hidden rounded-xl bg-base-gray-100 object-cover object-center"
-                          alt="slide image"
-                        />
-                      </div>
-                    </Link>
-                  </SwiperSlide>
-                )
-              })
-            }
+            {sliderData.map((item, index) => {
+              return (
+                <SwiperSlide key={index}>
+                  <Link href={'/'}>
+                    <div className="aspect-h-2 aspect-w-3 sm:aspect-h-2 sm:aspect-w-7">
+                      <Image
+                        fill
+                        src={item.image}
+                        className="block h-full w-full overflow-hidden rounded-xl bg-base-gray-100 object-cover object-center"
+                        alt="slide image"
+                      />
+                    </div>
+                  </Link>
+                </SwiperSlide>
+              );
+            })}
           </Swiper>
           {/* custom pagination and custom navigation for hero slider */}
-          <div className='flex justify-center absolute left-0 right-0 bottom-2 z-20'>
-            <div className='w-fit flex gap-2'>
-              <button className='bg-white w-6 rounded-[5px] flex justify-center items-center transition-all duration-300 opacity-0 group-hover:opacity-100' onClick={() => swiperRef.current.swiper.slidePrev()}>
-              <IconChevron color={'base-gray-400'} size={'xs'} position={'right'} />
+          <div className="absolute bottom-2 left-0 right-0 z-20 flex justify-center">
+            <div className="flex w-fit gap-2">
+              <button
+                className="flex w-6 items-center justify-center rounded-[5px] bg-white opacity-0 transition-all duration-300 group-hover:opacity-100"
+                onClick={() => swiperRef.current.swiper.slidePrev()}
+              >
+                <IconChevron
+                  color={'base-gray-400'}
+                  size={'xs'}
+                  position={'right'}
+                />
               </button>
-              <div id="hero-slider_pagination"/>
-              <button className='bg-white w-6 rounded-[5px] flex justify-center items-center transition-all duration-300 opacity-0 group-hover:opacity-100' onClick={() => swiperRef.current.swiper.slideNext()}>
-                <IconChevron color={'base-gray-400'} size={'xs'} position={'left'} />
+              <div id="hero-slider_pagination" />
+              <button
+                className="flex w-6 items-center justify-center rounded-[5px] bg-white opacity-0 transition-all duration-300 group-hover:opacity-100"
+                onClick={() => swiperRef.current.swiper.slideNext()}
+              >
+                <IconChevron
+                  color={'base-gray-400'}
+                  size={'xs'}
+                  position={'left'}
+                />
               </button>
             </div>
           </div>
-          </section>
-        )
-      }
+        </section>
+      )}
     </>
   );
 };

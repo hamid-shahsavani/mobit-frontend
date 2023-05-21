@@ -43,7 +43,7 @@ const NavBottom: FC = (): JSX.Element => {
   return (
     <nav
       className={`fixed w-full border-t border-gray-100  bg-white transition-all duration-500 ${
-      detectedScrollDirection === 'top' ? 'bottom-0' : '-bottom-40'
+        detectedScrollDirection === 'top' ? 'bottom-0' : '-bottom-40'
       }`}
     >
       <div className="container flex w-full justify-around py-2">

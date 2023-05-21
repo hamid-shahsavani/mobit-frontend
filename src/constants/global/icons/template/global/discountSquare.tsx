@@ -16,7 +16,7 @@ const IconDiscountSquare: FC<IProps> = ({ ...props }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      height={props.type === 'solid' ? 25.5 : 21} 
+      height={props.type === 'solid' ? 25.5 : 21}
       fill="none"
       viewBox="0 0 23 23"
     >

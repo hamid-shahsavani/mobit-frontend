@@ -28,7 +28,7 @@ const ICONS = {
     },
     footer: {
       home: Home,
-    }
+    },
   },
 };
 

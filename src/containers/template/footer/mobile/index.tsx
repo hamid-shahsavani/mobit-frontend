@@ -3,7 +3,7 @@ import NavBottom from './navBottom';
 
 const Mobile: FC = (): JSX.Element => {
   return (
-    <div className='lg:hidden'>
+    <div className="lg:hidden">
       <NavBottom />
     </div>
   );
