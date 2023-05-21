@@ -1,3 +1,5 @@
+'use client';
+
 import { IconChevron } from '@/constants/global/icons';
 import IMAGES from '@/constants/global/images';
 import convertNumber from '@/functions/global/convertNumber';

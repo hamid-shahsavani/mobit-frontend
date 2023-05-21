@@ -1,3 +1,5 @@
+'use client';
+
 import useDetectScrollDirection from '@/hooks/template/header/detectScrollDirection';
 import Link from 'next/link';
 import React, { FC } from 'react';

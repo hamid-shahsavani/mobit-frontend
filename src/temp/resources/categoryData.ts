@@ -1,5 +1,3 @@
-import { CategoryItemType } from '@/types/template/header/categoryItem.type';
-// TODO: change type to CategoryItemType[]
 export const categoryData: any = [
   {
     id: String(1030),

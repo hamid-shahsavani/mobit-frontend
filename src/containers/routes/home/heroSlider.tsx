@@ -41,71 +41,68 @@ const HeroSlider: FC = (): JSX.Element => {
   ];
 
   return (
-    <>
-      {!!innerWidth && (
-        <section id="hero_slider" className="group relative">
-          <Swiper
-            ref={swiperRef}
-            slidesPerView={1}
-            autoplay={{
-              delay: 3000,
-              disableOnInteraction: false,
-              reverseDirection: true,
-            }}
-            loop
-            pagination={{
-              clickable: true,
-              el: '#hero-slider_pagination',
-            }}
-            modules={[Autoplay, Pagination]}
-            className="overflow-hidden rounded-xl"
+    <section id="hero_slider" dir='ltr' className="group relative">
+      <Swiper
+        ref={swiperRef}
+        slidesPerView={1}
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false,
+        }}
+        loop
+        pagination={{
+          clickable: true,
+          el: '#hero-slider_pagination',
+        }}
+        modules={[Autoplay, Pagination]}
+        className="overflow-hidden rounded-xl"
+      >
+        {sliderData.map((item, index) => {
+          return (
+            <SwiperSlide key={index}>
+              <Link href={'/'}>
+                <div className="aspect-h-2 aspect-w-3 sm:aspect-h-2 bg-base-gray-100 overflow-hidden rounded-xl sm:aspect-w-7">
+                  {!!innerWidth && (
+                    <Image
+                      fill
+                      src={item.image}
+                      className="block h-full w-full object-cover object-center"
+                      alt="slide image"
+                    />
+                  )}
+                </div>
+              </Link>
+            </SwiperSlide>
+          );
+        })}
+      </Swiper>
+      {/* custom pagination and custom navigation for hero slider */}
+      <div className="absolute bottom-2 left-0 right-0 z-20 flex justify-center">
+        <div className="flex w-fit gap-2">
+        <button
+            className="flex w-6 items-center justify-center rounded-[5px] bg-white transition-all duration-300 opacity-0 group-hover:opacity-100"
+            onClick={() => swiperRef.current.swiper.slidePrev()}
           >
-            {sliderData.map((item, index) => {
-              return (
-                <SwiperSlide key={index}>
-                  <Link href={'/'}>
-                    <div className="aspect-h-2 aspect-w-3 sm:aspect-h-2 sm:aspect-w-7">
-                      <Image
-                        fill
-                        src={item.image}
-                        className="block h-full w-full overflow-hidden rounded-xl bg-base-gray-100 object-cover object-center"
-                        alt="slide image"
-                      />
-                    </div>
-                  </Link>
-                </SwiperSlide>
-              );
-            })}
-          </Swiper>
-          {/* custom pagination and custom navigation for hero slider */}
-          <div className="absolute bottom-2 left-0 right-0 z-20 flex justify-center">
-            <div className="flex w-fit gap-2">
-              <button
-                className="flex w-6 items-center justify-center rounded-[5px] bg-white opacity-0 transition-all duration-300 group-hover:opacity-100"
-                onClick={() => swiperRef.current.swiper.slidePrev()}
-              >
-                <IconChevron
-                  color={'base-gray-400'}
-                  size={'xs'}
-                  position={'right'}
-                />
-              </button>
-              <div id="hero-slider_pagination" />
-              <button
-                className="flex w-6 items-center justify-center rounded-[5px] bg-white opacity-0 transition-all duration-300 group-hover:opacity-100"
-                onClick={() => swiperRef.current.swiper.slideNext()}
-              >
-                <IconChevron
-                  color={'base-gray-400'}
-                  size={'xs'}
-                  position={'left'}
-                />
-              </button>
-            </div>
-          </div>
-        </section>
-      )}
-    </>
+            <IconChevron
+              color={'base-gray-400'}
+              size={'xs'}
+              position={'left'}
+            />
+          </button>
+          <div id="hero-slider_pagination" />
+          <button
+            className="flex w-6 items-center justify-center rounded-[5px] bg-white transition-all duration-300 opacity-0 group-hover:opacity-100"
+            onClick={() => swiperRef.current.swiper.slideNext()}
+          >
+            <IconChevron
+              color={'base-gray-400'}
+              size={'xs'}
+              position={'right'}
+            />
+          </button>
+        </div>
+      </div>
+    </section>
   );
 };
 

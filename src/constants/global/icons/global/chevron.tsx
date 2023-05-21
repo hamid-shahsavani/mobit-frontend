@@ -19,20 +19,16 @@ const IconChevron: FC<IProps> = ({ ...props }): JSX.Element => {
     'h-[13px]': props.size === 'sm',
     'h-[15px]': props.size === 'md',
   });
+  const iconPosition = classNames({
+    '-rotate-90': props.position === 'top',
+    'rotate-90': props.position === 'bottom',
+    'rotate-180': props.position === 'left',
+    'rotate-0': props.position === 'right',
+  });
 
   return (
     <svg
-      className={`transition-all duration-300 ${iconSize} ${
-        props.position === 'top'
-          ? '-rotate-90'
-          : props.position === 'bottom'
-          ? 'rotate-90'
-          : props.position === 'left'
-          ? 'rotate-180'
-          : props.position === 'right'
-          ? 'rotate-0'
-          : ''
-      }`}
+      className={`transition-all duration-300 ${iconSize} ${iconPosition}`}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 9.017 16.031"
     >

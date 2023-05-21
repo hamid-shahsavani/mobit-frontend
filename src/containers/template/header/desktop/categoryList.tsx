@@ -1,7 +1,9 @@
+'use client';
+
 import { atomIsShowCategoryList } from '@/atoms/template/header/desktop/isShowCategoryList';
 import SkeletonDesktopCategory from '@/constants/global/skeletons/template/header/desktop/category';
 import { APIfetchCategoryData } from '@/services/template/header/fetchCategoryData';
-import { CategoryItemType } from '@/types/template/header/categoryItem.type';
+import { TCategoryItem } from '@/types/template/header/categoryItem.type';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { FC, Fragment, useEffect, useRef, useState } from 'react';
@@ -19,9 +21,9 @@ const CategoryList: FC = (): JSX.Element => {
   const [atomStateIsShowCategoryList, setAtomStateIsShowCategoryList] =
     useRecoilState<boolean>(atomIsShowCategoryList);
 
-  // for detect current hovered category / default actived index 0 | null = wait for fetch | undefined = seperator for fix height | CategoryItemType = fetched and set index 0 of fetched array
+  // for detect current hovered category / default actived index 0 | null = wait for fetch | undefined = seperator for fix height | TCategoryItem = fetched and set index 0 of fetched array
   const [activedCategoryData, setActivedCategoryData] = useState<
-    CategoryItemType | null | undefined
+    TCategoryItem | null | undefined
   >(null);
 
   // for set width and height categoryList left-side
@@ -78,7 +80,7 @@ const CategoryList: FC = (): JSX.Element => {
       setFirstShowCategoryList(true);
     }
   }, [atomStateIsShowCategoryList]);
-  const { data: categoryData } = useSWR<CategoryItemType[] | null>(
+  const { data: categoryData } = useSWR<TCategoryItem[] | null>(
     firstShowCategoryList ? 'categoryData' : null,
     fetcherFetchCategoryData,
   );
@@ -109,7 +111,7 @@ const CategoryList: FC = (): JSX.Element => {
             id={'header-desktop_category-level-one'}
             className="h-fit w-48 border-l py-2"
           >
-            {categoryData?.map((item: CategoryItemType) => {
+            {categoryData?.map((item: TCategoryItem) => {
               return (
                 <Link
                   href={item.refrence}
@@ -150,7 +152,7 @@ const CategoryList: FC = (): JSX.Element => {
             ref={categoryListLeftSideRef}
             className="flex flex-col flex-wrap gap-x-5 gap-y-2 p-3.5 text-base-xs font-bold text-base-gray-400"
           >
-            {activedCategoryData.children.map((item: CategoryItemType) => {
+            {activedCategoryData.children.map((item: TCategoryItem) => {
               return (
                 <Fragment key={item.id}>
                   {/* category level one */}
@@ -163,7 +165,7 @@ const CategoryList: FC = (): JSX.Element => {
                   </Link>
                   {/* category level two */}
                   {!!item.children.length &&
-                    item.children.map((item: CategoryItemType) => {
+                    item.children.map((item: TCategoryItem) => {
                       return (
                         <Link
                           key={item.id}

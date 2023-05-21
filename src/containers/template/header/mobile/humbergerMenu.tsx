@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { FC, useEffect, useState } from 'react';
@@ -11,9 +13,9 @@ import { atomIsShowHumbergerMenu } from '@/atoms/template/header/mobile/isShowHu
 import enableAndDisableScroll from '@/functions/global/enableAndDisableScroll';
 import useSWR from 'swr';
 import { APIfetchCategoryData } from '@/services/template/header/fetchCategoryData';
-import { CategoryItemType } from '@/types/template/header/categoryItem.type';
 import SkeletonMobileCategory from '@/constants/global/skeletons/template/header/mobile/category';
 import IMAGES from '@/constants/global/images';
+import { TCategoryItem } from '@/types/template/header/categoryItem.type';
 
 async function fetcherFetchCategoryData() {
   const data = await APIfetchCategoryData();
@@ -21,7 +23,7 @@ async function fetcherFetchCategoryData() {
 }
 
 interface IPropsCategoryLevel {
-  categoryData: CategoryItemType;
+  categoryData: TCategoryItem;
 }
 
 const HumbergerMenu: FC = (): JSX.Element => {
@@ -42,7 +44,7 @@ const HumbergerMenu: FC = (): JSX.Element => {
       setFirstShowHumbergerMenu(true);
     }
   }, [atomStateIsShowHumbergerMenu]);
-  const { data: categoryData } = useSWR<CategoryItemType[] | null>(
+  const { data: categoryData } = useSWR<TCategoryItem[] | null>(
     firstShowHumbergerMenu ? 'categoryData' : null,
     fetcherFetchCategoryData,
   );
@@ -88,7 +90,7 @@ const HumbergerMenu: FC = (): JSX.Element => {
             </li>
           </Link>
           <ul>
-            {props.categoryData.children.map((item: CategoryItemType) => {
+            {props.categoryData.children.map((item: TCategoryItem) => {
               return (
                 <li
                   key={item.id}
@@ -148,7 +150,7 @@ const HumbergerMenu: FC = (): JSX.Element => {
             </li>
           </Link>
           <ul>
-            {props.categoryData.children.map((item: CategoryItemType) => {
+            {props.categoryData.children.map((item: TCategoryItem) => {
               return (
                 <li
                   key={item.id}
@@ -237,7 +239,7 @@ const HumbergerMenu: FC = (): JSX.Element => {
                   className={`minimal-scrollbar my-1.5 max-h-[calc(100vh_-_220px)] w-full justify-center pl-1 transition-all duration-500`}
                 >
                   <ul>
-                    {categoryData.map((item: CategoryItemType) => {
+                    {categoryData.map((item: TCategoryItem) => {
                       return (
                         <li
                           key={item.id}

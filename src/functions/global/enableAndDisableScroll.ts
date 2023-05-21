@@ -1,7 +1,7 @@
-type ArgsType = {
+type TArgs = {
   status: 'enable' | 'disable';
 };
-export default function enableAndDisableScroll(args: ArgsType): void {
+export default function enableAndDisableScroll(args: TArgs): void {
   // detect is-visible scroll-y-bar in right-side
   function isScrollbarVisible() {
     var element = document.createElement('div');

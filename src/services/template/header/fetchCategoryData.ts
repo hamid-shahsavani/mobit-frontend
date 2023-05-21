@@ -1,11 +1,11 @@
 import api from '@/services/apiService';
-import { CategoryItemType } from '@/types/template/header/categoryItem.type';
+import { TCategoryItem } from '@/types/template/header/categoryItem.type';
 import { AxiosResponse } from 'axios';
 
-type AxiosResponseType = CategoryItemType[];
+type TAxiosResponse = TCategoryItem[];
 
-export const APIfetchCategoryData = async (): Promise<AxiosResponseType> => {
-  const { data }: AxiosResponse<AxiosResponseType> = await api.get(
+export const APIfetchCategoryData = async (): Promise<TAxiosResponse> => {
+  const { data }: AxiosResponse<TAxiosResponse> = await api.get(
     '/categories',
     {
       headers: { 'Content-Type': 'application/json' },

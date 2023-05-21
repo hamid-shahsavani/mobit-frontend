@@ -1,3 +1,5 @@
+'use client';
+
 import { atomIsShowSearchResult } from '@/atoms/template/header/global/isShowSearchResult';
 import {
   IconCart,
