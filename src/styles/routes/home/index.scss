@@ -1,44 +1,20 @@
 // hero-slider [navigation, pagination] style
-.hero_slider {
+#hero_slider {
   // pagination
-  .swiper-pagination-bullet {
-    background-color: #efefef;
-    opacity: 0.7;
-    transition: all 0.3s;
-  }
-  .swiper-pagination-bullet-active {
-    opacity: 1;
-    width: 25px;
-    border-radius: 10px;
-  }
-  // navigation
-  &:hover {
-    .swiper-button-prev,
-    .swiper-button-next {
-      visibility: visible;
-      opacity: 1;
-    }
-  }
-  .swiper-button-prev,
-  .swiper-button-next {
-    transition: 0.3s all;
-    visibility: hidden;
-    opacity: 0;
-    background: rgba(199, 199, 199, 0.3);
-    height: 40px;
-    width: 40px;
+  #hero-slider_pagination {
     display: flex;
-    border-radius: 50%;
-    &::after {
-      font-size: 20px;
-      font-weight: 600;
-      color: #efefef;
+    align-items: center;
+    width: fit-content;
+    height: 24px;
+    .swiper-pagination-bullet {
+      background-color: #efefef;
+      opacity: 0.7;
+      transition: all 0.3s;
     }
-  }
-  .swiper-button-prev::after {
-    padding-left: 4px;
-  }
-  .swiper-button-next::after {
-    padding-right: 4px;
+    .swiper-pagination-bullet-active {
+      opacity: 1;
+      width: 25px;
+      border-radius: 10px;
+    }
   }
 }

@@ -3,7 +3,7 @@
 import { RecoilRoot } from 'recoil';
 import localFont from 'next/font/local';
 import Header from '@/containers/template/header';
-import '@/styles/global/index.scss';
+import '@/styles/index.scss';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Footer from '@/containers/template/footer';
@@ -65,7 +65,7 @@ const iransansx = localFont({
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" dir='rtl'>
       <head>
         <title>{metadata.title}</title>
         <meta
@@ -99,7 +99,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         />
         <RecoilRoot>
           <Header />
-          <main className="pb-3 pt-[74px] lg:pt-3">{children}</main>
+          <main className="pb-3 pt-[74px] lg:pt-3 container">{children}</main>
           <Footer />
         </RecoilRoot>
       </body>

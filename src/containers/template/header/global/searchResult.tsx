@@ -12,7 +12,7 @@ const SearchResult: FC = (): JSX.Element => {
 
   return (
     <section
-      className={`fixed container left-0 right-0 top-0 h-screen w-full overflow-hidden bg-white transition-opacity duration-300 lg:left-1/2 lg:right-1/2 lg:top-20 lg:h-auto lg:w-[350px] lg:translate-x-[80px] lg:rounded-lg lg:border lg:border-gray-100 xl:w-[400px] xl:translate-x-[101px] ${
+      className={`fixed container left-0 z-50 right-0 top-0 h-screen w-full overflow-hidden bg-white transition-opacity duration-300 lg:left-1/2 lg:right-1/2 lg:top-20 lg:h-auto lg:w-[350px] lg:translate-x-[80px] lg:rounded-lg lg:border lg:border-gray-100 xl:w-[400px] xl:translate-x-[101px] ${
         atomStateIsShowSearchResult
           ? 'visible opacity-100'
           : 'invisible opacity-0'

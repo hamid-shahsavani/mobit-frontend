@@ -3,7 +3,7 @@ import ContentLoader from 'react-content-loader';
 
 const SkeletonDesktopCategory: FC = () => (
   <div>
-    <div className="flex h-[314px] rounded-lg border border-gray-100 bg-white pr-2 w-[659px]">
+    <div className="flex h-[314px] pr-2 w-[659px]">
       {/* right - level one */}
       <div className="w-[186px] border-l py-[17px]">
         {new Array(6).fill(null).map((item: any, index: any) => (

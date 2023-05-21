@@ -1,5 +1,6 @@
 import { IconChevron } from '@/constants/global/icons';
 import IMAGES from '@/constants/global/images';
+import convertNumber from '@/functions/global/convertNumber';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FC } from 'react';
@@ -102,7 +103,7 @@ const Global: FC = (): JSX.Element => {
       </div>
       {/* copyright */}
       <p className='border-t py-3 flex text-base-sm font-semibold text-base-gray-400 justify-center'>
-        طراحی و توسعه در اردیبهشت 1402
+        طراحی و توسعه در اردیبهشت {convertNumber({number: '1402', type: 'to-persian'})}
       </p>
     </div>
   );
