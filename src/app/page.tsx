@@ -1,10 +1,12 @@
 import HeroSlider from '@/containers/routes/home/heroSlider';
+import TopCategories from '@/containers/routes/home/topCategories';
 
 export default function Home() {
   return (
     <>
       <HeroSlider />
-      <div className='h-[400px]'></div>
+      <TopCategories />
+      <div className='h-[200px]'></div>
     </>
   );
 }

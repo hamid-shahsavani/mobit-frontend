@@ -6,6 +6,6 @@ module.exports = {
   },
   images: {
     dangerouslyAllowSVG: true,
-    domains: ['cdn.mobit.ir'],
+    domains: ['cdn.mobit.ir', 'res.cloudinary.com'],
   },
 };

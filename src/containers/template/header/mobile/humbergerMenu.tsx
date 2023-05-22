@@ -15,7 +15,7 @@ import useSWR from 'swr';
 import { APIfetchCategoryData } from '@/services/template/header/fetchCategoryData';
 import SkeletonMobileCategory from '@/constants/global/skeletons/template/header/mobile/category';
 import IMAGES from '@/constants/global/images';
-import { TCategoryItem } from '@/types/template/header/categoryItem.type';
+import { TCategoryItem } from '@/types/template/header/categoryItem';
 
 async function fetcherFetchCategoryData() {
   const data = await APIfetchCategoryData();
@@ -236,7 +236,7 @@ const HumbergerMenu: FC = (): JSX.Element => {
             <div>
               <div className={`flex justify-center overflow-hidden`}>
                 <div
-                  className={`minimal-scrollbar my-1.5 max-h-[calc(100vh_-_220px)] w-full justify-center pl-1 transition-all duration-500`}
+                  className={`minimal-scrollbar my-1.5 max-h-[calc(100vh_-_250px)] w-full justify-center pl-1 transition-all duration-500`}
                 >
                   <ul>
                     {categoryData.map((item: TCategoryItem) => {

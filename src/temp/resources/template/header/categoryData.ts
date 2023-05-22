@@ -1,4 +1,4 @@
-export const categoryData: any = [
+export const staticCategoryData: any = [
   {
     id: String(1030),
     name: 'موبایل و تبلت',

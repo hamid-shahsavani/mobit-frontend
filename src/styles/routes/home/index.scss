@@ -1,6 +1,5 @@
-// hero-slider [navigation, pagination] style
+// hero-slider customize pagination
 #hero_slider {
-  // pagination
   #hero-slider_pagination {
     direction: ltr;
     display: flex;
@@ -27,10 +26,34 @@
         height: 8px;
         background-color: #fff;
         @keyframes pagination-progess {
-          0% { width: 0%; }
-          100% { width: 100%; }
+          0% {
+            width: 0%;
+          }
+          100% {
+            width: 100%;
+          }
         }
       }
     }
+  }
+}
+
+// top-categories customize scroll-x-bar
+#top-categories {
+  &::-webkit-scrollbar {
+    height: 6px;
+  }
+  &::-webkit-scrollbar-button {
+    width: 70px;
+  }
+  &::-webkit-scrollbar-track {
+    background: #dbdbdb;
+    border-radius: 12px;
+    border: 0;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #377dff;
+    border-radius: 12px;
+    border: 0;
   }
 }

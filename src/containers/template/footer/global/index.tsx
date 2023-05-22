@@ -32,7 +32,7 @@ const Global: FC = (): JSX.Element => {
               height={40}
               alt="logo icon"
             />
-            <p className="text-base-lg font-extrabold text-base-royal-blue">
+            <p className="text-base-lg font-extrabold text-base-royal-blue lg:text-base-xl lg:font-black">
               دسترسی سریع به اپلیکیشن
             </p>
           </div>
@@ -67,9 +67,9 @@ const Global: FC = (): JSX.Element => {
         {/* what is mobit */}
         <div className="flex max-w-lg flex-col gap-2">
           <p className="text-base-sm font-extrabold text-base-gray-500 lg:text-base-lg">
-            فروشگاه اینترنتی مبیت، خرید آسان کالای دیجیتال با مناسب ترین قیمت
+            فروشگاه اینترنتی مبیت، خرید آسان کالای دیجیتال
           </p>
-          <p className="text-justify text-base-xs font-bold text-base-gray-400 lg:text-base-sm">
+          <p className="text-base-xs font-bold text-base-gray-400 lg:text-base-sm">
             فروشگاه اینترنتی مبیت از جمله عرضه‌کنندگان کالای دیجیتال در سراسر
             کشور است که انواع کالاهای دیجیتال از جمله گوشی موبایل، لپ تاپ، تبلت
             و لوازم جانبی گوشی را قیمت مناسب و ضمانت اصالت کالا به فروش
