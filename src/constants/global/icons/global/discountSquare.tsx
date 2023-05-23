@@ -4,6 +4,7 @@ import { FC } from 'react';
 interface IProps {
   type: 'solid' | 'outline';
   color: 'white' | 'base-red' | 'base-gray-300';
+  size: 'xs' | 'sm' | 'md';
 }
 
 const IconDiscountSquare: FC<IProps> = ({ ...props }) => {
@@ -16,7 +17,17 @@ const IconDiscountSquare: FC<IProps> = ({ ...props }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      height={props.type === 'solid' ? 25.5 : 21}
+      height={
+        props.type === 'solid' && props.color === 'base-gray-300'
+          ? 25.5
+          : props.size === 'xs'
+          ? 21
+          : props.size === 'sm'
+          ? 26
+          : props.size === 'md'
+          ? 29
+          : 0
+      }
       fill="none"
       viewBox="0 0 23 23"
     >

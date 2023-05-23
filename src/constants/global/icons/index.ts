@@ -1,8 +1,8 @@
 // global
 import { default as Chevron } from '@/constants/global/icons/global/chevron';
+import { default as DiscountSquare } from '@/constants/global/icons/global/discountSquare';
 // template/global
 import { default as User } from '@/constants/global/icons/template/global/user';
-import { default as DiscountSquare } from '@/constants/global/icons/template/global/discountSquare';
 // template/header
 import { default as ThreeDots } from '@/constants/global/icons/template/header/threeDots';
 import { default as Magnifier } from '@/constants/global/icons/template/header/magnifier';
@@ -14,11 +14,11 @@ import { default as Home } from '@/constants/global/icons/template/footer/home';
 const ICONS = {
   global: {
     chevron: Chevron,
+    discountSquare: DiscountSquare,
   },
   template: {
     global: {
       user: User,
-      discountSquare: DiscountSquare,
       cart: Cart,
     },
     header: {
@@ -34,9 +34,9 @@ const ICONS = {
 
 // global
 export const IconChevron = ICONS.global.chevron;
+export const IconDiscountSquare = ICONS.global.discountSquare;
 // template/global
 export const IconUser = ICONS.template.global.user;
-export const IconDiscountSquare = ICONS.template.global.discountSquare;
 export const IconCart = ICONS.template.global.cart;
 // template/header
 export const IconThreeDots = ICONS.template.header.threeDots;

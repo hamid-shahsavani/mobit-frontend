@@ -1,4 +1,6 @@
-export const topCategoriesData = [
+import { TtopCategoriesItem } from "@/types/routes/home/topCategoriesItem";
+
+export const topCategoriesData: TtopCategoriesItem[] = [
   {
     image:
       'https://res.cloudinary.com/dl2fukmvg/image/upload/v1684783351/mobit/routes/home/top-categories/mobile_fprrkj.svg',

@@ -10,12 +10,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { IconChevron } from '@/constants/global/icons';
-import useDetectScreenSize from '@/hooks/global/detectScreenSize';
+import useDetectScreenSize from '@/hooks/routes/home/detectScreenSize';
 import { heroSliderData } from '@/resources/routes/home/heroSliderData';
 
 const HeroSlider: FC = (): JSX.Element => {
-  // detect current innerWidth and innerHeight
-  const { innerWidth, innerHeight } = useDetectScreenSize();
+  // detect current innerWidth
+  const { innerWidth } = useDetectScreenSize();
 
   const swiperRef = useRef<any>(null);
 

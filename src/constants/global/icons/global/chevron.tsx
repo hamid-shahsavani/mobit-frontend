@@ -37,7 +37,7 @@ const IconChevron: FC<IProps> = ({ ...props }): JSX.Element => {
     <svg
       className={`transition-all duration-300 ${iconSize} ${iconPosition}`}
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 9.017 16.031"
+      viewBox="0 0 9.017 16.500"
     >
       <path
         id="Path_1333"
