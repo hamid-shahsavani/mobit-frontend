@@ -212,7 +212,7 @@ const HumbergerMenu: FC = (): JSX.Element => {
             className={`mx-2 flex items-center justify-between border-b border-gray-200 px-1 py-3.5`}
           >
             <div className="flex items-center gap-2.5">
-              <IconDiscountSquare type={'outline'} color={'base-red'} />
+              <IconDiscountSquare size={'xs'} type={'outline'} color={'base-red'} />
               <p className="text-base-sm font-bold text-base-gray-500">
                 پیشنهاد های شگفت انگیز
               </p>

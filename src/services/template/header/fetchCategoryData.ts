@@ -1,5 +1,5 @@
 import api from '@/services/apiService';
-import { TCategoryItem } from '@/types/template/header/categoryItem.type';
+import { TCategoryItem } from '@/types/template/header/categoryItem';
 import { AxiosResponse } from 'axios';
 
 type TAxiosResponse = TCategoryItem[];

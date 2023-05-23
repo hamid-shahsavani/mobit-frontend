@@ -24,7 +24,7 @@ const NavBottom: FC = (): JSX.Element => {
     },
     {
       text: 'پیشنهاد شگفت انگیز',
-      icon: <IconDiscountSquare type={'solid'} color={'base-gray-300'} />,
+      icon: <IconDiscountSquare size={'xs'} type={'solid'} color={'base-gray-300'} />,
       url: '/',
     },
     {

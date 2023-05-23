@@ -3,7 +3,7 @@
 import { atomIsShowCategoryList } from '@/atoms/template/header/desktop/isShowCategoryList';
 import SkeletonDesktopCategory from '@/constants/global/skeletons/template/header/desktop/category';
 import { APIfetchCategoryData } from '@/services/template/header/fetchCategoryData';
-import { TCategoryItem } from '@/types/template/header/categoryItem.type';
+import { TCategoryItem } from '@/types/template/header/categoryItem';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { FC, Fragment, useEffect, useRef, useState } from 'react';
