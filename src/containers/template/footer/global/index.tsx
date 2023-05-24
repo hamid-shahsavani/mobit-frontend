@@ -30,7 +30,7 @@ const Global: FC = (): JSX.Element => {
               src={IMAGES.template.footer.logoIcon}
               width={40}
               height={40}
-              alt="logo icon"
+              alt="لوگو مبیت"
             />
             <p className="text-base-lg font-extrabold text-base-royal-blue lg:text-base-xl lg:font-black">
               دسترسی سریع به اپلیکیشن
@@ -45,7 +45,7 @@ const Global: FC = (): JSX.Element => {
                 src={IMAGES.template.footer.downloadAppFromCafebazzar}
                 height={30}
                 width={110}
-                alt="download app from cafebazar"
+                alt="دانلود اپلیکیشن مبیت از کافه بازار"
               />
             </Link>
             <Link
@@ -56,25 +56,25 @@ const Global: FC = (): JSX.Element => {
                 src={IMAGES.template.footer.downloadAppFromIapps}
                 height={30}
                 width={110}
-                alt="download app from iapps"
+                alt="دانلود اپلیکیشن مبیت از آی اپس"
               />
             </Link>
           </div>
         </div>
       </div>
       {/* namads, what is mobit? */}
-      <div className="flex flex-col gap-3 py-5 lg:flex-row lg:justify-between">
+      <div className="flex flex-col gap-3 py-5 sm:flex-row sm:justify-between">
         {/* what is mobit */}
-        <div className="flex max-w-lg flex-col gap-2">
-          <p className="text-base-sm font-extrabold text-base-gray-500 lg:text-base-lg">
+        <div className="flex max-w-sm flex-col gap-2 lg:max-w-md">
+          <h1 className="text-base-sm font-extrabold text-base-gray-500 lg:text-base-lg">
             فروشگاه اینترنتی مبیت، خرید آسان کالای دیجیتال
-          </p>
-          <p className="text-base-xs font-bold text-base-gray-400 lg:text-base-sm">
+          </h1>
+          <h2 className="text-base-xs font-bold text-base-gray-400 lg:text-base-sm">
             فروشگاه اینترنتی مبیت از جمله عرضه‌کنندگان کالای دیجیتال در سراسر
             کشور است که انواع کالاهای دیجیتال از جمله گوشی موبایل، لپ تاپ، تبلت
             و لوازم جانبی گوشی را قیمت مناسب و ضمانت اصالت کالا به فروش
             می‌رساند.
-          </p>
+          </h2>
         </div>
         {/* namads */}
         <div className="flex items-center justify-center gap-2">
@@ -83,7 +83,7 @@ const Global: FC = (): JSX.Element => {
               src={IMAGES.template.footer.namadEtehadieh}
               width={80}
               height={80}
-              alt="namad etehadieh"
+              alt="نماد اتحادیه"
             />
           </Link>
           <Link href="/">
@@ -91,7 +91,7 @@ const Global: FC = (): JSX.Element => {
               src={IMAGES.template.footer.namadSamandehi}
               width={80}
               height={80}
-              alt="namad samandehi"
+              alt="نماد ساماندهی"
             />
           </Link>{' '}
           <Link href="/">
@@ -99,7 +99,7 @@ const Global: FC = (): JSX.Element => {
               src={IMAGES.template.footer.namadSep}
               width={80}
               height={80}
-              alt="namad sep"
+              alt="نماد سپ"
             />
           </Link>
         </div>

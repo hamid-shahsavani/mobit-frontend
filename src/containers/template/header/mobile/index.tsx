@@ -62,7 +62,7 @@ const Mobile: FC = (): JSX.Element => {
                   src={IMAGES.template.header.logoWhite}
                   width={70}
                   height={70}
-                  alt=""
+                  alt="لوگو مبیت"
                 />
               </Link>
               <button>

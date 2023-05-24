@@ -1,0 +1,15 @@
+export type TProduct = {
+    id: number,
+    reference: string,
+    name: string,
+    description: string,
+    category_name: string,
+    price: string,
+    super_discount: boolean,
+    discount: number,
+    rating: number,
+    color: string[],
+    comment: number,
+    fast_delivery: boolean,
+    product_image: string,
+};

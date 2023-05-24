@@ -44,7 +44,7 @@ const NavBottom: FC = (): JSX.Element => {
 
   return (
     <nav
-      className={`fixed w-full border-t border-gray-100  bg-white transition-all duration-500 ${
+      className={`fixed z-50 w-full border-t border-gray-100  bg-white transition-all duration-500 ${
         detectedScrollDirection === 'top' ? 'bottom-0' : '-bottom-40'
       }`}
     >

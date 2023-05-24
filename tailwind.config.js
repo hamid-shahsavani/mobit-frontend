@@ -45,6 +45,7 @@ module.exports = {
         'base-gray-600': theme.colors['gray-600'],
       },
       fontSize: {
+        'base-3xs': theme.fontSize['2xs'],
         'base-2xs': theme.fontSize['2xs'],
         'base-xs': theme.fontSize.xs,
         'base-sm': theme.fontSize.sm,

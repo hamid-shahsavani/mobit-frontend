@@ -67,7 +67,7 @@ const HumbergerMenu: FC = (): JSX.Element => {
               src={String(props.categoryData.picture_link)}
               width={40}
               height={40}
-              alt=""
+              alt={props.categoryData.name}
             />
             <span className="truncate pl-1">{props.categoryData.name}</span>
           </div>
@@ -201,7 +201,7 @@ const HumbergerMenu: FC = (): JSX.Element => {
                 src={IMAGES.template.header.logoWhite}
                 width={60}
                 height={60}
-                alt=""
+                alt="لوگو مبیت"
               />
             </Link>
           </div>

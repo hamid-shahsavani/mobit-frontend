@@ -49,7 +49,7 @@ const Desktop: FC = (): JSX.Element => {
               src={IMAGES.template.header.logoWhite}
               width={80}
               height={80}
-              alt=""
+              alt="لوگو مبیت"
             />
           </Link>
           <div className="flex gap-3 xl:gap-5">

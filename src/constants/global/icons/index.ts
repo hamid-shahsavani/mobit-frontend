@@ -1,6 +1,9 @@
 // global
 import { default as Chevron } from '@/constants/global/icons/global/chevron';
 import { default as DiscountSquare } from '@/constants/global/icons/global/discountSquare';
+import { default as Discount } from '@/constants/global/icons/global/discount';
+import { default as FastDelivery } from '@/constants/global/icons/global/fastDelivery';
+import { default as Star } from '@/constants/global/icons/global/star';
 // template/global
 import { default as User } from '@/constants/global/icons/template/global/user';
 // template/header
@@ -15,6 +18,9 @@ const ICONS = {
   global: {
     chevron: Chevron,
     discountSquare: DiscountSquare,
+    discount: Discount,
+    fastDelivery: FastDelivery,
+    star: Star
   },
   template: {
     global: {
@@ -35,6 +41,9 @@ const ICONS = {
 // global
 export const IconChevron = ICONS.global.chevron;
 export const IconDiscountSquare = ICONS.global.discountSquare;
+export const IconDiscount = ICONS.global.discount;
+export const IconFastDelivery = ICONS.global.fastDelivery;
+export const IconStar = ICONS.global.star;
 // template/global
 export const IconUser = ICONS.template.global.user;
 export const IconCart = ICONS.template.global.cart;

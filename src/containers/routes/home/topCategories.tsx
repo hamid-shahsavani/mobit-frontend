@@ -22,7 +22,7 @@ const TopCategories: FC = (): JSX.Element => {
               "
                 src={item.image}
                 fill
-                alt="top category item"
+                alt={item.text}
               />
             </div>
             <p className="flex justify-center whitespace-nowrap text-base-xs font-bold text-base-gray-500 lg:text-base-sm">

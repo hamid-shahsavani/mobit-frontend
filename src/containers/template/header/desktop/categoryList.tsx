@@ -131,7 +131,7 @@ const CategoryList: FC = (): JSX.Element => {
                       src={String(item.picture_link)}
                       width={40}
                       height={40}
-                      alt=""
+                      alt={item.name}
                     />
                     <p
                       className={`w-full truncate text-base-sm text-base-gray-500 ${

@@ -48,7 +48,7 @@ const HeroSlider: FC = (): JSX.Element => {
                         innerWidth <= 640 ? item.imageMobile : item.imageDesktop
                       }
                       className="block h-full w-full object-cover object-center"
-                      alt="slide image"
+                      alt="تصویر اسلایدر"
                     />
                   )}
                 </div>

@@ -12,7 +12,6 @@ export default function Home() {
       <ProductCardSlider type={'new-phones'} />
       <ProductCardSlider type={'new-products'} />
       <ProductCardSlider type={'similar-products'} />
-      <div className='h-[200px]'></div>
     </>
   );
 }
