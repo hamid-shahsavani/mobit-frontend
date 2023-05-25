@@ -20,7 +20,11 @@ const HeroSlider: FC = (): JSX.Element => {
   const swiperRef = useRef<any>(null);
 
   return (
-    <section id="hero_slider" dir="ltr" className="group/hero-slider relative">
+    <section
+      id="hero_slider"
+      dir="ltr"
+      className="group/hero-slider container relative"
+    >
       <Swiper
         ref={swiperRef}
         slidesPerView={1}

@@ -21,7 +21,7 @@ const IconDiscountSquare: FC<IProps> = ({ ...props }) => {
         props.type === 'solid' && props.color === 'base-gray-300'
           ? 25
           : props.size === 'xs'
-          ? 22
+          ? 23
           : props.size === 'sm'
           ? 26
           : props.size === 'md'

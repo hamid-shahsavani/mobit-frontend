@@ -4,8 +4,8 @@ const IconDiscount: FC = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width={12}
-      height={12}
+      width={13.5}
+      height={13.5}
       fill="none"
       viewBox="0 0 11 10"
     >

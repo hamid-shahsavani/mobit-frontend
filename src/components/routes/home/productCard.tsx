@@ -17,10 +17,13 @@ interface IProps {
 
 const ProductCard: FC<IProps> = ({ ...props }): JSX.Element => {
   return (
-    <Link href={props.data.reference} className="flex min-w-[220px] flex-col gap-2">
-      <div className="group relative flex h-[140px] w-full items-center justify-center rounded-xl bg-base-gray-100">
+    <Link
+      href={props.data.refrence}
+      className="flex min-w-[220px] flex-col gap-2 lg:min-w-[250px]"
+    >
+      <div className="group relative flex h-[140px] w-full items-center justify-center rounded-xl bg-base-gray-100 lg:h-[160px]">
         {/* image */}
-        <div className="relative h-[120px] w-[120px]">
+        <div className="relative h-[120px] w-[120px] lg:h-[140px] lg:w-[140px]">
           <Image
             className="transition-all duration-300 group-hover:scale-105"
             src={props.data.product_image}
@@ -32,7 +35,7 @@ const ProductCard: FC<IProps> = ({ ...props }): JSX.Element => {
           {/* discount */}
           {!!props.data.discount && (
             <div className="flex items-center gap-0.5 rounded-md bg-base-red px-[7px]">
-              <p className="text-base-md font-bold text-white">
+              <p className="text-base-md pt-0.5 font-semibold text-white">
                 {convertNumber({
                   number: String(props.data.discount),
                   type: 'to-persian',
@@ -54,7 +57,7 @@ const ProductCard: FC<IProps> = ({ ...props }): JSX.Element => {
         </div>
         {/* colors */}
         <div className="absolute bottom-2.5 right-2.5 flex gap-[5px] rounded-[5px] bg-base-gray-200 p-[7px]">
-          {props.data.color.map((item, index) => {
+          {props.data.colors.map((item, index) => {
             return (
               <span
                 key={index}
@@ -68,18 +71,18 @@ const ProductCard: FC<IProps> = ({ ...props }): JSX.Element => {
         </div>
       </div>
       {/* title */}
-      <h4 className="w-full line-clamp-2 text-base-md font-semibold leading-5">
+      <h4 className="line-clamp-2 my-1 w-full text-base-sm font-semibold leading-5">
         {props.data.name}
       </h4>
       {/* price */}
       <div className="flex justify-end gap-2">
         {!!props.data.discount && (
-          <del className="text-base-md font-bold text-base-gray-400">
+          <del className="text-base-md font-semibold text-base-gray-400 lg:text-base-lg">
             {Math.round(Number(props.data.price)).toLocaleString('fa')}
           </del>
         )}
-        <div className="flex gap-[3px] text-base-sm font-extrabold text-base-gray-500">
-          <p className="text-base-md">
+        <div className="flex gap-[3px] text-base-sm font-semibold text-base-gray-600">
+          <p className="text-base-md text-black lg:text-base-lg">
             {Math.round(
               Number(props.data.price) * (1 - props.data.discount / 100),
             ).toLocaleString('fa')}
@@ -87,24 +90,24 @@ const ProductCard: FC<IProps> = ({ ...props }): JSX.Element => {
           تومان
         </div>
       </div>
-      <div className="flex justify-end gap-2.5">
+      <div className="flex items-center justify-end gap-1.5">
         {/* comment */}
-        <div className='text-base-md font-bold'>
-          {!!props.data.comment ? (
+        <div className="text-base-sm font-semibold">
+          {!!props.data.comments_number ? (
             <p className="text-base-gray-300">
               (
               {convertNumber({
-                number: String(props.data.comment),
+                number: String(props.data.comments_number),
                 type: 'to-persian',
               })}{' '}
               نظر)
             </p>
           ) : (
-            <p className='text-base-royal-blue'>نظر دهید</p>
+            <p className="text-base-royal-blue">نظر دهید</p>
           )}
         </div>
         {/* rate */}
-        <div className="flex gap-1 font-medium text-base-lg text-base-gray-400">
+        <div className="flex gap-1 text-base-md font-medium text-base-gray-400 lg:text-base-lg">
           <p>
             {convertNumber({
               number: String(props.data.rating),

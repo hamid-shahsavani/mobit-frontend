@@ -7,7 +7,7 @@ const TopCategories: FC = (): JSX.Element => {
   return (
     <section
       id="top-categories"
-      className="flex justify-between gap-8 overflow-x-auto overflow-y-hidden pb-3 lg:pb-0 [&::-webkit-scrollbar-thumb]:bg-base-royal-blue [&::-webkit-scrollbar-track]:bg-base-gray-200"
+      className="flex container justify-between gap-8 overflow-x-auto overflow-y-hidden pb-3 lg:pb-0 [&::-webkit-scrollbar-thumb]:bg-base-royal-blue [&::-webkit-scrollbar-track]:bg-base-gray-200"
     >
       {topCategoriesData.map((item, index) => {
         return (

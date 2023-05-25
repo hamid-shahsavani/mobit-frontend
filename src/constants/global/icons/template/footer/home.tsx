@@ -4,8 +4,8 @@ const IconCart: FC = (): JSX.Element => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="22.5"
-      height="22.5"
+      width="23.5"
+      height="23.5"
       fill="none"
       viewBox="0 0 24 24"
     >

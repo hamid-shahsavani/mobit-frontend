@@ -69,7 +69,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       >
         <GlobalWrapper>
           <Header />
-          <main className="container pb-6 pt-[88px] flex flex-col gap-7 lg:py-7">{children}</main>
+          <main className="pb-6 pt-[88px] flex flex-col gap-7 lg:py-7">{children}</main>
           <Footer />
         </GlobalWrapper>
       </body>

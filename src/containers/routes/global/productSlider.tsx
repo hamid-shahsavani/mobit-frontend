@@ -11,8 +11,10 @@ import { Navigation } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import useDetectScreenSize from '@/hooks/routes/home/detectScreenSize';
+import { TProduct } from '@/types/routes/global/product';
 
 interface IProps {
+  data: TProduct[];
   type:
     | 'most-visited'
     | 'new-products'
@@ -26,7 +28,7 @@ const ProductCardSlider: FC<IProps> = ({ ...props }): JSX.Element => {
   const { innerWidth } = useDetectScreenSize();
 
   // get title with props.type
-  const switchTitle = (args: IProps): string => {
+  const switchTitle = (type: string): string => {
     const list: any = {
       'most-visited': 'پربازدید های ماه',
       'new-products': 'محصولات جدید',
@@ -34,11 +36,11 @@ const ProductCardSlider: FC<IProps> = ({ ...props }): JSX.Element => {
       'similar-products': 'محصولات مشابه',
       'special-offer': 'پیشنهاد ویژه',
     };
-    return list[args.type];
+    return list[type];
   };
 
   // get title with props.type
-  const switchSellAllReference = (args: IProps): string => {
+  const switchSellAllReference = (type: string): string => {
     const list: any = {
       'most-visited': '/',
       'new-products': '/',
@@ -46,7 +48,7 @@ const ProductCardSlider: FC<IProps> = ({ ...props }): JSX.Element => {
       'similar-products': '/',
       'special-offer': '/',
     };
-    return list[args.type];
+    return list[type];
   };
 
   // special offer timer
@@ -66,7 +68,7 @@ const ProductCardSlider: FC<IProps> = ({ ...props }): JSX.Element => {
   }, 1000);
 
   return (
-    <section className="flex flex-col gap-4">
+    <section className="container relative flex flex-col gap-4">
       {/* head */}
       <div
         className={`flex h-[50px] items-center justify-between rounded-xl px-2.5 lg:h-[57px] lg:px-4 ${
@@ -94,11 +96,11 @@ const ProductCardSlider: FC<IProps> = ({ ...props }): JSX.Element => {
             </>
           )}
           <h3
-            className={`text-base-sm font-extrabold lg:text-base-lg ${
+            className={`text-base-sm font-extrabold lg:text-base-xl ${
               props.type === 'special-offer' ? 'text-white' : 'text-black'
             }`}
           >
-            {switchTitle({ type: props.type })}
+            {switchTitle(props.type)}
           </h3>
         </div>
         {/* time left from today [only props.type === 'special-offer'] */}
@@ -108,7 +110,7 @@ const ProductCardSlider: FC<IProps> = ({ ...props }): JSX.Element => {
               timeLeftFromDay ? 'visible opacity-100' : 'invisible opacity-0'
             }`}
           >
-            <div className="flex h-[34px] w-[34px] items-center justify-center rounded-lg bg-white p-3 text-base-md font-extrabold lg:h-11 lg:w-11 lg:rounded-xl lg:text-base-lg">
+            <div className="flex h-[34px] w-[34px] items-center justify-center rounded-lg bg-white p-3 text-base-md font-extrabold lg:h-11 lg:w-11 lg:rounded-xl lg:text-base-xl">
               {timeLeftFromDay &&
                 convertNumber({
                   number:
@@ -119,7 +121,7 @@ const ProductCardSlider: FC<IProps> = ({ ...props }): JSX.Element => {
                 })}
             </div>
             <p className="text-base-xl font-black text-white">:</p>
-            <div className="flex h-[34px] w-[34px] items-center justify-center rounded-lg bg-white p-3 text-base-md font-bold lg:h-11 lg:w-11 lg:rounded-xl lg:text-base-lg lg:font-extrabold">
+            <div className="flex h-[34px] w-[34px] items-center justify-center rounded-lg bg-white p-3 text-base-md font-bold lg:h-11 lg:w-11 lg:rounded-xl lg:text-base-xl lg:font-extrabold">
               {timeLeftFromDay &&
                 convertNumber({
                   number:
@@ -130,7 +132,7 @@ const ProductCardSlider: FC<IProps> = ({ ...props }): JSX.Element => {
                 })}
             </div>
             <p className="text-base-xl font-black text-white">:</p>
-            <div className="flex h-[34px] w-[34px] items-center justify-center rounded-lg bg-white p-3 text-base-md font-bold lg:h-11 lg:w-11 lg:rounded-xl lg:text-base-lg lg:font-extrabold">
+            <div className="flex h-[34px] w-[34px] items-center justify-center rounded-lg bg-white p-3 text-base-md font-bold lg:h-11 lg:w-11 lg:rounded-xl lg:text-base-xl lg:font-extrabold">
               {timeLeftFromDay &&
                 convertNumber({
                   number:
@@ -144,7 +146,7 @@ const ProductCardSlider: FC<IProps> = ({ ...props }): JSX.Element => {
         )}
         {/* see-all reference */}
         <Link
-          href={switchSellAllReference({ type: props.type })}
+          href={switchSellAllReference(props.type)}
           className={`items-center gap-1.5 lg:gap-2 ${
             props.type === 'special-offer' ? 'hidden sm:flex' : 'flex'
           }`}
@@ -166,13 +168,19 @@ const ProductCardSlider: FC<IProps> = ({ ...props }): JSX.Element => {
         </Link>
       </div>
       {/* body */}
-      <div>
-        <Swiper slidesPerView={'auto'} navigation modules={[Navigation]}>
-          {productSliderData.map((item, index) => {
+      <div className="!z-0">
+        <Swiper
+          slidesPerView={'auto'}
+          id="product-card_slider"
+          className="!static"
+          navigation
+          modules={[Navigation]}
+        >
+          {props.data.map((item, index) => {
             return (
               <SwiperSlide
                 key={index}
-                className=" !w-[220px] [&:not(:last-child)]:ml-4"
+                className="!w-[220px] lg:!w-[250px] [&:not(:last-child)]:!ml-4"
               >
                 <ProductCard data={item} type={'vertical'} />
               </SwiperSlide>
@@ -180,11 +188,20 @@ const ProductCardSlider: FC<IProps> = ({ ...props }): JSX.Element => {
           })}
           {/* see-all reference (only for specia-offer (hide in sm)) */}
           {!!(props.type === 'special-offer' && innerWidth <= 640) && (
-            <SwiperSlide className='!w-[95px]'>
-              <Link href={props.type} className="relative h-[245px] w-[95px] flex items-center rounded-lg bg-base-gray-100 p-4 text-base-md">
-                <p className="w-20 font-semibold text-base-sm leading-7">مشاهده کالا های بیشتر</p>
-                <div className='absolute bottom-5 left-[50%] translate-x-[-50%]'>
-                  <IconChevron position={'left'} color={'base-gray-400'} size={'md'} />
+            <SwiperSlide className="!w-[95px]">
+              <Link
+                href={props.type}
+                className="relative flex h-[245px] w-[95px] items-center rounded-lg bg-base-gray-100 p-4 text-base-md"
+              >
+                <p className="w-20 text-base-sm font-semibold leading-7">
+                  مشاهده کالا های بیشتر
+                </p>
+                <div className="absolute bottom-5 left-[50%] translate-x-[-50%]">
+                  <IconChevron
+                    position={'left'}
+                    color={'base-gray-400'}
+                    size={'md'}
+                  />
                 </div>
               </Link>
             </SwiperSlide>

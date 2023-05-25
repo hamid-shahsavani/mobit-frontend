@@ -17,7 +17,7 @@ import SkeletonMobileCategory from '@/constants/global/skeletons/template/header
 import IMAGES from '@/constants/global/images';
 import { TCategoryItem } from '@/types/template/header/categoryItem';
 
-async function fetcherFetchCategoryData() {
+async function FETHCERfetchCategoryData() {
   const data = await APIfetchCategoryData();
   return data || null;
 }
@@ -46,7 +46,7 @@ const HumbergerMenu: FC = (): JSX.Element => {
   }, [atomStateIsShowHumbergerMenu]);
   const { data: categoryData } = useSWR<TCategoryItem[] | null>(
     firstShowHumbergerMenu ? 'categoryData' : null,
-    fetcherFetchCategoryData,
+    FETHCERfetchCategoryData,
   );
 
   // category level one with sub-category, category level two with sub-category
@@ -212,7 +212,11 @@ const HumbergerMenu: FC = (): JSX.Element => {
             className={`mx-2 flex items-center justify-between border-b border-gray-200 px-1 py-3.5`}
           >
             <div className="flex items-center gap-2.5">
-              <IconDiscountSquare size={'xs'} type={'outline'} color={'base-red'} />
+              <IconDiscountSquare
+                size={'xs'}
+                type={'outline'}
+                color={'base-red'}
+              />
               <p className="text-base-sm font-bold text-base-gray-500">
                 پیشنهاد های شگفت انگیز
               </p>

@@ -44,7 +44,7 @@ const NavBottom: FC = (): JSX.Element => {
 
   return (
     <nav
-      className={`fixed z-50 w-full border-t border-gray-100  bg-white transition-all duration-500 ${
+      className={`fixed w-full border-t border-gray-100  bg-white transition-all duration-500 ${
         detectedScrollDirection === 'top' ? 'bottom-0' : '-bottom-40'
       }`}
     >
@@ -54,7 +54,7 @@ const NavBottom: FC = (): JSX.Element => {
             <Link
               key={index}
               href={item.url}
-              className="flex flex-col items-center justify-between gap-1.5 text-base-gray-400"
+              className="flex flex-col items-center justify-between gap-1 text-base-gray-400"
             >
               <div className="h-5.5">{item.icon}</div>
               <p className="text-base-2xs font-medium">{item.text}</p>
