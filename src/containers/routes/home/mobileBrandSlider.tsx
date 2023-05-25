@@ -3,7 +3,7 @@
 import ProductCard from '@/components/routes/home/productCard';
 import { IconChevron } from '@/constants/global/icons';
 import Link from 'next/link';
-import { FC } from 'react';
+import { FC, Suspense } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper';
 import 'swiper/css';

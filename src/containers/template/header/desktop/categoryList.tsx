@@ -21,10 +21,9 @@ const CategoryList: FC = (): JSX.Element => {
   const [atomStateIsShowCategoryList, setAtomStateIsShowCategoryList] =
     useRecoilState<boolean>(atomIsShowCategoryList);
 
-  // for detect current hovered category / default actived index 0 | null = wait for fetch | undefined = seperator for fix height | TCategoryItem = fetched and set index 0 of fetched array
-  const [activedCategoryData, setActivedCategoryData] = useState<
-    TCategoryItem | null | undefined
-  >(null);
+  // for detect current hovered category / default actived index 0 | null = wait for fetch | TCategoryItem = fetched and set index 0 of fetched array
+  const [activedCategoryData, setActivedCategoryData] =
+    useState<TCategoryItem | null>(null);
 
   // for set width and height categoryList left-side
   const {
@@ -88,8 +87,7 @@ const CategoryList: FC = (): JSX.Element => {
   // set fetched data index 0 to activedCategoryData state
   useEffect(() => {
     if (categoryData) {
-      setActivedCategoryData(undefined);
-      setTimeout(() => setActivedCategoryData(categoryData[0]), 100);
+      setActivedCategoryData(categoryData[0]!);
     }
   }, [categoryData]);
 
@@ -106,7 +104,7 @@ const CategoryList: FC = (): JSX.Element => {
         ref={categoryListDesktopRef}
         className={`flex rounded-b-lg border border-x border-b border-gray-100 bg-white transition-all duration-300 after:absolute after:-top-[35px] after:h-[34px] after:w-[200px]`}
       >
-        {activedCategoryData && (
+        {!!activedCategoryData && (
           <>
             {/* category level one */}
             <div
@@ -186,7 +184,7 @@ const CategoryList: FC = (): JSX.Element => {
           </>
         )}
       </div>
-      {activedCategoryData === null && <SkeletonDesktopCategory />}
+      {!!!activedCategoryData && <SkeletonDesktopCategory />}
     </section>
   );
 };
