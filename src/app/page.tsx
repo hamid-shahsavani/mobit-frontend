@@ -1,7 +1,10 @@
 import ProductCardSlider from '@/containers/routes/global/productSlider';
 import HeroSlider from '@/containers/routes/home/heroSlider';
+import MobileBrandSlider from '@/containers/routes/home/mobileBrandSlider';
 import TopCategories from '@/containers/routes/home/topCategories';
 import { APIfetchProductSliderData } from '@/services/routes/global/fetchProductSliderData';
+
+export const revalidate = 0;
 
 async function FETCHERfetchProductSliderData(args: {
   type:
@@ -15,7 +18,7 @@ async function FETCHERfetchProductSliderData(args: {
   return data || null;
 }
 
-export default async function Home() {
+export default async function Page() {
   const [
     specialOfferProductSliderData,
     mostVisitedProductSliderData,
@@ -33,6 +36,7 @@ export default async function Home() {
       <HeroSlider />
       <TopCategories />
       <ProductCardSlider type={'special-offer'} data={specialOfferProductSliderData} />
+      <MobileBrandSlider />
       <ProductCardSlider type={'most-visited'} data={mostVisitedProductSliderData} />
       <ProductCardSlider type={'new-phones'} data={newPhonesProductSliderData} />
       <ProductCardSlider type={'new-products'} data={newProductsProductSliderData} />

@@ -3,7 +3,6 @@
 import ProductCard from '@/components/routes/home/productCard';
 import { IconChevron, IconDiscountSquare } from '@/constants/global/icons';
 import convertNumber from '@/functions/global/convertNumber';
-import { productSliderData } from '@/temp/resources/routes/home/productSliderData';
 import Link from 'next/link';
 import { FC, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -171,7 +170,7 @@ const ProductCardSlider: FC<IProps> = ({ ...props }): JSX.Element => {
       <div className="!z-0">
         <Swiper
           slidesPerView={'auto'}
-          id="product-card_slider"
+          id="product-slider"
           className="!static"
           navigation
           modules={[Navigation]}

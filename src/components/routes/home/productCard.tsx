@@ -35,7 +35,7 @@ const ProductCard: FC<IProps> = ({ ...props }): JSX.Element => {
           {/* discount */}
           {!!props.data.discount && (
             <div className="flex items-center gap-0.5 rounded-md bg-base-red px-[7px]">
-              <p className="text-base-md pt-0.5 font-semibold text-white">
+              <p className="pt-0.5 text-base-md font-semibold text-white">
                 {convertNumber({
                   number: String(props.data.discount),
                   type: 'to-persian',
@@ -56,22 +56,20 @@ const ProductCard: FC<IProps> = ({ ...props }): JSX.Element => {
           <IconDiscountSquare color={'base-red'} size={'xs'} type={'outline'} />
         </div>
         {/* colors */}
-        <div className="absolute bottom-2.5 right-2.5 flex gap-[5px] rounded-[5px] bg-base-gray-200 p-[7px]">
-          {props.data.colors.map((item, index) => {
+        <div className={`absolute bottom-2.5 right-2.5 flex gap-[5px] rounded-[5px] bg-base-gray-200 p-[7px] ${!!(props.data.colors.length > 3) && 'after:absolute after:top-0 after:left-[6px] pl-5 after:text-base-gray-500 after:font-medium after:content-["_+"]'}`}>
+          {props.data.colors.slice(0, 3).map((item, index) => {
             return (
               <span
                 key={index}
                 className={`rounded-lg p-[3.5px]`}
                 style={{ backgroundColor: item }}
-              >
-                {' '}
-              </span>
+              />
             );
           })}
         </div>
       </div>
       {/* title */}
-      <h4 className="line-clamp-2 my-1 w-full text-base-sm font-semibold leading-5">
+      <h4 className="my-1 line-clamp-2 w-full text-base-sm font-semibold leading-5">
         {props.data.name}
       </h4>
       {/* price */}

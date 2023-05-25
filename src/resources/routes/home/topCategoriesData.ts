@@ -1,4 +1,8 @@
-import { TtopCategoriesItem } from "@/types/routes/home/topCategoriesItem";
+type TtopCategoriesItem = {
+  image: string;
+  text: string;
+  url: string;
+};
 
 export const topCategoriesData: TtopCategoriesItem[] = [
   {
