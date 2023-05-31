@@ -1,5 +1,3 @@
-'use client';
-
 import { atomIsShowSearchResult } from '@/atoms/template/header/global/isShowSearchResult';
 import {
   IconCart,
@@ -63,7 +61,7 @@ const Desktop: FC = (): JSX.Element => {
               }
             >
               <div
-                className={`relative flex cursor-pointer items-center gap-2 px-1 text-base-sm font-bold text-white after:absolute after:-bottom-[18px] after:left-0 after:right-0 after:block after:h-[3px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:text-white hover:after:w-full ${
+                className={`relative h-5 pt-1 flex cursor-pointer items-center gap-2 px-1 text-base-sm font-bold text-white after:absolute after:-bottom-[18px] after:left-0 after:right-0 after:block after:h-[3px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:text-white hover:after:w-full ${
                   !!atomStateIsShowCategoryList && 'after:w-full'
                 }`}
               >
@@ -76,7 +74,7 @@ const Desktop: FC = (): JSX.Element => {
             {/* amazing discount */}
             <Link
               href="/"
-              className="relative flex items-center gap-2 px-1 text-base-sm font-bold text-white after:absolute after:-bottom-[18px] after:left-0 after:right-0 after:block after:h-[3px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:text-white hover:after:w-full"
+              className="relative h-5 pt-1 flex items-center gap-2 px-1 text-base-sm font-bold text-white after:absolute after:-bottom-[18px] after:left-0 after:right-0 after:block after:h-[3px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:text-white hover:after:w-full"
             >
               <IconDiscountSquare size={'xs'} type={'outline'} color="white" />
               <p>پیشنهاد های شگفت انگیز</p>
@@ -102,10 +100,10 @@ const Desktop: FC = (): JSX.Element => {
         </div>
         {/* login/profile, cart */}
         <div className="flex gap-5 xl:gap-7">
-          <div className="flex cursor-pointer items-center gap-2">
+          <Link href='/auth' className="flex cursor-pointer items-center gap-2">
             <IconUser color={'white'} />
             <p className="text-base-sm font-bold text-white">ورود / ثبت نام</p>
-          </div>
+          </Link>
           <div className="flex cursor-pointer items-center gap-2">
             <IconCart color={'white'} />
             <p className="text-base-sm font-bold text-white">سبد خرید</p>

@@ -109,7 +109,7 @@ const ProductCardSlider: FC<IProps> = ({ ...props }): JSX.Element => {
               timeLeftFromDay ? 'visible opacity-100' : 'invisible opacity-0'
             }`}
           >
-            <div className="flex h-[34px] w-[34px] items-center justify-center rounded-lg bg-white p-3 text-base-md font-extrabold lg:h-11 lg:w-11 lg:rounded-xl lg:text-base-xl">
+            <div className="flex h-[34px] w-[34px] items-center justify-center rounded-lg bg-white p-3 text-base-md font-extrabold lg:h-11 lg:w-11 lg:rounded-xl lg:text-base-xl lg:font-black">
               {timeLeftFromDay &&
                 convertNumber({
                   number:
@@ -120,7 +120,7 @@ const ProductCardSlider: FC<IProps> = ({ ...props }): JSX.Element => {
                 })}
             </div>
             <p className="text-base-xl font-black text-white">:</p>
-            <div className="flex h-[34px] w-[34px] items-center justify-center rounded-lg bg-white p-3 text-base-md font-bold lg:h-11 lg:w-11 lg:rounded-xl lg:text-base-xl lg:font-extrabold">
+            <div className="flex h-[34px] w-[34px] items-center justify-center rounded-lg bg-white p-3 text-base-md font-extrabold lg:h-11 lg:w-11 lg:rounded-xl lg:text-base-xl lg:font-black">
               {timeLeftFromDay &&
                 convertNumber({
                   number:
@@ -131,7 +131,7 @@ const ProductCardSlider: FC<IProps> = ({ ...props }): JSX.Element => {
                 })}
             </div>
             <p className="text-base-xl font-black text-white">:</p>
-            <div className="flex h-[34px] w-[34px] items-center justify-center rounded-lg bg-white p-3 text-base-md font-bold lg:h-11 lg:w-11 lg:rounded-xl lg:text-base-xl lg:font-extrabold">
+            <div className="flex h-[34px] w-[34px] items-center justify-center rounded-lg bg-white p-3 text-base-md font-extrabold lg:h-11 lg:w-11 lg:rounded-xl lg:text-base-xl lg:font-black">
               {timeLeftFromDay &&
                 convertNumber({
                   number:

@@ -23,6 +23,13 @@ const IMAGES = {
           .src,
     },
   },
+  routes: {
+    auth: {
+      bottomBackground:
+        require('@/assets/images/routes/auth/bottom-background.svg').default
+          .src,
+    },
+  },
 };
 
 export default IMAGES;

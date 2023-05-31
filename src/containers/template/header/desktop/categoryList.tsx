@@ -1,5 +1,3 @@
-'use client';
-
 import { atomIsShowCategoryList } from '@/atoms/template/header/desktop/isShowCategoryList';
 import SkeletonDesktopCategory from '@/constants/global/skeletons/template/header/desktop/category';
 import { APIfetchCategoryData } from '@/services/template/header/fetchCategoryData';
@@ -102,7 +100,7 @@ const CategoryList: FC = (): JSX.Element => {
       {/* if fetched category data and set default activedCategory level one (index 0) ? render category list : show skeleton loader */}
       <div
         ref={categoryListDesktopRef}
-        className={`flex rounded-b-lg border border-x border-b border-gray-100 bg-white transition-all duration-300 after:absolute after:-top-[35px] after:h-[34px] after:w-[200px]`}
+        className={`flex rounded-b-lg border border-x border-b border-gray-100 bg-white transition-all duration-300 after:absolute after:-top-[22px] after:h-[23px] after:w-[200px]`}
       >
         {!!activedCategoryData && (
           <>

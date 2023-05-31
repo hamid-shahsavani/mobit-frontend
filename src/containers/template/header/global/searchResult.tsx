@@ -1,5 +1,3 @@
-'use client';
-
 import { atomIsShowSearchResult } from '@/atoms/template/header/global/isShowSearchResult';
 import React, { FC } from 'react';
 import { ThreeDots } from 'react-loader-spinner';
