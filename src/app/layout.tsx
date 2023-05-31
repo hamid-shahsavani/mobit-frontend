@@ -9,8 +9,8 @@ import { RecoilRoot } from 'recoil';
 import { ToastContainer } from 'react-toastify';
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
-import TopBarProgress from 'react-topbar-progress-indicator';
-import Router from 'next/router';
+import NextTopLoader from 'nextjs-toploader';
+import theme from 'theme';
 
 // set font globaly
 const iransansx = localFont({
@@ -75,28 +75,17 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     setIsShowTemplate(pathname === '/auth' ? false : true);
   }, [pathname]);
 
-  // show progress-bar before change route
-  TopBarProgress.config({
-    barColors: { 0: '#000' },
-  });
-  const [topProgressBar, setTopProgressBar] = useState<boolean>(false);
-  useEffect(() => {
-    Router.events.on('routeChangeStart', (): void => {
-      console.log('change ..');
-      setTopProgressBar(true);
-    });
-    Router.events.on('routeChangeComplete', (): void => {
-      setTopProgressBar(false);
-    });
-  }, [Router]);
-
   return (
     <html lang="en" dir="rtl">
       <body
         cz-shortcut-listen="false"
         className={`relative ${iransansx.className}`}
       >
-        {topProgressBar && <TopBarProgress />}
+        <NextTopLoader
+          color={theme.colors['royal-blue']}
+          crawl={false}
+          showSpinner={false}
+        />
         <ToastContainer
           position="top-center"
           autoClose={3000}
