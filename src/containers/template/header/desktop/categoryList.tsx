@@ -9,11 +9,6 @@ import { useResizeDetector } from 'react-resize-detector';
 import { useRecoilState } from 'recoil';
 import useSWR from 'swr';
 
-async function FETHCERfetchCategoryData() {
-  const data = await APIfetchCategoryData();
-  return data || null;
-}
-
 const CategoryList: FC = (): JSX.Element => {
   // detect is-show category list
   const [atomStateIsShowCategoryList, setAtomStateIsShowCategoryList] =
@@ -79,7 +74,10 @@ const CategoryList: FC = (): JSX.Element => {
   }, [atomStateIsShowCategoryList]);
   const { data: categoryData } = useSWR<TCategoryItem[] | null>(
     firstShowCategoryList ? 'categoryData' : null,
-    FETHCERfetchCategoryData,
+    async () => {
+      const data = await APIfetchCategoryData();
+      return data || null;
+    },
   );
 
   // set fetched data index 0 to activedCategoryData state

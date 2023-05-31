@@ -33,7 +33,7 @@ const NavBottom: FC = (): JSX.Element => {
     {
       text: 'ورود',
       icon: <IconUser color={'base-gray-300'} />,
-      url: '/',
+      url: '/auth',
     },
   ];
 

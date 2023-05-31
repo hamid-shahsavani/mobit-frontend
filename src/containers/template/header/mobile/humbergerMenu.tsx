@@ -15,11 +15,6 @@ import SkeletonMobileCategory from '@/constants/global/skeletons/template/header
 import IMAGES from '@/constants/global/images';
 import { TCategoryItem } from '@/types/template/header/categoryItem';
 
-async function FETHCERfetchCategoryData() {
-  const data = await APIfetchCategoryData();
-  return data || null;
-}
-
 interface IPropsCategoryLevel {
   categoryData: TCategoryItem;
 }
@@ -44,7 +39,10 @@ const HumbergerMenu: FC = (): JSX.Element => {
   }, [atomStateIsShowHumbergerMenu]);
   const { data: categoryData } = useSWR<TCategoryItem[] | null>(
     firstShowHumbergerMenu ? 'categoryData' : null,
-    FETHCERfetchCategoryData,
+    async () => {
+      const data = await APIfetchCategoryData();
+      return data || null;
+    },
   );
 
   // category level one with sub-category, category level two with sub-category

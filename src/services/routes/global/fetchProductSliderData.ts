@@ -17,9 +17,9 @@ export const APIfetchProductSliderData = async (args: {
     const list: any = {
       'most-visited': '/products',
       'new-products': '/products',
-      'new-phones': '/products',
+      'new-phones': '/newest_smartphones',
       'similar-products': '/products',
-      'special-offer': '/products',
+      'special-offer': '/special_offers',
     };
     return list[type];
   };

@@ -2,7 +2,6 @@
 
 import localFont from 'next/font/local';
 import '@/styles/index.scss';
-import { Metadata } from 'next';
 import Header from '@/containers/template/header';
 import Footer from '@/containers/template/footer';
 import 'react-toastify/dist/ReactToastify.css';
@@ -10,7 +9,10 @@ import { RecoilRoot } from 'recoil';
 import { ToastContainer } from 'react-toastify';
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
+import TopBarProgress from 'react-topbar-progress-indicator';
+import Router from 'next/router';
 
+// set font globaly
 const iransansx = localFont({
   src: [
     {
@@ -65,40 +67,36 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   // detect current pathname
   const pathname = usePathname();
 
-  // dynamic metadata with pathname
-  const switchMetaData = (type: string): Metadata => {
-    const list: any = {
-      '/': {
-        title: 'فروشگاه اینترنتی مبیت',
-        description:
-          'فروشگاه اینترنتی موبایل مبیت عرضه کننده انواع کالاهای دیجیتال در ایران است.خرید اینترنتی موبایل,تبلت,هارد اکسترنال,فلش مموری,کنسول بازی فقط با چند کلیک ساده',
-      },
-      '/auth': {
-        title: 'ورود / ثبت نام',
-        description:
-          'اگر شما نیز به دنبال بستری مناسب برای فروش بیشتر کالای دیجیتال خود و کسب درآمد هستید، با ثبت نام در مارکت پلیس مبیت گامی بزرگ در جهت ارتقای فروشگاه خود بردارید.',
-      },
-    };
-    return list[type];
-  };
-  const metadata: Metadata = switchMetaData(pathname);
-
   // hide template in '/auth'
-  const [isShowTemplate, setIsShowTemplate] = useState<boolean | null>(null);
+  const [isShowTemplate, setIsShowTemplate] = useState<boolean>(() =>
+    pathname === '/auth' ? false : true,
+  );
   useEffect(() => {
     setIsShowTemplate(pathname === '/auth' ? false : true);
   }, [pathname]);
 
+  // show progress-bar before change route
+  TopBarProgress.config({
+    barColors: { 0: '#000' },
+  });
+  const [topProgressBar, setTopProgressBar] = useState<boolean>(false);
+  useEffect(() => {
+    Router.events.on('routeChangeStart', (): void => {
+      console.log('change ..');
+      setTopProgressBar(true);
+    });
+    Router.events.on('routeChangeComplete', (): void => {
+      setTopProgressBar(false);
+    });
+  }, [Router]);
+
   return (
     <html lang="en" dir="rtl">
-      <head>
-        <title>{String(metadata.title)}</title>
-        <meta name="description" content={String(metadata.description)} />
-      </head>
       <body
         cz-shortcut-listen="false"
         className={`relative ${iransansx.className}`}
       >
+        {topProgressBar && <TopBarProgress />}
         <ToastContainer
           position="top-center"
           autoClose={3000}

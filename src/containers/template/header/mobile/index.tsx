@@ -63,9 +63,9 @@ const Mobile: FC = (): JSX.Element => {
                   alt="لوگو مبیت"
                 />
               </Link>
-              <button>
+              <Link href={'/auth'}>
                 <IconUser color={'white'} />
-              </button>
+              </Link>
             </div>
           </div>
         </div>

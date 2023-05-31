@@ -3,19 +3,16 @@ import HeroSlider from '@/containers/routes/home/heroSlider';
 import MobileBrandSlider from '@/containers/routes/home/mobileBrandSlider';
 import TopCategories from '@/containers/routes/home/topCategories';
 import { APIfetchProductSliderData } from '@/services/routes/global/fetchProductSliderData';
+import { Metadata } from 'next';
 
 export const revalidate = 0;
 
-async function FETCHERfetchProductSliderData(args: {
-  type:
-    | 'most-visited'
-    | 'new-products'
-    | 'new-phones'
-    | 'similar-products'
-    | 'special-offer';
-}) {
-  const data = await APIfetchProductSliderData({ type: args.type });
-  return data || null;
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: 'فروشگاه اینترنتی مبیت',
+    description:
+      'فروشگاه اینترنتی موبایل مبیت عرضه کننده انواع کالاهای دیجیتال در ایران است.خرید اینترنتی موبایل,تبلت,هارد اکسترنال,فلش مموری,کنسول بازی فقط با چند کلیک ساده',
+  };
 }
 
 export default async function Page() {
@@ -25,21 +22,33 @@ export default async function Page() {
     newProductsProductSliderData,
     newPhonesProductSliderData,
   ] = await Promise.all([
-    FETCHERfetchProductSliderData({ type: 'special-offer' }),
-    FETCHERfetchProductSliderData({ type: 'most-visited' }),
-    FETCHERfetchProductSliderData({ type: 'new-products' }),
-    FETCHERfetchProductSliderData({ type: 'new-phones' }),
+    APIfetchProductSliderData({ type: 'special-offer' }),
+    APIfetchProductSliderData({ type: 'most-visited' }),
+    APIfetchProductSliderData({ type: 'new-products' }),
+    APIfetchProductSliderData({ type: 'new-phones' }),
   ]);
 
   return (
     <>
       <HeroSlider />
       <TopCategories />
-      <ProductCardSlider type={'special-offer'} data={specialOfferProductSliderData} />
+      <ProductCardSlider
+        type={'special-offer'}
+        data={specialOfferProductSliderData}
+      />
       <MobileBrandSlider />
-      <ProductCardSlider type={'most-visited'} data={mostVisitedProductSliderData} />
-      <ProductCardSlider type={'new-phones'} data={newPhonesProductSliderData} />
-      <ProductCardSlider type={'new-products'} data={newProductsProductSliderData} />
+      <ProductCardSlider
+        type={'most-visited'}
+        data={mostVisitedProductSliderData}
+      />
+      <ProductCardSlider
+        type={'new-phones'}
+        data={newPhonesProductSliderData}
+      />
+      <ProductCardSlider
+        type={'new-products'}
+        data={newProductsProductSliderData}
+      />
     </>
   );
 }
