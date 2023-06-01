@@ -52,6 +52,7 @@ module.exports = {
         'base-md': theme.fontSize.md,
         'base-lg': theme.fontSize.lg,
         'base-xl': theme.fontSize.xl,
+        'base-2xl': theme.fontSize['2xl'],
       },
     },
   },

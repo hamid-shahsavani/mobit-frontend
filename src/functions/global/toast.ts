@@ -8,7 +8,7 @@ type ArgsType = {
 
 export default function toast(args: ArgsType): void {
   // repeat render toast && only show once toast and fix show toast after close first toast
-  if (typeof window !== undefined && !toastify.isActive(args.text)) {
+  if (!toastify.isActive(args.text)) {
     toastify[args.type as 'error' | 'success'](args.text, {
       toastId: args.text,
       ...(args.timer && { autoClose: args.timer }),

@@ -1,4 +1,5 @@
 import IMAGES from '@/constants/global/images';
+import Form from '@/containers/routes/auth/form';
 import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -13,9 +14,9 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function Page() {
   return (
-    <>
-      <Link href={'/'}>go to home</Link>
-      <div className="fixed bottom-0 left-0 right-0 h-[80px] w-full">
+    <div className="w-screnn container flex h-screen flex-col items-center justify-center">
+      {/* bottom image */}
+      <div className="fixed bottom-0 left-0 right-0 h-[100px] w-full">
         <Image
           fill
           src={IMAGES.routes.auth.bottomBackground}
@@ -23,6 +24,12 @@ export default async function Page() {
           alt="تصویر پس زمینه"
         />
       </div>
-    </>
+      {/* logo */}
+      <Link href={'/'} className="relative h-[100px] w-[110px]">
+        <Image src={IMAGES.routes.auth.logoPurple} fill alt="لوگو مبیت" />
+      </Link>
+      {/* form */}
+      <Form />
+    </div>
   );
 }

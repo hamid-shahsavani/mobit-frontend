@@ -22,6 +22,7 @@ const theme = {
     md: '0.875rem',
     lg: '1rem',
     xl: '1.125rem',
+    '2xl': '1.25rem'
   },
 };
 

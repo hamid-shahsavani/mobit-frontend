@@ -104,7 +104,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           {!!isShowTemplate ? (
             <>
               <Header />
-              <main className="flex flex-col gap-7 pb-6 pt-[88px] lg:py-7">
+              <main className={`flex flex-col gap-7 pb-6 pt-[88px] lg:py-7 transition-all duration-300`}>
                 {children}
               </main>
               <Footer />
