@@ -1,6 +1,5 @@
-import theme from './theme';
-
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
   content: [
     './src/components/**/*.{js,ts,jsx,tsx}',
@@ -26,33 +25,33 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        'base-gradient-purple':
+        'c-gradient-blue':
           'linear-gradient(to right, #2124b5, #3b3ece, #2124b5)',
       },
       colors: {
-        'base-green': theme.colors.green,
-        'base-red': theme.colors.red,
-        'base-yellow': theme.colors.yellow,
-        'base-purple': theme.colors.purple,
-        'base-royal-blue': theme.colors['royal-blue'],
-        'base-sky-blue': theme.colors['sky-blue'],
-        'base-gray-50': theme.colors['gray-50'],
-        'base-gray-100': theme.colors['gray-100'],
-        'base-gray-200': theme.colors['gray-200'],
-        'base-gray-300': theme.colors['gray-300'],
-        'base-gray-400': theme.colors['gray-400'],
-        'base-gray-500': theme.colors['gray-500'],
-        'base-gray-600': theme.colors['gray-600'],
+        'c-green': '#66BB6A',
+        'c-red': '#FF6A6A',
+        'c-yellow': '#FFA726',
+        'c-purple': '#B183F8',
+        'c-royal-blue': '#377DFF',
+        'c-sky-blue': '#55E0F6',
+        'c-gray-50': '#fafafa',
+        'c-gray-100': '#F5F5F5',
+        'c-gray-200': '#E2E2E2',
+        'c-gray-300': '#ABB4BC',
+        'c-gray-400': '#5D6670',
+        'c-gray-500': '#3F434D',
+        'c-gray-600': '#1E2022',
       },
       fontSize: {
-        'base-3xs': theme.fontSize['2xs'],
-        'base-2xs': theme.fontSize['2xs'],
-        'base-xs': theme.fontSize.xs,
-        'base-sm': theme.fontSize.sm,
-        'base-md': theme.fontSize.md,
-        'base-lg': theme.fontSize.lg,
-        'base-xl': theme.fontSize.xl,
-        'base-2xl': theme.fontSize['2xl'],
+        'c-3xs': '0.625rem',
+        'c-2xs': '0.685rem',
+        'c-xs': '0.75rem',
+        'c-sm': '0.80rem',
+        'c-md': '0.875rem',
+        'lc-g': '1rem',
+        'c-xl': '1.125rem',
+        'c-2xl': '1.25rem'
       },
     },
   },

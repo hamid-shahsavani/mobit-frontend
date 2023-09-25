@@ -1,6 +1,5 @@
 'use client';
 
-import localFont from 'next/font/local';
 import '@/styles/index.scss';
 import Header from '@/containers/template/header';
 import Footer from '@/containers/template/footer';
@@ -10,58 +9,7 @@ import { ToastContainer } from 'react-toastify';
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import NextTopLoader from 'nextjs-toploader';
-import theme from 'theme';
-
-// set font globaly
-const iransansx = localFont({
-  src: [
-    {
-      path: '../assets/fonts/thin.woff2',
-      weight: '100',
-      style: 'normal',
-    },
-    {
-      path: '../assets/fonts/ultraLight.woff2',
-      weight: '200',
-      style: 'normal',
-    },
-    {
-      path: '../assets/fonts/light.woff2',
-      weight: '300',
-      style: 'normal',
-    },
-    {
-      path: '../assets/fonts/regular.woff2',
-      weight: '400',
-      style: 'normal',
-    },
-    {
-      path: '../assets/fonts/medium.woff2',
-      weight: '500',
-      style: 'normal',
-    },
-    {
-      path: '../assets/fonts/demiBold.woff2',
-      weight: '600',
-      style: 'normal',
-    },
-    {
-      path: '../assets/fonts/bold.woff2',
-      weight: '700',
-      style: 'normal',
-    },
-    {
-      path: '../assets/fonts/extraBold.woff2',
-      weight: '800',
-      style: 'normal',
-    },
-    {
-      path: '../assets/fonts/black.woff2',
-      weight: '900',
-      style: 'normal',
-    },
-  ],
-});
+import fontIransansx from '@/constants/global/fonts';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   // detect current pathname
@@ -79,10 +27,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <html lang="en" dir="rtl">
       <body
         cz-shortcut-listen="false"
-        className={`relative ${iransansx.className}`}
+        className={`relative ${fontIransansx.className}`}
       >
         <NextTopLoader
-          color={theme.colors['royal-blue']}
+          color={'#377DFF'}
           crawl={false}
           showSpinner={false}
         />

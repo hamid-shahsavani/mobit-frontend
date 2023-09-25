@@ -16,13 +16,13 @@ const Global: FC = (): JSX.Element => {
               document.body.scrollTop = 0;
               document.documentElement.scrollTop = 0;
             }}
-            className="flex items-center gap-2 rounded-t-lg bg-base-gray-100 px-3.5 py-1.5 text-base-xs font-bold text-base-gray-500 lg:text-base-sm"
+            className="bg-c-gray-100 text-c-xs text-c-gray-500 lg:text-c-sm flex items-center gap-2 rounded-t-lg px-3.5 py-1.5 font-bold"
           >
             <p>بازگشت به بالا</p>
             <IconChevron size={'xs'} color={'base-gray-600'} position={'top'} />
           </button>
         </div>
-        <div className="flex flex-col items-center gap-3 rounded-xl bg-base-gray-100 p-5 sm:flex-row sm:justify-between sm:p-3">
+        <div className="bg-c-gray-100 flex flex-col items-center gap-3 rounded-xl p-5 sm:flex-row sm:justify-between sm:p-3">
           <div className="flex items-center gap-3">
             <Image
               src={IMAGES.template.footer.logoIcon}
@@ -30,7 +30,7 @@ const Global: FC = (): JSX.Element => {
               height={40}
               alt="لوگو مبیت"
             />
-            <p className="text-base-lg font-extrabold text-base-royal-blue lg:text-base-xl lg:font-black">
+            <p className="text-c-lg text-c-royal-blue lg:text-c-xl font-extrabold lg:font-black">
               دسترسی سریع به اپلیکیشن
             </p>
           </div>
@@ -63,11 +63,11 @@ const Global: FC = (): JSX.Element => {
       {/* namads, what is mobit? */}
       <div className="flex flex-col gap-3 py-5 sm:flex-row sm:justify-between">
         {/* what is mobit */}
-        <div className="flex max-w-sm flex-col gap-2 lg:max-w-md">
-          <h1 className="text-base-sm font-extrabold text-base-gray-500 lg:text-base-lg">
+        <div className="flex max-w-sm flex-col lg:max-w-md">
+          <h1 className="text-c-sm text-c-gray-500 lg:text-c-lg font-extrabold">
             فروشگاه اینترنتی مبیت، خرید آسان کالای دیجیتال
           </h1>
-          <h2 className="text-base-xs font-bold text-base-gray-400 lg:text-base-sm">
+          <h2 className="text-c-xs text-c-gray-400 lg:text-c-sm font-bold">
             فروشگاه اینترنتی مبیت از جمله عرضه‌کنندگان کالای دیجیتال در سراسر
             کشور است که انواع کالاهای دیجیتال از جمله گوشی موبایل، لپ تاپ، تبلت
             و لوازم جانبی گوشی را قیمت مناسب و ضمانت اصالت کالا به فروش
@@ -103,7 +103,7 @@ const Global: FC = (): JSX.Element => {
         </div>
       </div>
       {/* copyright */}
-      <p className="flex justify-center border-t py-3 text-base-sm font-semibold text-base-gray-400">
+      <p className="text-c-sm text-c-gray-400 flex justify-center border-t py-3 font-semibold">
         طراحی و توسعه در اردیبهشت{' '}
         {convertNumber({ number: '1402', type: 'to-persian' })}
       </p>

@@ -1,6 +1,5 @@
-import api from '@/services/apiService';
+import { productSliderData } from '@/resources/routes/home/productSliderData';
 import { TProduct } from '@/types/routes/global/product';
-import { AxiosResponse } from 'axios';
 
 type AxiosResponseType = TProduct[];
 
@@ -24,13 +23,15 @@ export const APIfetchProductSliderData = async (args: {
     return list[type];
   };
 
-  const { data }: AxiosResponse<AxiosResponseType> = await api.get(
-    switchEndpoint(args.type),
-    {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    },
-  );
-  return data;
+  // const { data }: AxiosResponse<AxiosResponseType> = await api.get(
+  //   switchEndpoint(args.type),
+  //   {
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //   },
+  // );
+  // return data;
+
+  return productSliderData;
 };

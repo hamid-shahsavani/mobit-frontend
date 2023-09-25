@@ -1,3 +1,4 @@
+import { atomIsShowCategoryList } from '@/atoms/template/header/desktop/isShowCategoryList';
 import { atomIsShowSearchResult } from '@/atoms/template/header/global/isShowSearchResult';
 import {
   IconCart,
@@ -13,7 +14,6 @@ import Link from 'next/link';
 import { FC } from 'react';
 import { useRecoilState, useSetRecoilState } from 'recoil';
 import CategoryList from './categoryList';
-import { atomIsShowCategoryList } from '@/atoms/template/header/desktop/isShowCategoryList';
 
 const Desktop: FC = (): JSX.Element => {
   // show and hide search result handler
@@ -38,7 +38,7 @@ const Desktop: FC = (): JSX.Element => {
   };
 
   return (
-    <div className="hidden w-full bg-base-gradient-purple py-3 lg:block">
+    <div className="bg-c-gradient-blue hidden w-full py-3 lg:block">
       <div className="container flex w-full items-center justify-between">
         <div className="flex items-center">
           {/* logo */}
@@ -61,7 +61,7 @@ const Desktop: FC = (): JSX.Element => {
               }
             >
               <div
-                className={`relative h-5 flex cursor-pointer items-center gap-2 px-1 text-base-sm font-bold text-white after:absolute after:-bottom-[18px] after:left-0 after:right-0 after:block after:h-[3px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:text-white hover:after:w-full ${
+                className={`relative flex h-5 cursor-pointer items-center gap-2 px-1 text-c-sm font-bold text-white after:absolute after:-bottom-[18px] after:left-0 after:right-0 after:block after:h-[3px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:text-white hover:after:w-full ${
                   !!atomStateIsShowCategoryList && 'after:w-full'
                 }`}
               >
@@ -74,7 +74,7 @@ const Desktop: FC = (): JSX.Element => {
             {/* amazing discount */}
             <Link
               href="/"
-              className="relative h-5 flex items-center gap-2 px-1 text-base-sm font-bold text-white after:absolute after:-bottom-[18px] after:left-0 after:right-0 after:block after:h-[3px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:text-white hover:after:w-full"
+              className="relative flex h-5 items-center gap-2 px-1 text-c-sm font-bold text-white after:absolute after:-bottom-[18px] after:left-0 after:right-0 after:block after:h-[3px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:text-white hover:after:w-full"
             >
               <IconDiscountSquare size={'xs'} type={'outline'} color="white" />
               <p>پیشنهاد های شگفت انگیز</p>
@@ -94,19 +94,19 @@ const Desktop: FC = (): JSX.Element => {
               placeholder="جستجو در مبیت ..."
               onFocus={() => showAndHideSearchResultHandler({ type: 'show' })}
               onBlur={() => showAndHideSearchResultHandler({ type: 'hide' })}
-              className={`mr-3 w-full text-base-sm placeholder:font-medium placeholder:text-white/95`}
+              className={`mr-3 w-full text-c-sm placeholder:font-medium placeholder:text-white/95`}
             />
           </div>
         </div>
         {/* login/profile, cart */}
         <div className="flex gap-5 xl:gap-7">
-          <Link href='/auth' className="flex cursor-pointer items-center gap-2">
+          <Link href="/auth" className="flex cursor-pointer items-center gap-2">
             <IconUser color={'white'} />
-            <p className="text-base-sm font-bold text-white">ورود / ثبت نام</p>
+            <p className="text-c-sm font-bold text-white">ورود / ثبت نام</p>
           </Link>
           <div className="flex cursor-pointer items-center gap-2">
             <IconCart color={'white'} />
-            <p className="text-base-sm font-bold text-white">سبد خرید</p>
+            <p className="text-c-sm font-bold text-white">سبد خرید</p>
           </div>
         </div>
       </div>

@@ -1,19 +1,19 @@
-import Link from 'next/link';
-import Image from 'next/image';
-import { FC, useEffect, useState } from 'react';
+import { atomIsShowHumbergerMenu } from '@/atoms/template/header/mobile/isShowHumbergerMenu';
 import {
   IconChevron,
   IconDiscountSquare,
   IconWindow,
 } from '@/constants/global/icons';
-import { useRecoilState } from 'recoil';
-import { atomIsShowHumbergerMenu } from '@/atoms/template/header/mobile/isShowHumbergerMenu';
-import enableAndDisableScroll from '@/functions/global/enableAndDisableScroll';
-import useSWR from 'swr';
-import { APIfetchCategoryData } from '@/services/template/header/fetchCategoryData';
-import SkeletonMobileCategory from '@/constants/global/skeletons/template/header/mobile/category';
 import IMAGES from '@/constants/global/images';
+import SkeletonMobileCategory from '@/constants/global/skeletons/template/header/mobile/category';
+import enableAndDisableScroll from '@/functions/global/enableAndDisableScroll';
+import { APIfetchCategoryData } from '@/services/template/header/fetchCategoryData';
 import { TCategoryItem } from '@/types/template/header/categoryItem';
+import Image from 'next/image';
+import Link from 'next/link';
+import { FC, useEffect, useState } from 'react';
+import { useRecoilState } from 'recoil';
+import useSWR from 'swr';
 
 interface IPropsCategoryLevel {
   categoryData: TCategoryItem;
@@ -58,7 +58,7 @@ const HumbergerMenu: FC = (): JSX.Element => {
           onClick={() => setIsOpenSubCategory((prev) => !prev)}
           className="flex w-full items-center justify-between pl-2"
         >
-          <div className="flex items-center gap-1 text-base-sm font-bold text-base-gray-400">
+          <div className="flex items-center gap-1 text-c-sm font-bold text-c-gray-400">
             <Image
               src={String(props.categoryData.picture_link)}
               width={40}
@@ -74,14 +74,14 @@ const HumbergerMenu: FC = (): JSX.Element => {
           />
         </button>
         <ul
-          className={`pr-3 text-base-xs font-bold text-base-gray-400 transition-all duration-300 ${
+          className={`pr-3 text-c-xs font-bold text-c-gray-400 transition-all duration-300 ${
             isOpenSubCategory
               ? 'visible opacity-100'
               : 'invisible h-0 overflow-hidden opacity-0'
           }`}
         >
           <Link href={props.categoryData.refrence}>
-            <li className="border-b border-r border-gray-200 border-opacity-60 px-3 py-2 text-base-gray-400 text-opacity-80">
+            <li className="border-b border-r border-gray-200 border-opacity-60 px-3 py-2 text-c-gray-400 text-opacity-80">
               مشاهده این دسته بندی
             </li>
           </Link>
@@ -99,7 +99,7 @@ const HumbergerMenu: FC = (): JSX.Element => {
                       href={item.refrence}
                       className="ml-2 flex w-full items-center justify-between"
                     >
-                      <div className="flex items-center gap-1 px-3 py-2 text-base-gray-400">
+                      <div className="flex items-center gap-1 px-3 py-2 text-c-gray-400">
                         <span className="truncate pl-1">{item.name}</span>
                       </div>
                     </Link>
@@ -124,7 +124,7 @@ const HumbergerMenu: FC = (): JSX.Element => {
           onClick={() => setIsOpenSubCategory((prev) => !prev)}
           className="flex w-full items-center justify-between pl-2"
         >
-          <div className="flex items-center gap-1 px-3 py-2 text-base-gray-400">
+          <div className="flex items-center gap-1 px-3 py-2 text-c-gray-400">
             <span className="truncate pl-1">{props.categoryData.name}</span>
           </div>
           <IconChevron
@@ -134,14 +134,14 @@ const HumbergerMenu: FC = (): JSX.Element => {
           />
         </button>
         <ul
-          className={`text-c-sm mb-1 pr-3 transition-all duration-300 ${
+          className={`mb-1 pr-3 text-c-sm transition-all duration-300 ${
             isOpenSubCategory
               ? 'visible opacity-100'
               : 'invisible h-0 overflow-hidden opacity-0'
           }`}
         >
           <Link href={props.categoryData.refrence}>
-            <li className="border-b border-r border-gray-200 border-opacity-60 px-3 py-2 text-base-gray-400 text-opacity-70">
+            <li className="border-b border-r border-gray-200 border-opacity-60 px-3 py-2 text-c-gray-400 text-opacity-70">
               مشاهده این دسته بندی
             </li>
           </Link>
@@ -156,7 +156,7 @@ const HumbergerMenu: FC = (): JSX.Element => {
                     href={item.refrence}
                     className="flex w-full items-center justify-between"
                   >
-                    <div className="flex w-full items-center gap-1 px-3 py-2 text-base-gray-400">
+                    <div className="flex w-full items-center gap-1 px-3 py-2 text-c-gray-400">
                       <span className="truncate">{item.name}</span>
                     </div>
                   </Link>
@@ -187,7 +187,7 @@ const HumbergerMenu: FC = (): JSX.Element => {
         }`}
       >
         {/* logo and close btn */}
-        <div className="flex w-full items-center bg-base-gradient-purple p-5">
+        <div className="bg-c-gradient-blue flex w-full items-center p-5">
           <button onClick={hideHumbergerMenuHandler}>
             <IconChevron size={'sm'} position={'right'} color={'white'} />
           </button>
@@ -213,7 +213,7 @@ const HumbergerMenu: FC = (): JSX.Element => {
                 type={'outline'}
                 color={'base-red'}
               />
-              <p className="text-base-sm font-bold text-base-gray-500">
+              <p className="text-c-sm font-bold text-c-gray-500">
                 پیشنهاد های شگفت انگیز
               </p>
             </div>
@@ -225,9 +225,7 @@ const HumbergerMenu: FC = (): JSX.Element => {
         >
           <div className="flex items-center gap-2.5">
             <IconWindow color={'base-royal-blue'} />
-            <p className="text-base-sm font-bold text-base-gray-500">
-              دسته بندی ها
-            </p>
+            <p className="text-c-sm font-bold text-c-gray-500">دسته بندی ها</p>
           </div>
         </div>
         <div className="mx-2 border-b border-gray-200">

@@ -1,9 +1,9 @@
 'use client';
 
-import { FC, useEffect, useRef } from 'react';
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
 import convertNumber from '@/functions/global/convertNumber';
+import { useFormik } from 'formik';
+import { FC, useEffect, useRef } from 'react';
+import * as Yup from 'yup';
 
 const Form: FC = (): JSX.Element => {
   // formik for form
@@ -48,7 +48,7 @@ const Form: FC = (): JSX.Element => {
   return (
     <section className="flex w-full max-w-[450px] flex-col gap-7 sm:rounded-3xl sm:p-4 sm:shadow-[0_0px_14px_#0000001a]">
       {/* title */}
-      <p className="text-base-xl font-extrabold">{formikConstant.title}</p>
+      <p className="text-c-xl font-extrabold">{formikConstant.title}</p>
       {/* form */}
       <form autoComplete="off" onSubmit={formik.handleSubmit}>
         {/* fields */}
@@ -56,7 +56,7 @@ const Form: FC = (): JSX.Element => {
           {/* field phoneNumber */}
           <div className="flex flex-col justify-center space-y-1.5">
             {/* label */}
-            <p className="mr-1.5 text-base-sm font-bold text-base-gray-400">
+            <p className="text-c-sm text-c-gray-400 mr-1.5 font-bold">
               {formikConstant.fields.phoneNumber.label}
             </p>
             {/* feild */}
@@ -66,7 +66,7 @@ const Form: FC = (): JSX.Element => {
               type={'text'}
               {...formik.getFieldProps('phoneNumber')}
               placeholder={formikConstant.fields.phoneNumber.placeholder}
-              className={`w-full truncate rounded-[10px] bg-base-gray-100 p-3 text-base-md font-semibold ring-[1px] transition-all duration-300 placeholder:text-base-sm focus:bg-white focus:ring-[2px] focus:!ring-base-royal-blue ${
+              className={`bg-c-gray-100 text-c-md placeholder:text-c-sm focus:!ring-c-royal-blue w-full truncate rounded-[10px] p-3 font-semibold ring-[1px] transition-all duration-300 focus:bg-white focus:ring-[2px] ${
                 formik.errors.phoneNumber && formik.touched.phoneNumber
                   ? 'ring-red-400'
                   : 'ring-transparent'
@@ -87,23 +87,22 @@ const Form: FC = (): JSX.Element => {
             />
             {/* error */}
             {formik.errors.phoneNumber && formik.touched.phoneNumber ? (
-              <p className="mr-1.5 pt-0.5 text-[13px] text-red-500">
+              <p className="mr-1.5 pt-0.5 text-[13px] font-medium text-red-500">
                 {formik.errors.phoneNumber}
               </p>
             ) : null}
           </div>
         </div>
         {/* rule text */}
-        <p className="border-b-[2px] p-3 text-base-xs font-bold text-base-gray-400">
-          با ورود به مبیت،{' '}
-          <span className="text-base-royal-blue">شرایط مبیت</span> و{' '}
-          <span className="text-base-royal-blue">قوانین حریم ‌خصوصی</span> آن را
+        <p className="text-c-xs text-c-gray-400 border-b-[2px] p-3 font-bold">
+          با ورود به مبیت، <span className="text-c-royal-blue">شرایط مبیت</span>{' '}
+          و <span className="text-c-royal-blue">قوانین حریم ‌خصوصی</span> آن را
           می‌پذیرید.
         </p>
         {/* submit btn */}
         <button
           type="submit"
-          className={`mt-3 w-full rounded-[10px] bg-base-royal-blue p-3.5 text-base-md font-bold text-white`}
+          className={`bg-c-royal-blue text-c-md mt-3 w-full rounded-[10px] p-3.5 font-bold text-white`}
         >
           {formikConstant.submit}
         </button>

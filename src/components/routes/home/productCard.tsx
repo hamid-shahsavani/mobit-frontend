@@ -21,7 +21,7 @@ const ProductCard: FC<IProps> = ({ ...props }): JSX.Element => {
       href={props.data.refrence}
       className="flex min-w-[220px] flex-col gap-2 lg:min-w-[250px]"
     >
-      <div className="group relative flex h-[140px] w-full items-center justify-center rounded-xl bg-base-gray-100 lg:h-[160px]">
+      <div className="bg-c-gray-100 group relative flex h-[140px] w-full items-center justify-center rounded-xl lg:h-[160px]">
         {/* image */}
         <div className="relative h-[120px] w-[120px] lg:h-[140px] lg:w-[140px]">
           <Image
@@ -34,8 +34,8 @@ const ProductCard: FC<IProps> = ({ ...props }): JSX.Element => {
         <div className=" absolute right-2.5 top-2.5 flex flex-col gap-1.5">
           {/* discount */}
           {!!props.data.discount && (
-            <div className="flex items-center gap-0.5 rounded-md bg-base-red px-[7px]">
-              <p className="pt-0.5 text-base-md font-semibold text-white">
+            <div className="bg-c-red flex items-center gap-0.5 rounded-md px-[7px]">
+              <p className="text-c-md pt-0.5 font-semibold text-white">
                 {convertNumber({
                   number: String(props.data.discount),
                   type: 'to-persian',
@@ -46,17 +46,28 @@ const ProductCard: FC<IProps> = ({ ...props }): JSX.Element => {
           )}
           {/* fast delivery */}
           {props.data.fast_delivery && (
-            <div className="w-fit rounded-md bg-base-yellow px-1.5 py-[3px]">
+            <div className="bg-c-yellow w-fit rounded-md px-1.5 py-[3px]">
               <IconFastDelivery />
             </div>
           )}
         </div>
         {/* super discount */}
-        <div className="absolute left-2.5 top-2.5">
-          <IconDiscountSquare color={'base-red'} size={'xs'} type={'outline'} />
-        </div>
+        {props.data.superdiscount && (
+          <div className="absolute left-2.5 top-2.5">
+            <IconDiscountSquare
+              color={'base-red'}
+              size={'xs'}
+              type={'outline'}
+            />
+          </div>
+        )}
         {/* colors */}
-        <div className={`absolute bottom-2.5 right-2.5 flex gap-[5px] rounded-[5px] bg-base-gray-200 p-[7px] ${!!(props.data.colors.length > 3) && 'after:absolute after:top-0 after:left-[6px] pl-5 after:text-base-gray-500 after:font-medium after:content-["_+"]'}`}>
+        <div
+          className={`bg-c-gray-200 absolute bottom-2.5 right-2.5 flex gap-[5px] rounded-[5px] p-[7px] ${
+            !!(props.data.colors.length > 3) &&
+            'after:text-c-gray-500 pl-5 after:absolute after:left-[6px] after:top-0 after:font-medium after:content-["_+"]'
+          }`}
+        >
           {props.data.colors.slice(0, 3).map((item, index) => {
             return (
               <span
@@ -69,18 +80,18 @@ const ProductCard: FC<IProps> = ({ ...props }): JSX.Element => {
         </div>
       </div>
       {/* title */}
-      <h4 className="my-1 line-clamp-2 w-full text-base-sm font-semibold leading-5">
+      <h4 className="text-c-sm my-1 line-clamp-2 w-full font-semibold leading-5">
         {props.data.name}
       </h4>
       {/* price */}
       <div className="flex justify-end gap-2">
         {!!props.data.discount && (
-          <del className="text-base-md font-semibold text-base-gray-400 lg:text-base-lg">
+          <del className="text-c-md text-c-gray-400 lg:text-c-lg font-semibold">
             {Math.round(Number(props.data.price)).toLocaleString('fa')}
           </del>
         )}
-        <div className="flex gap-[3px] text-base-sm font-semibold text-base-gray-600">
-          <p className="text-base-md text-black lg:text-base-lg">
+        <div className="text-c-sm text-c-gray-600 flex gap-[3px] font-semibold">
+          <p className="text-c-md lg:text-c-lg text-black">
             {Math.round(
               Number(props.data.price) * (1 - props.data.discount / 100),
             ).toLocaleString('fa')}
@@ -90,9 +101,9 @@ const ProductCard: FC<IProps> = ({ ...props }): JSX.Element => {
       </div>
       <div className="flex items-center justify-end gap-1.5">
         {/* comment */}
-        <div className="text-base-sm font-semibold">
+        <div className="text-c-sm font-semibold">
           {!!props.data.comments_number ? (
-            <p className="text-base-gray-300">
+            <p className="text-c-gray-300">
               (
               {convertNumber({
                 number: String(props.data.comments_number),
@@ -101,11 +112,11 @@ const ProductCard: FC<IProps> = ({ ...props }): JSX.Element => {
               نظر)
             </p>
           ) : (
-            <p className="text-base-royal-blue">نظر دهید</p>
+            <p className="text-c-royal-blue">نظر دهید</p>
           )}
         </div>
         {/* rate */}
-        <div className="flex gap-1 text-base-md font-medium text-base-gray-400 lg:text-base-lg">
+        <div className="text-c-md text-c-gray-400 lg:text-c-lg flex gap-1 font-medium">
           <p>
             {convertNumber({
               number: String(props.data.rating),

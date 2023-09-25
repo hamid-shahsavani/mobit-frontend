@@ -4,7 +4,6 @@
 // set font / scrollbar style / change bg color / overflow-x hidden
 body {
   direction: rtl;
-  font-family: 'iransansx';
   font-weight: 400;
   background-color: #fff;
   overflow-x: hidden;
@@ -83,7 +82,7 @@ html {
 // toast
 .Toastify {
   .Toastify__toast-body {
-    font-family: 'dana';
+    font-family: var(--font-iransansx);
     font-size: 15px;
   }
   .Toastify__close-button--light {

@@ -2,7 +2,6 @@ import { atomIsShowSearchResult } from '@/atoms/template/header/global/isShowSea
 import React, { FC } from 'react';
 import { ThreeDots } from 'react-loader-spinner';
 import { useRecoilValue } from 'recoil';
-import theme from 'theme';
 
 const SearchResult: FC = (): JSX.Element => {
   // detect is-show search result
@@ -20,7 +19,7 @@ const SearchResult: FC = (): JSX.Element => {
     >
       <div className="mt-[75px] h-full lg:mt-0">
         <div className="flex h-[calc(100%_-_87px)] items-center justify-center lg:my-4">
-          <ThreeDots width="65" radius="9" color={theme.colors['royal-blue']} />
+          <ThreeDots width="65" radius="9" color={'#377DFF'} />
         </div>
       </div>
     </section>

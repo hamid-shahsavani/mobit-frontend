@@ -8,7 +8,7 @@ interface IProps {
 const IconCategories: FC<IProps> = ({ ...props }) => {
   const iconColor = classNames({
     'fill-white': props.color === 'white',
-    'fill-base-royal-blue': props.color === 'base-royal-blue',
+    'fill-c-royal-blue': props.color === 'base-royal-blue',
   });
 
   return (

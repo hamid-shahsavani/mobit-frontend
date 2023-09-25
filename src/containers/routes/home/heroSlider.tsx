@@ -1,13 +1,13 @@
 'use client';
 
-import { FC, useRef } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Pagination } from 'swiper';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
+import { FC, useRef } from 'react';
+import { Autoplay, Pagination } from 'swiper';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { IconChevron } from '@/constants/global/icons';
 import useDetectScreenSize from '@/hooks/routes/home/detectScreenSize';
@@ -44,7 +44,7 @@ const HeroSlider: FC = (): JSX.Element => {
           return (
             <SwiperSlide key={index}>
               <Link href={'/'}>
-                <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-xl bg-base-gray-100 sm:aspect-h-2 sm:aspect-w-7">
+                <div className="bg-c-gray-100 aspect-h-2 aspect-w-3 overflow-hidden rounded-xl sm:aspect-h-2 sm:aspect-w-7">
                   {!!innerWidth && (
                     <Image
                       fill

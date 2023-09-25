@@ -10,8 +10,8 @@ interface IProps {
 const IconDiscountSquare: FC<IProps> = ({ ...props }) => {
   const iconColor = classNames({
     'stroke-white': props.color === 'white',
-    'stroke-base-red': props.color === 'base-red',
-    'fill-base-gray-300 stroke-white': props.color === 'base-gray-300', // if color === base-gray-300 ? icon contain : outlin
+    'stroke-c-red': props.color === 'base-red',
+    'fill-c-gray-300 stroke-white': props.color === 'base-gray-300', // if color === base-gray-300 ? icon contain : outlin
   });
 
   return (

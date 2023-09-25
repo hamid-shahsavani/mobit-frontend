@@ -4,7 +4,7 @@ import { APIfetchCategoryData } from '@/services/template/header/fetchCategoryDa
 import { TCategoryItem } from '@/types/template/header/categoryItem';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { FC, Fragment, useEffect, useRef, useState } from 'react';
+import { FC, Fragment, useEffect, useRef, useState } from 'react';
 import { useResizeDetector } from 'react-resize-detector';
 import { useRecoilState } from 'recoil';
 import useSWR from 'swr';
@@ -116,7 +116,7 @@ const CategoryList: FC = (): JSX.Element => {
                     key={item.id}
                     className={`flex items-center border-y ${
                       item.id === activedCategoryData?.id
-                        ? 'border-gray-100 bg-base-gray-50'
+                        ? 'bg-c-gray-50 border-gray-100'
                         : 'border-transparent'
                     }`}
                   >
@@ -128,9 +128,9 @@ const CategoryList: FC = (): JSX.Element => {
                       alt={item.name}
                     />
                     <p
-                      className={`w-full truncate text-base-sm text-base-gray-500 ${
+                      className={`text-c-sm text-c-gray-500 w-full truncate ${
                         item.id === activedCategoryData?.id
-                          ? 'font-extrabold text-base-royal-blue'
+                          ? 'text-c-royal-blue font-extrabold'
                           : 'font-bold'
                       }`}
                     >
@@ -147,7 +147,7 @@ const CategoryList: FC = (): JSX.Element => {
                 width: categoryListLeftSideSize.width,
               }}
               ref={categoryListLeftSideRef}
-              className="flex flex-col flex-wrap gap-x-5 gap-y-2 p-3.5 text-base-xs font-bold text-base-gray-400"
+              className="text-c-xs text-c-gray-400 flex flex-col flex-wrap gap-x-5 gap-y-2 p-3.5 font-bold"
             >
               {activedCategoryData.children.map((item: TCategoryItem) => {
                 return (
@@ -156,7 +156,7 @@ const CategoryList: FC = (): JSX.Element => {
                     <Link
                       key={item.id}
                       href={item.refrence}
-                      className="relative w-[160px] truncate py-[3.5px] pr-3 after:absolute after:bottom-0 after:right-0 after:top-0 after:h-full after:w-1 after:rounded-md after:bg-base-royal-blue hover:text-base-royal-blue"
+                      className="after:bg-c-royal-blue hover:text-c-royal-blue relative w-[160px] truncate py-[3.5px] pr-3 after:absolute after:bottom-0 after:right-0 after:top-0 after:h-full after:w-1 after:rounded-md"
                     >
                       {item.name}
                     </Link>
@@ -167,7 +167,7 @@ const CategoryList: FC = (): JSX.Element => {
                           <Link
                             key={item.id}
                             href={item.refrence}
-                            className="w-[160px] truncate py-[3.5px] hover:text-base-royal-blue"
+                            className="hover:text-c-royal-blue w-[160px] truncate py-[3.5px]"
                           >
                             {item.name}
                           </Link>

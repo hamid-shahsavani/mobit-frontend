@@ -1,5 +1,5 @@
-import { FC } from 'react';
 import classNames from 'classnames';
+import { FC } from 'react';
 
 interface IProps {
   color: 'white' | 'base-gray-300';
@@ -8,7 +8,7 @@ interface IProps {
 const IconUser: FC<IProps> = ({ ...props }): JSX.Element => {
   const iconColor = classNames({
     'fill-white': props.color === 'white',
-    'fill-base-gray-300': props.color === 'base-gray-300',
+    'fill-c-gray-300': props.color === 'base-gray-300',
   });
 
   return (

@@ -1,5 +1,5 @@
-import { FC } from 'react';
 import classNames from 'classnames';
+import { FC } from 'react';
 
 interface IProps {
   position: 'bottom' | 'top' | 'left' | 'right';
@@ -14,10 +14,10 @@ interface IProps {
 const IconChevron: FC<IProps> = ({ ...props }): JSX.Element => {
   const iconColor = classNames({
     'fill-white': props.color === 'white',
-    'fill-base-gray-300': props.color === 'base-gray-300',
-    'fill-base-gray-400': props.color === 'base-gray-400',
-    'fill-base-gray-600': props.color === 'base-gray-600',
-    'group-hover/hero-slider_navigation:fill-base-gray-600':
+    'fill-c-gray-300': props.color === 'base-gray-300',
+    'fill-c-gray-400': props.color === 'base-gray-400',
+    'fill-c-gray-600': props.color === 'base-gray-600',
+    'group-hover/hero-slider_navigation:fill-c-gray-600':
       props.hoverColor?.group === 'hero-slider_navigation' &&
       props.hoverColor?.color === 'base-gray-600',
   });

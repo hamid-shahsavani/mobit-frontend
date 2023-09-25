@@ -1,4 +1,4 @@
-export const staticCategoryData: any = [
+export const categoryData: any = [
   {
     id: String(1030),
     name: 'موبایل و تبلت',
@@ -1427,7 +1427,7 @@ export const staticCategoryData: any = [
       },
       {
         id: String(1380),
-        name: 'لوازم جانبی مچ بند و ساعت هوشمند',
+        name: 'لوازم جانبی ساعت',
         min_price: null,
         max_price: null,
         manual_link: '',

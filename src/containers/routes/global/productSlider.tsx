@@ -3,14 +3,14 @@
 import ProductCard from '@/components/routes/home/productCard';
 import { IconChevron, IconDiscountSquare } from '@/constants/global/icons';
 import convertNumber from '@/functions/global/convertNumber';
+import useDetectScreenSize from '@/hooks/routes/home/detectScreenSize';
+import { TProduct } from '@/types/routes/global/product';
 import Link from 'next/link';
 import { FC, useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import useDetectScreenSize from '@/hooks/routes/home/detectScreenSize';
-import { TProduct } from '@/types/routes/global/product';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 interface IProps {
   data: TProduct[];
@@ -71,7 +71,7 @@ const ProductCardSlider: FC<IProps> = ({ ...props }): JSX.Element => {
       {/* head */}
       <div
         className={`flex h-[50px] items-center justify-between rounded-xl px-2.5 lg:h-[57px] lg:px-4 ${
-          props.type === 'special-offer' ? 'bg-base-red' : 'bg-base-gray-100'
+          props.type === 'special-offer' ? 'bg-c-red' : 'bg-c-gray-100'
         }`}
       >
         {/* title */}
@@ -95,7 +95,7 @@ const ProductCardSlider: FC<IProps> = ({ ...props }): JSX.Element => {
             </>
           )}
           <h3
-            className={`text-base-sm font-extrabold lg:text-base-xl ${
+            className={`text-c-sm lg:text-c-xl font-extrabold ${
               props.type === 'special-offer' ? 'text-white' : 'text-black'
             }`}
           >
@@ -109,7 +109,7 @@ const ProductCardSlider: FC<IProps> = ({ ...props }): JSX.Element => {
               timeLeftFromDay ? 'visible opacity-100' : 'invisible opacity-0'
             }`}
           >
-            <div className="flex h-[34px] w-[34px] items-center justify-center rounded-lg bg-white p-3 text-base-md font-extrabold lg:h-11 lg:w-11 lg:rounded-xl lg:text-base-xl lg:font-black">
+            <div className="text-c-md lg:text-c-xl flex h-[34px] w-[34px] items-center justify-center rounded-lg bg-white p-3 font-extrabold lg:h-11 lg:w-11 lg:rounded-xl lg:font-black">
               {timeLeftFromDay &&
                 convertNumber({
                   number:
@@ -119,8 +119,8 @@ const ProductCardSlider: FC<IProps> = ({ ...props }): JSX.Element => {
                   type: 'to-persian',
                 })}
             </div>
-            <p className="text-base-xl font-black text-white">:</p>
-            <div className="flex h-[34px] w-[34px] items-center justify-center rounded-lg bg-white p-3 text-base-md font-extrabold lg:h-11 lg:w-11 lg:rounded-xl lg:text-base-xl lg:font-black">
+            <p className="text-c-xl font-black text-white">:</p>
+            <div className="text-c-md lg:text-c-xl flex h-[34px] w-[34px] items-center justify-center rounded-lg bg-white p-3 font-extrabold lg:h-11 lg:w-11 lg:rounded-xl lg:font-black">
               {timeLeftFromDay &&
                 convertNumber({
                   number:
@@ -130,8 +130,8 @@ const ProductCardSlider: FC<IProps> = ({ ...props }): JSX.Element => {
                   type: 'to-persian',
                 })}
             </div>
-            <p className="text-base-xl font-black text-white">:</p>
-            <div className="flex h-[34px] w-[34px] items-center justify-center rounded-lg bg-white p-3 text-base-md font-extrabold lg:h-11 lg:w-11 lg:rounded-xl lg:text-base-xl lg:font-black">
+            <p className="text-c-xl font-black text-white">:</p>
+            <div className="text-c-md lg:text-c-xl flex h-[34px] w-[34px] items-center justify-center rounded-lg bg-white p-3 font-extrabold lg:h-11 lg:w-11 lg:rounded-xl lg:font-black">
               {timeLeftFromDay &&
                 convertNumber({
                   number:
@@ -151,10 +151,8 @@ const ProductCardSlider: FC<IProps> = ({ ...props }): JSX.Element => {
           }`}
         >
           <span
-            className={`text-base-sm font-semibold lg:font-bold ${
-              props.type === 'special-offer'
-                ? 'text-white'
-                : 'text-base-gray-400'
+            className={`text-c-sm font-semibold lg:font-bold ${
+              props.type === 'special-offer' ? 'text-white' : 'text-c-gray-400'
             }`}
           >
             مشاهده همه
@@ -190,9 +188,9 @@ const ProductCardSlider: FC<IProps> = ({ ...props }): JSX.Element => {
             <SwiperSlide className="!w-[95px]">
               <Link
                 href={props.type}
-                className="relative flex h-[245px] w-[95px] items-center rounded-lg bg-base-gray-100 p-4 text-base-md"
+                className="bg-c-gray-100 text-c-md relative flex h-[245px] w-[95px] items-center rounded-lg p-4"
               >
-                <p className="w-20 text-base-sm font-semibold leading-7">
+                <p className="text-c-sm w-20 font-semibold leading-7">
                   مشاهده کالا های بیشتر
                 </p>
                 <div className="absolute bottom-5 left-[50%] translate-x-[-50%]">

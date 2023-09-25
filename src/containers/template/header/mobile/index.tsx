@@ -6,15 +6,15 @@ import {
 } from '@/constants/global/icons';
 import { useSetRecoilState } from 'recoil';
 
+import { atomIsShowSearchResult } from '@/atoms/template/header/global/isShowSearchResult';
+import { atomIsShowHumbergerMenu } from '@/atoms/template/header/mobile/isShowHumbergerMenu';
 import IMAGES from '@/constants/global/images';
+import enableAndDisableScroll from '@/functions/global/enableAndDisableScroll';
+import useDetectScrollDirection from '@/hooks/template/header/detectScrollDirection';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FC, useState } from 'react';
-import { atomIsShowSearchResult } from '@/atoms/template/header/global/isShowSearchResult';
-import useDetectScrollDirection from '@/hooks/template/header/detectScrollDirection';
 import HumbergerMenu from './humbergerMenu';
-import enableAndDisableScroll from '@/functions/global/enableAndDisableScroll';
-import { atomIsShowHumbergerMenu } from '@/atoms/template/header/mobile/isShowHumbergerMenu';
 
 const Mobile: FC = (): JSX.Element => {
   // detect focused search field
@@ -49,7 +49,7 @@ const Mobile: FC = (): JSX.Element => {
       <HumbergerMenu />
       <div className={`flex flex-col overflow-hidden`}>
         {/* logo, right-side menu btn, profile btn */}
-        <div className="bg-base-gradient-purple">
+        <div className="bg-c-gradient-blue">
           <div className="container">
             <div className="flex items-center justify-between px-1.5 py-3.5">
               <button onClick={showHumbergerMenuHandler}>
@@ -74,16 +74,14 @@ const Mobile: FC = (): JSX.Element => {
           className={`absolute left-0 right-0 transition-all duration-500 ${
             detectedScrollDirection === 'top' ? 'top-[53px]' : '-top-28'
           } ${
-            isFocusSearchField
-              ? 'bg-transparent'
-              : '-z-10 bg-base-gradient-purple'
+            isFocusSearchField ? 'bg-transparent' : 'bg-c-gradient-blue -z-10'
           }`}
         >
           <div className="container">
             <div
-              className={`container relative mb-3.5 flex items-center gap-2.5 rounded-xl border-2 border-transparent p-3 transition-all duration-200 focus-within:border-base-royal-blue ${
+              className={`container relative mb-3.5 flex items-center gap-2.5 rounded-xl border-2 border-transparent p-3 transition-all duration-200 focus-within:border-c-royal-blue ${
                 isFocusSearchField
-                  ? '-top-10 bg-base-gray-100'
+                  ? '-top-10 bg-c-gray-100'
                   : 'top-0 bg-[#3F41C5]'
               }`}
             >
@@ -108,7 +106,7 @@ const Mobile: FC = (): JSX.Element => {
                 onFocus={() => showAndHideSearchResultHandler({ type: 'show' })}
                 spellCheck={false}
                 placeholder="جستجو در مبیت ..."
-                className={`w-full text-base-md ${
+                className={`w-full text-c-md ${
                   isFocusSearchField
                     ? 'placeholder:text-gray-400'
                     : 'placeholder:text-gray-200'
