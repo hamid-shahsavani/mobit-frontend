@@ -9,8 +9,8 @@ import { useSetRecoilState } from 'recoil';
 import { atomIsShowSearchResult } from '@/atoms/template/header/global/isShowSearchResult';
 import { atomIsShowHumbergerMenu } from '@/atoms/template/header/mobile/isShowHumbergerMenu';
 import IMAGES from '@/constants/global/images';
-import enableAndDisableScroll from '@/functions/global/enableAndDisableScroll';
 import useDetectScrollDirection from '@/hooks/template/header/detectScrollDirection';
+import toggleAtomStateHandler from '@/utils/toggleAtomState';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FC, useState } from 'react';
@@ -26,9 +26,9 @@ const Mobile: FC = (): JSX.Element => {
   );
   const showAndHideSearchResultHandler = (args: { type: 'show' | 'hide' }) => {
     setIsFocusSearchField(args.type === 'hide' ? false : true);
-    setAtomStateIsShowSearchResult(args.type === 'hide' ? false : true);
-    enableAndDisableScroll({
-      status: args.type === 'show' ? 'disable' : 'enable',
+    toggleAtomStateHandler({
+      type: args.type,
+      setAtomState: setAtomStateIsShowSearchResult,
     });
   };
 
@@ -36,10 +36,6 @@ const Mobile: FC = (): JSX.Element => {
   const setAtomStateIsShowHumbergerMenu = useSetRecoilState<boolean>(
     atomIsShowHumbergerMenu,
   );
-  const showHumbergerMenuHandler = () => {
-    setAtomStateIsShowHumbergerMenu(true);
-    enableAndDisableScroll({ status: 'disable' });
-  };
 
   // detect scroll direction for hide search input after scroll to bottom
   const detectedScrollDirection = useDetectScrollDirection();
@@ -52,7 +48,12 @@ const Mobile: FC = (): JSX.Element => {
         <div className="bg-c-gradient-blue">
           <div className="container">
             <div className="flex items-center justify-between px-1.5 py-3.5">
-              <button onClick={showHumbergerMenuHandler}>
+              <button onClick={() => {
+                toggleAtomStateHandler({
+                  type: 'show',
+                  setAtomState: setAtomStateIsShowHumbergerMenu,
+                });
+              }}>
                 <IconThreeDots />
               </button>
               <Link href={'/'}>
@@ -64,7 +65,7 @@ const Mobile: FC = (): JSX.Element => {
                 />
               </Link>
               <Link href={'/auth'}>
-                <IconUser color={'white'} />
+                <IconUser className={'fill-white'} />
               </Link>
             </div>
           </div>
@@ -74,7 +75,7 @@ const Mobile: FC = (): JSX.Element => {
           className={`absolute left-0 right-0 transition-all duration-500 ${
             detectedScrollDirection === 'top' ? 'top-[53px]' : '-top-28'
           } ${
-            isFocusSearchField ? 'bg-transparent' : 'bg-c-gradient-blue -z-10'
+            isFocusSearchField ? 'bg-transparent' : '-z-10 bg-c-gradient-blue'
           }`}
         >
           <div className="container">
@@ -92,11 +93,7 @@ const Mobile: FC = (): JSX.Element => {
                       showAndHideSearchResultHandler({ type: 'hide' })
                     }
                   >
-                    <IconChevron
-                      size={'md'}
-                      position={'right'}
-                      color={'base-gray-400'}
-                    />
+                    <IconChevron className={`h-[15px] fill-c-gray-400`} />
                   </button>
                 ) : (
                   <IconMagnifier />

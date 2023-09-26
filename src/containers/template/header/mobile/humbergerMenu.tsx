@@ -6,9 +6,9 @@ import {
 } from '@/constants/global/icons';
 import IMAGES from '@/constants/global/images';
 import SkeletonMobileCategory from '@/constants/global/skeletons/template/header/mobile/category';
-import enableAndDisableScroll from '@/functions/global/enableAndDisableScroll';
 import { APIfetchCategoryData } from '@/services/template/header/fetchCategoryData';
 import { TCategoryItem } from '@/types/template/header/categoryItem';
+import toggleAtomStateHandler from '@/utils/toggleAtomState';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FC, useEffect, useState } from 'react';
@@ -23,12 +23,6 @@ const HumbergerMenu: FC = (): JSX.Element => {
   // detect is-show humberger menu / hide humberger-menu handler
   const [atomStateIsShowHumbergerMenu, setAtomStateIsShowHumbergerMenu] =
     useRecoilState<boolean>(atomIsShowHumbergerMenu);
-
-  // hide humberger-menu handler
-  const hideHumbergerMenuHandler = () => {
-    setAtomStateIsShowHumbergerMenu(false);
-    enableAndDisableScroll({ status: 'enable' });
-  };
 
   // fetch category data (fetch after first show humberger menu)
   const [firstShowHumbergerMenu, setFirstShowHumbergerMenu] = useState(false);
@@ -68,9 +62,9 @@ const HumbergerMenu: FC = (): JSX.Element => {
             <span className="truncate pl-1">{props.categoryData.name}</span>
           </div>
           <IconChevron
-            size={'sm'}
-            color={'base-gray-300'}
-            position={isOpenSubCategory ? 'top' : 'bottom'}
+            className={`h-[13px] fill-c-gray-300 ${
+              isOpenSubCategory ? '-rotate-90' : 'rotate-90'
+            }`}
           />
         </button>
         <ul
@@ -128,9 +122,9 @@ const HumbergerMenu: FC = (): JSX.Element => {
             <span className="truncate pl-1">{props.categoryData.name}</span>
           </div>
           <IconChevron
-            size={'sm'}
-            color={'base-gray-300'}
-            position={isOpenSubCategory ? 'top' : 'bottom'}
+            className={`h-[13px] fill-c-gray-300 ${
+              isOpenSubCategory ? '-rotate-90' : 'rotate-90'
+            }`}
           />
         </button>
         <ul
@@ -178,7 +172,12 @@ const HumbergerMenu: FC = (): JSX.Element => {
       }`}
     >
       <div
-        onClick={hideHumbergerMenuHandler}
+        onClick={() =>
+          toggleAtomStateHandler({
+            type: 'hide',
+            setAtomState: setAtomStateIsShowHumbergerMenu,
+          })
+        }
         className="fixed bottom-0 left-0 right-0 top-0"
       ></div>
       <div
@@ -187,9 +186,16 @@ const HumbergerMenu: FC = (): JSX.Element => {
         }`}
       >
         {/* logo and close btn */}
-        <div className="bg-c-gradient-blue flex w-full items-center p-5">
-          <button onClick={hideHumbergerMenuHandler}>
-            <IconChevron size={'sm'} position={'right'} color={'white'} />
+        <div className="flex w-full items-center bg-c-gradient-blue p-5">
+          <button
+            onClick={() =>
+              toggleAtomStateHandler({
+                type: 'hide',
+                setAtomState: setAtomStateIsShowHumbergerMenu,
+              })
+            }
+          >
+            <IconChevron className={`h-[13px] fill-white`} />
           </button>
           <div className="flex w-full justify-center">
             <Link href="/">
@@ -209,9 +215,7 @@ const HumbergerMenu: FC = (): JSX.Element => {
           >
             <div className="flex items-center gap-2.5">
               <IconDiscountSquare
-                size={'xs'}
-                type={'outline'}
-                color={'base-red'}
+                className={'h-[23px] fill-transparent stroke-c-red'}
               />
               <p className="text-c-sm font-bold text-c-gray-500">
                 پیشنهاد های شگفت انگیز
@@ -224,7 +228,7 @@ const HumbergerMenu: FC = (): JSX.Element => {
           className={`mx-2 flex items-center justify-between border-b border-gray-200 px-1 py-3.5`}
         >
           <div className="flex items-center gap-2.5">
-            <IconWindow color={'base-royal-blue'} />
+            <IconWindow className={'fill-c-royal-blue'} />
             <p className="text-c-sm font-bold text-c-gray-500">دسته بندی ها</p>
           </div>
         </div>

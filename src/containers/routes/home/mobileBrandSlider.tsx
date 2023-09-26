@@ -13,23 +13,33 @@ const MobileBrandSlider: FC = (): JSX.Element => {
   return (
     <section className="container relative !z-0 flex">
       <Swiper
-        slidesPerView={'auto'}
+        slidesPerView={2}
         id="mobile-brand-slider"
-        className="!static"
+        className='!static'
         navigation
         modules={[Navigation]}
+        breakpoints={{
+          640: {
+            slidesPerView: 3,
+          },
+          768: {
+            slidesPerView: 4,
+          },
+          1024: {
+            slidesPerView: 5,
+          },
+        }}
       >
         {mobileBrandSliderData.map((item, index) => {
           return (
             <SwiperSlide
               key={index}
-              className="!w-[150px] lg:!w-[220px] [&:not(:last-child)]:!ml-4"
             >
               <Link
                 href={item.reference}
                 className="flex flex-col items-center"
               >
-                <div className="relative h-[150px] w-[150px] lg:h-[220px] lg:w-[220px]">
+                <div className="relative h-full w-full aspect-h-1 aspect-w-1">
                   <Image src={item.image} alt={item.text} fill />
                 </div>
                 <p className="text-c-md font-semibold">{item.text}</p>

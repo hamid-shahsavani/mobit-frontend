@@ -1,6 +1,6 @@
 // hero-slider customize pagination
 #hero_slider {
-  #hero-slider_pagination {
+  .pagination {
     direction: ltr;
     display: flex;
     align-items: center;
@@ -73,10 +73,7 @@
     display: flex;
     border-radius: 10px;
     right: 0;
-    top: 80px;
-    @media (min-width: 1024px) {
-      top: 120px;
-    }
+    top: 50%;
     &::after {
       font-size: 14px;
       font-weight: 600;
@@ -95,10 +92,7 @@
     display: flex;
     border-radius: 10px;
     left: 0;
-    top: 80px;
-    @media (min-width: 1024px) {
-      top: 120px;
-    }
+    top: 50%;
     &::after {
       font-size: 14px;
       font-weight: 600;

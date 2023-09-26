@@ -8,7 +8,7 @@ import {
   IconWindow,
 } from '@/constants/global/icons';
 import IMAGES from '@/constants/global/images';
-import enableAndDisableScroll from '@/functions/global/enableAndDisableScroll';
+import toggleAtomStateHandler from '@/utils/toggleAtomState';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FC } from 'react';
@@ -20,25 +20,13 @@ const Desktop: FC = (): JSX.Element => {
   const setAtomStateIsShowSearchResult = useSetRecoilState<boolean>(
     atomIsShowSearchResult,
   );
-  const showAndHideSearchResultHandler = (args: { type: 'show' | 'hide' }) => {
-    setAtomStateIsShowSearchResult(args.type === 'hide' ? false : true);
-    enableAndDisableScroll({
-      status: args.type === 'show' ? 'disable' : 'enable',
-    });
-  };
 
   // show and hide category list handler / detect isShow category list
   const [atomStateIsShowCategoryList, setAtomStateIsShowCategoryList] =
     useRecoilState<boolean>(atomIsShowCategoryList);
-  const showAndHideCategoryListHandler = (args: { type: 'show' | 'hide' }) => {
-    setAtomStateIsShowCategoryList(args.type === 'hide' ? false : true);
-    enableAndDisableScroll({
-      status: args.type === 'show' ? 'disable' : 'enable',
-    });
-  };
 
   return (
-    <div className="bg-c-gradient-blue hidden w-full py-3 lg:block">
+    <div className="hidden w-full bg-c-gradient-blue py-3 lg:block">
       <div className="container flex w-full items-center justify-between">
         <div className="flex items-center">
           {/* logo */}
@@ -54,10 +42,16 @@ const Desktop: FC = (): JSX.Element => {
             {/* category btn, category list */}
             <div
               onMouseEnter={() =>
-                showAndHideCategoryListHandler({ type: 'show' })
+                toggleAtomStateHandler({
+                  type: 'show',
+                  setAtomState: setAtomStateIsShowCategoryList,
+                })
               }
               onMouseLeave={() =>
-                showAndHideCategoryListHandler({ type: 'hide' })
+                toggleAtomStateHandler({
+                  type: 'hide',
+                  setAtomState: setAtomStateIsShowCategoryList,
+                })
               }
             >
               <div
@@ -65,7 +59,7 @@ const Desktop: FC = (): JSX.Element => {
                   !!atomStateIsShowCategoryList && 'after:w-full'
                 }`}
               >
-                <IconWindow color="white" />
+                <IconWindow className={'fill-white'} />
                 <p>دسته بندی ها</p>
               </div>
               {/* show category list after hover category btn */}
@@ -76,7 +70,7 @@ const Desktop: FC = (): JSX.Element => {
               href="/"
               className="relative flex h-5 items-center gap-2 px-1 text-c-sm font-bold text-white after:absolute after:-bottom-[18px] after:left-0 after:right-0 after:block after:h-[3px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:text-white hover:after:w-full"
             >
-              <IconDiscountSquare size={'xs'} type={'outline'} color="white" />
+              <IconDiscountSquare className="h-[23px] fill-transparent stroke-white" />
               <p>پیشنهاد های شگفت انگیز</p>
             </Link>
           </div>
@@ -92,8 +86,18 @@ const Desktop: FC = (): JSX.Element => {
             <input
               spellCheck={false}
               placeholder="جستجو در مبیت ..."
-              onFocus={() => showAndHideSearchResultHandler({ type: 'show' })}
-              onBlur={() => showAndHideSearchResultHandler({ type: 'hide' })}
+              onFocus={() =>
+                toggleAtomStateHandler({
+                  type: 'show',
+                  setAtomState: setAtomStateIsShowSearchResult,
+                })
+              }
+              onBlur={() =>
+                toggleAtomStateHandler({
+                  type: 'hide',
+                  setAtomState: setAtomStateIsShowSearchResult,
+                })
+              }
               className={`mr-3 w-full text-c-sm placeholder:font-medium placeholder:text-white/95`}
             />
           </div>
@@ -101,11 +105,11 @@ const Desktop: FC = (): JSX.Element => {
         {/* login/profile, cart */}
         <div className="flex gap-5 xl:gap-7">
           <Link href="/auth" className="flex cursor-pointer items-center gap-2">
-            <IconUser color={'white'} />
+            <IconUser className={'fill-white'} />
             <p className="text-c-sm font-bold text-white">ورود / ثبت نام</p>
           </Link>
           <div className="flex cursor-pointer items-center gap-2">
-            <IconCart color={'white'} />
+            <IconCart className="fill-white" />
             <p className="text-c-sm font-bold text-white">سبد خرید</p>
           </div>
         </div>

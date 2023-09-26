@@ -24,21 +24,19 @@ const NavBottom: FC = (): JSX.Element => {
       text: 'پیشنهاد شگفت انگیز',
       icon: (
         <IconDiscountSquare
-          size={'xs'}
-          type={'solid'}
-          color={'base-gray-300'}
+          className={'h-[26px] fill-c-gray-300 stroke-white'}
         />
       ),
       url: '/',
     },
     {
       text: 'سبد خرید',
-      icon: <IconCart color={'base-gray-300'} />,
+      icon: <IconCart className={'fill-c-gray-300'} />,
       url: '/',
     },
     {
       text: 'ورود',
-      icon: <IconUser color={'base-gray-300'} />,
+      icon: <IconUser className={'fill-c-gray-300'} />,
       url: '/auth',
     },
   ];
@@ -48,7 +46,7 @@ const NavBottom: FC = (): JSX.Element => {
 
   return (
     <nav
-      className={`fixed w-full border-t border-gray-100  bg-white transition-all duration-500 ${
+      className={`fixed w-full border-t border-gray-100  bg-white transition-all duration-500 z-20 ${
         detectedScrollDirection === 'top' ? 'bottom-0' : '-bottom-40'
       }`}
     >

@@ -19,14 +19,14 @@ const ProductCard: FC<IProps> = ({ ...props }): JSX.Element => {
   return (
     <Link
       href={props.data.refrence}
-      className="flex min-w-[220px] flex-col gap-2 lg:min-w-[250px]"
+      className="flex flex-col gap-2"
     >
-      <div className="bg-c-gray-100 group relative flex h-[140px] w-full items-center justify-center rounded-xl lg:h-[160px]">
+      <div className="bg-c-gray-100 group relative flex h-[150px] w-full items-center justify-center rounded-xl">
         {/* image */}
-        <div className="relative h-[120px] w-[120px] lg:h-[140px] lg:w-[140px]">
+        <div className="relative h-[130px] w-[130px]">
           <Image
             className="transition-all duration-300 group-hover:scale-105"
-            src={props.data.product_image}
+            src={props.data.image}
             alt={props.data.name}
             fill
           />
@@ -45,19 +45,17 @@ const ProductCard: FC<IProps> = ({ ...props }): JSX.Element => {
             </div>
           )}
           {/* fast delivery */}
-          {props.data.fast_delivery && (
+          {props.data.fastDelivery && (
             <div className="bg-c-yellow w-fit rounded-md px-1.5 py-[3px]">
               <IconFastDelivery />
             </div>
           )}
         </div>
         {/* super discount */}
-        {props.data.superdiscount && (
+        {props.data.superDiscount && (
           <div className="absolute left-2.5 top-2.5">
             <IconDiscountSquare
-              color={'base-red'}
-              size={'xs'}
-              type={'outline'}
+              className='stroke-c-red h-[24px] fill-transparent'
             />
           </div>
         )}
@@ -102,11 +100,11 @@ const ProductCard: FC<IProps> = ({ ...props }): JSX.Element => {
       <div className="flex items-center justify-end gap-1.5">
         {/* comment */}
         <div className="text-c-sm font-semibold">
-          {!!props.data.comments_number ? (
+          {!!props.data.commentsLength ? (
             <p className="text-c-gray-300">
               (
               {convertNumber({
-                number: String(props.data.comments_number),
+                number: String(props.data.commentsLength),
                 type: 'to-persian',
               })}{' '}
               نظر)

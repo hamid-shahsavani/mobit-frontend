@@ -3,7 +3,6 @@
 import ProductCard from '@/components/routes/home/productCard';
 import { IconChevron, IconDiscountSquare } from '@/constants/global/icons';
 import convertNumber from '@/functions/global/convertNumber';
-import useDetectScreenSize from '@/hooks/routes/home/detectScreenSize';
 import { TProduct } from '@/types/routes/global/product';
 import Link from 'next/link';
 import { FC, useState } from 'react';
@@ -23,9 +22,6 @@ interface IProps {
 }
 
 const ProductCardSlider: FC<IProps> = ({ ...props }): JSX.Element => {
-  // for show or hide see all btn for special-offer type
-  const { innerWidth } = useDetectScreenSize();
-
   // get title with props.type
   const switchTitle = (type: string): string => {
     const list: any = {
@@ -39,7 +35,7 @@ const ProductCardSlider: FC<IProps> = ({ ...props }): JSX.Element => {
   };
 
   // get title with props.type
-  const switchSellAllReference = (type: string): string => {
+  const switchSeeAllReference = (type: string): string => {
     const list: any = {
       'most-visited': '/',
       'new-products': '/',
@@ -79,23 +75,15 @@ const ProductCardSlider: FC<IProps> = ({ ...props }): JSX.Element => {
           {!!(props.type === 'special-offer') && (
             <>
               <div className="block lg:hidden">
-                <IconDiscountSquare
-                  type={'outline'}
-                  color={'white'}
-                  size={'sm'}
-                />
+                <IconDiscountSquare className="h-[26px] fill-transparent stroke-white" />
               </div>
               <div className="hidden lg:block">
-                <IconDiscountSquare
-                  type={'outline'}
-                  color={'white'}
-                  size={'md'}
-                />
+                <IconDiscountSquare className="h-[29px] fill-transparent stroke-white" />
               </div>
             </>
           )}
           <h3
-            className={`text-c-sm lg:text-c-xl font-extrabold ${
+            className={`text-c-sm font-extrabold lg:text-c-xl ${
               props.type === 'special-offer' ? 'text-white' : 'text-black'
             }`}
           >
@@ -109,7 +97,7 @@ const ProductCardSlider: FC<IProps> = ({ ...props }): JSX.Element => {
               timeLeftFromDay ? 'visible opacity-100' : 'invisible opacity-0'
             }`}
           >
-            <div className="text-c-md lg:text-c-xl flex h-[34px] w-[34px] items-center justify-center rounded-lg bg-white p-3 font-extrabold lg:h-11 lg:w-11 lg:rounded-xl lg:font-black">
+            <div className="flex h-[34px] w-[34px] items-center justify-center rounded-lg bg-white p-3 text-c-md font-extrabold lg:h-11 lg:w-11 lg:rounded-xl lg:text-c-xl lg:font-black">
               {timeLeftFromDay &&
                 convertNumber({
                   number:
@@ -120,7 +108,7 @@ const ProductCardSlider: FC<IProps> = ({ ...props }): JSX.Element => {
                 })}
             </div>
             <p className="text-c-xl font-black text-white">:</p>
-            <div className="text-c-md lg:text-c-xl flex h-[34px] w-[34px] items-center justify-center rounded-lg bg-white p-3 font-extrabold lg:h-11 lg:w-11 lg:rounded-xl lg:font-black">
+            <div className="flex h-[34px] w-[34px] items-center justify-center rounded-lg bg-white p-3 text-c-md font-extrabold lg:h-11 lg:w-11 lg:rounded-xl lg:text-c-xl lg:font-black">
               {timeLeftFromDay &&
                 convertNumber({
                   number:
@@ -131,7 +119,7 @@ const ProductCardSlider: FC<IProps> = ({ ...props }): JSX.Element => {
                 })}
             </div>
             <p className="text-c-xl font-black text-white">:</p>
-            <div className="text-c-md lg:text-c-xl flex h-[34px] w-[34px] items-center justify-center rounded-lg bg-white p-3 font-extrabold lg:h-11 lg:w-11 lg:rounded-xl lg:font-black">
+            <div className="flex h-[34px] w-[34px] items-center justify-center rounded-lg bg-white p-3 text-c-md font-extrabold lg:h-11 lg:w-11 lg:rounded-xl lg:text-c-xl lg:font-black">
               {timeLeftFromDay &&
                 convertNumber({
                   number:
@@ -145,7 +133,7 @@ const ProductCardSlider: FC<IProps> = ({ ...props }): JSX.Element => {
         )}
         {/* see-all reference */}
         <Link
-          href={switchSellAllReference(props.type)}
+          href={switchSeeAllReference(props.type)}
           className={`items-center gap-1.5 lg:gap-2 ${
             props.type === 'special-offer' ? 'hidden sm:flex' : 'flex'
           }`}
@@ -158,51 +146,40 @@ const ProductCardSlider: FC<IProps> = ({ ...props }): JSX.Element => {
             مشاهده همه
           </span>
           <IconChevron
-            size={'sm'}
-            color={props.type === 'special-offer' ? 'white' : 'base-gray-400'}
-            position={'left'}
+            className={`h-[13px] rotate-180 ${
+              props.type === 'special-offer' ? 'fill-white' : 'fill-c-gray-400'
+            }`}
           />
         </Link>
       </div>
       {/* body */}
-      <div className="!z-0">
+      <div>
         <Swiper
-          slidesPerView={'auto'}
-          id="product-slider"
+          slidesPerView={2}
           className="!static"
+          id="product-slider"
+          spaceBetween={15}
+          breakpoints={{
+            640: {
+              slidesPerView: 3,
+            },
+            768: {
+              slidesPerView: 4,
+            },
+            1024: {
+              slidesPerView: 5,
+            },
+          }}
           navigation
           modules={[Navigation]}
         >
           {props.data.map((item, index) => {
             return (
-              <SwiperSlide
-                key={index}
-                className="!w-[220px] lg:!w-[250px] [&:not(:last-child)]:!ml-4"
-              >
+              <SwiperSlide key={index}>
                 <ProductCard data={item} type={'vertical'} />
               </SwiperSlide>
             );
           })}
-          {/* see-all reference (only for specia-offer (hide in sm)) */}
-          {!!(props.type === 'special-offer' && innerWidth <= 640) && (
-            <SwiperSlide className="!w-[95px]">
-              <Link
-                href={props.type}
-                className="bg-c-gray-100 text-c-md relative flex h-[245px] w-[95px] items-center rounded-lg p-4"
-              >
-                <p className="text-c-sm w-20 font-semibold leading-7">
-                  مشاهده کالا های بیشتر
-                </p>
-                <div className="absolute bottom-5 left-[50%] translate-x-[-50%]">
-                  <IconChevron
-                    position={'left'}
-                    color={'base-gray-400'}
-                    size={'md'}
-                  />
-                </div>
-              </Link>
-            </SwiperSlide>
-          )}
         </Swiper>
       </div>
     </section>

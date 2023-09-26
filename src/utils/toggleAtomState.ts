@@ -1,8 +1,13 @@
-type TArgs = {
-  status: 'enable' | 'disable';
-};
-export default function enableAndDisableScroll(args: TArgs): void {
-  // detect is-visible scroll-y-bar in right-side
+import { SetterOrUpdater } from 'recoil';
+
+interface IArgs {
+  setAtomState: SetterOrUpdater<boolean>;
+  type: 'show' | 'hide';
+}
+
+export default function toggleAtomStateHandler(args: IArgs): any {
+  //
+  args.setAtomState(args.type === 'hide' ? false : true);
   function isScrollbarVisible() {
     var element = document.createElement('div');
     element.style.width = '100px';
@@ -20,8 +25,7 @@ export default function enableAndDisableScroll(args: TArgs): void {
         document.querySelector('html')!.clientHeight
     );
   }
-  // is-visible scroll-y-bar ? overflow-hidden + padding-right : overflow-hidden);
-  document.body?.classList[args.status === 'enable' ? 'remove' : 'add'](
+  document.body?.classList[args.type === 'hide' ? 'remove' : 'add'](
     isScrollbarVisible()
       ? 'disable-scroll_scrollbar-is-visible'
       : 'disable-scroll_scrollbar-is-not-visible',

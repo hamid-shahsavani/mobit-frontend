@@ -14,10 +14,10 @@ import useDetectScreenSize from '@/hooks/routes/home/detectScreenSize';
 import { heroSliderData } from '@/resources/routes/home/heroSliderData';
 
 const HeroSlider: FC = (): JSX.Element => {
-  // detect current innerWidth
-  const { innerWidth } = useDetectScreenSize();
-
   const swiperRef = useRef<any>(null);
+
+  // detect current innerWidth for conditional render slider image
+  const { innerWidth } = useDetectScreenSize();
 
   return (
     <section
@@ -35,7 +35,7 @@ const HeroSlider: FC = (): JSX.Element => {
         loop
         pagination={{
           clickable: true,
-          el: '#hero-slider_pagination',
+          el: '.pagination',
         }}
         modules={[Autoplay, Pagination]}
         className="overflow-hidden rounded-xl"
@@ -44,7 +44,7 @@ const HeroSlider: FC = (): JSX.Element => {
           return (
             <SwiperSlide key={index}>
               <Link href={'/'}>
-                <div className="bg-c-gray-100 aspect-h-2 aspect-w-3 overflow-hidden rounded-xl sm:aspect-h-2 sm:aspect-w-7">
+                <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-xl bg-c-gray-100 sm:aspect-h-2 sm:aspect-w-7">
                   {!!innerWidth && (
                     <Image
                       fill
@@ -69,28 +69,16 @@ const HeroSlider: FC = (): JSX.Element => {
             onClick={() => swiperRef.current.swiper.slidePrev()}
           >
             <IconChevron
-              color={'base-gray-400'}
-              hoverColor={{
-                group: 'hero-slider_navigation',
-                color: 'base-gray-600',
-              }}
-              size={'xs'}
-              position={'left'}
+              className={`group-hover/hero-slider_navigation:fill-c-gray-600 h-[11.5px] rotate-180 fill-c-gray-400`}
             />
           </button>
-          <div id="hero-slider_pagination" />
+          <div className="pagination" />
           <button
             className="group/hero-slider_navigation flex w-6 items-center justify-center rounded-[5px] bg-white opacity-0 transition-all duration-300 group-hover/hero-slider:opacity-100"
             onClick={() => swiperRef.current.swiper.slideNext()}
           >
             <IconChevron
-              color={'base-gray-400'}
-              hoverColor={{
-                group: 'hero-slider_navigation',
-                color: 'base-gray-600',
-              }}
-              size={'xs'}
-              position={'right'}
+              className={`group-hover/hero-slider_navigation:fill-c-gray-600 h-[11.5px] fill-c-gray-400`}
             />
           </button>
         </div>
