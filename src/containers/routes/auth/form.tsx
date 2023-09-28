@@ -3,7 +3,8 @@
 import convertNumber from '@/functions/global/convertNumber';
 import { useFormik } from 'formik';
 import { FC, useEffect, useRef } from 'react';
-import * as Yup from 'yup';
+import { z } from 'zod';
+import { toFormikValidationSchema } from 'zod-formik-adapter';
 
 const Form: FC = (): JSX.Element => {
   // formik for form
@@ -11,6 +12,8 @@ const Form: FC = (): JSX.Element => {
     phoneNumber: string;
   }
   const formikConstant = {
+    title: 'ورود به مبیت',
+    submit: 'ورود به مبیت',
     fields: {
       phoneNumber: {
         label: 'شماره موبایل *',
@@ -21,21 +24,21 @@ const Form: FC = (): JSX.Element => {
         },
       },
     },
-    title: 'ورود به مبیت',
-    submit: 'ورود به مبیت',
   };
   const formik = useFormik<IFormik>({
     initialValues: {
       phoneNumber: '',
     },
-    validationSchema: Yup.object().shape({
-      phoneNumber: Yup.string()
-        .matches(
-          /^0\d{10}$/,
-          formikConstant.fields.phoneNumber.errors.isNotCorrect,
-        )
-        .required(formikConstant.fields.phoneNumber.errors.isRequired),
-    }),
+    validationSchema: toFormikValidationSchema(
+      z.object({
+        phoneNumber: z
+          .string()
+          .regex(
+            /^0\d{10}$/,
+            formikConstant.fields.phoneNumber.errors.isNotCorrect,
+          ),
+      }),
+    ),
     onSubmit: async (values) => {},
   });
 
@@ -56,7 +59,7 @@ const Form: FC = (): JSX.Element => {
           {/* field phoneNumber */}
           <div className="flex flex-col justify-center space-y-1.5">
             {/* label */}
-            <p className="text-c-sm text-c-gray-400 mr-1.5 font-bold">
+            <p className="mr-1.5 text-c-sm font-bold text-c-gray-400">
               {formikConstant.fields.phoneNumber.label}
             </p>
             {/* feild */}
@@ -66,7 +69,7 @@ const Form: FC = (): JSX.Element => {
               type={'text'}
               {...formik.getFieldProps('phoneNumber')}
               placeholder={formikConstant.fields.phoneNumber.placeholder}
-              className={`bg-c-gray-100 text-c-md placeholder:text-c-sm focus:!ring-c-royal-blue w-full truncate rounded-[10px] p-3 font-semibold ring-[1px] transition-all duration-300 focus:bg-white focus:ring-[2px] ${
+              className={`w-full truncate rounded-[10px] bg-c-gray-100 p-3 text-c-md font-semibold ring-[1px] transition-all duration-300 placeholder:text-c-sm focus:bg-white focus:ring-[2px] focus:!ring-c-royal-blue ${
                 formik.errors.phoneNumber && formik.touched.phoneNumber
                   ? 'ring-red-400'
                   : 'ring-transparent'
@@ -94,7 +97,7 @@ const Form: FC = (): JSX.Element => {
           </div>
         </div>
         {/* rule text */}
-        <p className="text-c-xs text-c-gray-400 border-b-[2px] p-3 font-bold">
+        <p className="border-b-[2px] p-3 text-c-xs font-bold text-c-gray-400">
           با ورود به مبیت، <span className="text-c-royal-blue">شرایط مبیت</span>{' '}
           و <span className="text-c-royal-blue">قوانین حریم ‌خصوصی</span> آن را
           می‌پذیرید.
@@ -102,7 +105,7 @@ const Form: FC = (): JSX.Element => {
         {/* submit btn */}
         <button
           type="submit"
-          className={`bg-c-royal-blue text-c-md mt-3 w-full rounded-[10px] p-3.5 font-bold text-white`}
+          className={`mt-3 w-full rounded-[10px] bg-c-royal-blue p-3.5 text-c-md font-bold text-white`}
         >
           {formikConstant.submit}
         </button>

@@ -1,5 +1,4 @@
 import { cn } from '@/utils/cn';
-import classNames from 'classnames';
 import { FC } from 'react';
 
 interface IProps {
