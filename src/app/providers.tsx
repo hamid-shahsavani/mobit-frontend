@@ -20,7 +20,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
 
   return (
     <>
-      <NextTopLoader color={'#377DFF'} crawl={false} showSpinner={false} />
+      <NextTopLoader color={'#FFA726'} crawl={false} showSpinner={false} />
       <ToastContainer
         position="top-center"
         autoClose={3000}

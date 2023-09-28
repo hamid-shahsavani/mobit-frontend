@@ -9,7 +9,7 @@ import { useSetRecoilState } from 'recoil';
 import { atomIsShowSearchResult } from '@/atoms/template/header/global/isShowSearchResult';
 import { atomIsShowHumbergerMenu } from '@/atoms/template/header/mobile/isShowHumbergerMenu';
 import IMAGES from '@/constants/global/images';
-import useDetectScrollDirection from '@/hooks/template/header/detectScrollDirection';
+import useDetectScrollDirection from '@/hooks/detectScrollDirection';
 import toggleAtomStateHandler from '@/utils/toggleAtomState';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -48,12 +48,14 @@ const Mobile: FC = (): JSX.Element => {
         <div className="bg-c-gradient-blue">
           <div className="container">
             <div className="flex items-center justify-between px-1.5 py-3.5">
-              <button onClick={() => {
-                toggleAtomStateHandler({
-                  type: 'show',
-                  setAtomState: setAtomStateIsShowHumbergerMenu,
-                });
-              }}>
+              <button
+                onClick={() => {
+                  toggleAtomStateHandler({
+                    type: 'show',
+                    setAtomState: setAtomStateIsShowHumbergerMenu,
+                  });
+                }}
+              >
                 <IconThreeDots />
               </button>
               <Link href={'/'}>

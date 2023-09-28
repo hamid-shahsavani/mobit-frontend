@@ -1,6 +1,6 @@
 import { IconChevron } from '@/constants/global/icons';
 import IMAGES from '@/constants/global/images';
-import convertNumber from '@/functions/global/convertNumber';
+import convertNumber from '@/utils/convertNumber';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FC } from 'react';

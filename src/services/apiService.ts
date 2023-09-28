@@ -1,5 +1,5 @@
 import TOASTMSG from '@/constants/global/toastMessages';
-import toast from '@/functions/global/toast';
+import toast from '@/utils/toast';
 import axios from 'axios';
 
 const api = axios.create({

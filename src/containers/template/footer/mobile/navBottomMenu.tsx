@@ -4,11 +4,11 @@ import {
   IconHome,
   IconUser,
 } from '@/constants/global/icons';
-import useDetectScrollDirection from '@/hooks/template/header/detectScrollDirection';
+import useDetectScrollDirection from '@/hooks/detectScrollDirection';
 import Link from 'next/link';
 import { FC } from 'react';
 
-const NavBottom: FC = (): JSX.Element => {
+const NavBottomMenu: FC = (): JSX.Element => {
   // nav-bottom items for render
   const navBottomItems: {
     text: string;
@@ -46,7 +46,7 @@ const NavBottom: FC = (): JSX.Element => {
 
   return (
     <nav
-      className={`fixed w-full border-t border-gray-100  bg-white transition-all duration-500 z-20 ${
+      className={`fixed z-20 w-full border-t  border-gray-100 bg-white transition-all duration-500 ${
         detectedScrollDirection === 'top' ? 'bottom-0' : '-bottom-40'
       }`}
     >
@@ -56,7 +56,7 @@ const NavBottom: FC = (): JSX.Element => {
             <Link
               key={index}
               href={item.url}
-              className="text-c-gray-400 flex flex-col items-center justify-between gap-1"
+              className="flex flex-col items-center justify-between gap-1 text-c-gray-400"
             >
               <div className="h-5.5">{item.icon}</div>
               <p className="text-c-2xs font-medium">{item.text}</p>
@@ -68,4 +68,4 @@ const NavBottom: FC = (): JSX.Element => {
   );
 };
 
-export default NavBottom;
+export default NavBottomMenu;

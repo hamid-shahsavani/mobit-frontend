@@ -2,8 +2,8 @@
 
 import ProductCard from '@/components/routes/home/productCard';
 import { IconChevron, IconDiscountSquare } from '@/constants/global/icons';
-import convertNumber from '@/functions/global/convertNumber';
 import { TProduct } from '@/types/routes/global/product';
+import convertNumber from '@/utils/convertNumber';
 import Link from 'next/link';
 import { FC, useState } from 'react';
 import { Navigation } from 'swiper';

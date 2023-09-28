@@ -186,7 +186,7 @@ const HumbergerMenu: FC = (): JSX.Element => {
         }`}
       >
         {/* logo and close btn */}
-        <div className="flex w-full items-center bg-c-gradient-blue p-5">
+        <div className="flex w-full items-center bg-c-gradient-blue p-[18px]">
           <button
             onClick={() =>
               toggleAtomStateHandler({

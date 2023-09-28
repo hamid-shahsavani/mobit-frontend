@@ -1,6 +1,6 @@
 'use client';
 
-import convertNumber from '@/functions/global/convertNumber';
+import convertNumber from '@/utils/convertNumber';
 import { useFormik } from 'formik';
 import { FC, useEffect, useRef } from 'react';
 import { z } from 'zod';
@@ -32,7 +32,9 @@ const Form: FC = (): JSX.Element => {
     validationSchema: toFormikValidationSchema(
       z.object({
         phoneNumber: z
-          .string()
+          .string({
+            required_error: formikConstant.fields.phoneNumber.errors.isRequired,
+          })
           .regex(
             /^0\d{10}$/,
             formikConstant.fields.phoneNumber.errors.isNotCorrect,
@@ -105,7 +107,7 @@ const Form: FC = (): JSX.Element => {
         {/* submit btn */}
         <button
           type="submit"
-          className={`mt-3 w-full rounded-[10px] bg-c-royal-blue p-3.5 text-c-md font-bold text-white`}
+          className={`mt-3 w-full rounded-[10px] bg-c-royal-blue p-4 text-c-md font-bold text-white`}
         >
           {formikConstant.submit}
         </button>

@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import NavBottom from './navBottom';
+import NavBottom from './navBottomMenu';
 
 const Mobile: FC = (): JSX.Element => {
   return (

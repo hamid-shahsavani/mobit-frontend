@@ -3,6 +3,7 @@ import HeroSlider from '@/containers/routes/home/heroSlider';
 import MobileBrandSlider from '@/containers/routes/home/mobileBrandSlider';
 import TopCategories from '@/containers/routes/home/topCategories';
 import { APIfetchProductSliderData } from '@/services/routes/global/fetchProductSliderData';
+import '@/styles/routes/home/index.scss';
 import { Metadata } from 'next';
 
 export const revalidate = 0;
