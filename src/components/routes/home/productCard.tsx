@@ -3,7 +3,7 @@ import {
   IconDiscountSquare,
   IconFastDelivery,
   IconStar,
-} from '@/constants/global/icons';
+} from '@/constants/icons';
 import { TProduct } from '@/types/routes/global/product';
 import convertNumber from '@/utils/convertNumber';
 import Image from 'next/image';

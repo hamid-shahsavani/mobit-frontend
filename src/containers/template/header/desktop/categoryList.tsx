@@ -1,5 +1,5 @@
 import { atomIsShowCategoryList } from '@/atoms/template/header/desktop/isShowCategoryList';
-import SkeletonDesktopCategory from '@/constants/global/skeletons/template/header/desktop/category';
+import SkeletonDesktopCategory from '@/constants/skeletons/template/header/desktop/category';
 import { APIfetchCategoryData } from '@/services/template/header/fetchCategoryData';
 import { TCategoryItem } from '@/types/template/header/categoryItem';
 import Image from 'next/image';
@@ -116,7 +116,7 @@ const CategoryList: FC = (): JSX.Element => {
                     key={item.id}
                     className={`flex items-center border-y ${
                       item.id === activedCategoryData?.id
-                        ? 'bg-c-gray-50 border-gray-100'
+                        ? 'border-gray-100 bg-c-gray-50'
                         : 'border-transparent'
                     }`}
                   >
@@ -128,9 +128,9 @@ const CategoryList: FC = (): JSX.Element => {
                       alt={item.name}
                     />
                     <p
-                      className={`text-c-sm text-c-gray-500 w-full truncate ${
+                      className={`w-full truncate text-c-sm text-c-gray-500 ${
                         item.id === activedCategoryData?.id
-                          ? 'text-c-royal-blue font-extrabold'
+                          ? 'font-extrabold text-c-royal-blue'
                           : 'font-bold'
                       }`}
                     >
@@ -147,7 +147,7 @@ const CategoryList: FC = (): JSX.Element => {
                 width: categoryListLeftSideSize.width,
               }}
               ref={categoryListLeftSideRef}
-              className="text-c-xs text-c-gray-400 flex flex-col flex-wrap gap-x-5 gap-y-2 p-3.5 font-bold"
+              className="flex flex-col flex-wrap gap-x-5 gap-y-2 p-3.5 text-c-xs font-bold text-c-gray-400"
             >
               {activedCategoryData.children.map((item: TCategoryItem) => {
                 return (
@@ -156,7 +156,7 @@ const CategoryList: FC = (): JSX.Element => {
                     <Link
                       key={item.id}
                       href={item.refrence}
-                      className="after:bg-c-royal-blue hover:text-c-royal-blue relative w-[160px] truncate py-[3.5px] pr-3 after:absolute after:bottom-0 after:right-0 after:top-0 after:h-full after:w-1 after:rounded-md"
+                      className="relative w-[160px] truncate py-[3.5px] pr-3 after:absolute after:bottom-0 after:right-0 after:top-0 after:h-full after:w-1 after:rounded-md after:bg-c-royal-blue hover:text-c-royal-blue"
                     >
                       {item.name}
                     </Link>
@@ -167,7 +167,7 @@ const CategoryList: FC = (): JSX.Element => {
                           <Link
                             key={item.id}
                             href={item.refrence}
-                            className="hover:text-c-royal-blue w-[160px] truncate py-[3.5px]"
+                            className="w-[160px] truncate py-[3.5px] hover:text-c-royal-blue"
                           >
                             {item.name}
                           </Link>

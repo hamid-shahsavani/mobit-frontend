@@ -3,7 +3,7 @@ import {
   IconDiscountSquare,
   IconHome,
   IconUser,
-} from '@/constants/global/icons';
+} from '@/constants/icons';
 import useDetectScrollDirection from '@/hooks/detectScrollDirection';
 import Link from 'next/link';
 import { FC } from 'react';

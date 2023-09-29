@@ -1,7 +1,7 @@
 'use client';
 
 import ProductCard from '@/components/routes/home/productCard';
-import { IconChevron, IconDiscountSquare } from '@/constants/global/icons';
+import { IconChevron, IconDiscountSquare } from '@/constants/icons';
 import { TProduct } from '@/types/routes/global/product';
 import convertNumber from '@/utils/convertNumber';
 import Link from 'next/link';

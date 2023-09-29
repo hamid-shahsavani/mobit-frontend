@@ -1,11 +1,7 @@
 import { atomIsShowHumbergerMenu } from '@/atoms/template/header/mobile/isShowHumbergerMenu';
-import {
-  IconChevron,
-  IconDiscountSquare,
-  IconWindow,
-} from '@/constants/global/icons';
-import IMAGES from '@/constants/global/images';
-import SkeletonMobileCategory from '@/constants/global/skeletons/template/header/mobile/category';
+import { IconChevron, IconDiscountSquare, IconWindow } from '@/constants/icons';
+import IMAGES from '@/constants/images';
+import SkeletonMobileCategory from '@/constants/skeletons/template/header/mobile/category';
 import { APIfetchCategoryData } from '@/services/template/header/fetchCategoryData';
 import { TCategoryItem } from '@/types/template/header/categoryItem';
 import toggleAtomStateHandler from '@/utils/toggleAtomState';

@@ -3,12 +3,12 @@ import {
   IconMagnifier,
   IconThreeDots,
   IconUser,
-} from '@/constants/global/icons';
+} from '@/constants/icons';
 import { useSetRecoilState } from 'recoil';
 
 import { atomIsShowSearchResult } from '@/atoms/template/header/global/isShowSearchResult';
 import { atomIsShowHumbergerMenu } from '@/atoms/template/header/mobile/isShowHumbergerMenu';
-import IMAGES from '@/constants/global/images';
+import IMAGES from '@/constants/images';
 import useDetectScrollDirection from '@/hooks/detectScrollDirection';
 import toggleAtomStateHandler from '@/utils/toggleAtomState';
 import Image from 'next/image';

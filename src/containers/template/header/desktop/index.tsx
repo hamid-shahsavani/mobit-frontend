@@ -6,8 +6,8 @@ import {
   IconMagnifier,
   IconUser,
   IconWindow,
-} from '@/constants/global/icons';
-import IMAGES from '@/constants/global/images';
+} from '@/constants/icons';
+import IMAGES from '@/constants/images';
 import toggleAtomStateHandler from '@/utils/toggleAtomState';
 import Image from 'next/image';
 import Link from 'next/link';

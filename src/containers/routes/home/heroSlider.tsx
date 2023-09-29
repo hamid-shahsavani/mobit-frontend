@@ -9,7 +9,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { IconChevron } from '@/constants/global/icons';
+import { IconChevron } from '@/constants/icons';
 import useDetectScreenSize from '@/hooks/detectScreenSize';
 import { heroSliderData } from '@/resources/routes/home/heroSliderData';
 
@@ -69,7 +69,7 @@ const HeroSlider: FC = (): JSX.Element => {
             onClick={() => swiperRef.current.swiper.slidePrev()}
           >
             <IconChevron
-              className={`group-hover/hero-slider_navigation:fill-c-gray-600 h-[11.5px] rotate-180 fill-c-gray-400`}
+              className={`h-[11.5px] rotate-180 fill-c-gray-400 group-hover/hero-slider_navigation:fill-c-gray-600`}
             />
           </button>
           <div className="pagination" />
@@ -78,7 +78,7 @@ const HeroSlider: FC = (): JSX.Element => {
             onClick={() => swiperRef.current.swiper.slideNext()}
           >
             <IconChevron
-              className={`group-hover/hero-slider_navigation:fill-c-gray-600 h-[11.5px] fill-c-gray-400`}
+              className={`h-[11.5px] fill-c-gray-400 group-hover/hero-slider_navigation:fill-c-gray-600`}
             />
           </button>
         </div>

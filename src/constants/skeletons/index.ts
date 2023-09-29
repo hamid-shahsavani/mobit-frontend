@@ -1,5 +1,5 @@
-import { default as MobileCategory } from '@/constants/global/skeletons/template/header/mobile/category';
-import { default as DesktopCategory } from '@/constants/global/skeletons/template/header/desktop/category';
+import { default as DesktopCategory } from '@/constants/skeletons/template/header/desktop/category';
+import { default as MobileCategory } from '@/constants/skeletons/template/header/mobile/category';
 
 const SKELETONS = {
   template: {

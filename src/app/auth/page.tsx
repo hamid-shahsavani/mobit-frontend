@@ -1,4 +1,4 @@
-import IMAGES from '@/constants/global/images';
+import IMAGES from '@/constants/images';
 import Form from '@/containers/routes/auth/form';
 import { Metadata } from 'next';
 import Image from 'next/image';

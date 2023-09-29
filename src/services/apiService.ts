@@ -1,4 +1,4 @@
-import TOASTMSG from '@/constants/global/toastMessages';
+import TOASTMSG from '@/constants/toastMessages';
 import toast from '@/utils/toast';
 import axios from 'axios';
 
@@ -17,9 +17,9 @@ api.interceptors.response.use(
   (response: any) => response,
   (error: any) => {
     if (!error.response) {
-      toast(TOASTMSG.routes.global.pleaseCheckNetworkConnection);
+      toast(TOASTMSG.pleaseCheckNetworkConnection);
     } else {
-      toast(TOASTMSG.routes.global.sorryUnexpectedError);
+      toast(TOASTMSG.sorryUnexpectedError);
     }
     return Promise.reject(error);
   },

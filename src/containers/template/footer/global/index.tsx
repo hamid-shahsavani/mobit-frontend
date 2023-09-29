@@ -1,5 +1,5 @@
-import { IconChevron } from '@/constants/global/icons';
-import IMAGES from '@/constants/global/images';
+import { IconChevron } from '@/constants/icons';
+import IMAGES from '@/constants/images';
 import convertNumber from '@/utils/convertNumber';
 import Image from 'next/image';
 import Link from 'next/link';

@@ -1,8 +1,8 @@
-import fontIransansx from '@/constants/global/fonts';
-import { Providers } from './providers';
-import 'react-toastify/dist/ReactToastify.css';
+import fontIransansx from '@/constants/fonts';
 import '@/styles/global/index.scss';
 import '@/styles/routes/global/index.scss';
+import 'react-toastify/dist/ReactToastify.css';
+import { Providers } from './providers';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -11,9 +11,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         cz-shortcut-listen="false"
         className={`relative ${fontIransansx.className}`}
       >
-        <Providers>
-          {children}
-        </Providers>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

@@ -1,18 +1,18 @@
 // global
-import { default as Chevron } from '@/constants/global/icons/global/chevron';
-import { default as DiscountSquare } from '@/constants/global/icons/global/discountSquare';
-import { default as Discount } from '@/constants/global/icons/global/discount';
-import { default as FastDelivery } from '@/constants/global/icons/global/fastDelivery';
-import { default as Star } from '@/constants/global/icons/global/star';
+import { default as Chevron } from '@/constants/icons/global/chevron';
+import { default as Discount } from '@/constants/icons/global/discount';
+import { default as DiscountSquare } from '@/constants/icons/global/discountSquare';
+import { default as FastDelivery } from '@/constants/icons/global/fastDelivery';
+import { default as Star } from '@/constants/icons/global/star';
 // template/global
-import { default as User } from '@/constants/global/icons/template/global/user';
+import { default as User } from '@/constants/icons/template/global/user';
 // template/header
-import { default as ThreeDots } from '@/constants/global/icons/template/header/threeDots';
-import { default as Magnifier } from '@/constants/global/icons/template/header/magnifier';
-import { default as Window } from '@/constants/global/icons/template/header/window';
+import { default as Magnifier } from '@/constants/icons/template/header/magnifier';
+import { default as ThreeDots } from '@/constants/icons/template/header/threeDots';
+import { default as Window } from '@/constants/icons/template/header/window';
 // template/footer
-import { default as Cart } from '@/constants/global/icons/template/global/cart';
-import { default as Home } from '@/constants/global/icons/template/footer/home';
+import { default as Home } from '@/constants/icons/template/footer/home';
+import { default as Cart } from '@/constants/icons/template/global/cart';
 
 const ICONS = {
   global: {
@@ -20,7 +20,7 @@ const ICONS = {
     discountSquare: DiscountSquare,
     discount: Discount,
     fastDelivery: FastDelivery,
-    star: Star
+    star: Star,
   },
   template: {
     global: {
